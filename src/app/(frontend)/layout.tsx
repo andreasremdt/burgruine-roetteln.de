@@ -1,12 +1,19 @@
-import { Roboto } from 'next/font/google'
+import { Open_Sans, Cormorant_Garamond } from 'next/font/google'
 import { cn } from '@/lib/utils'
 import '@/styles/globals.css'
 
-const roboto = Roboto({
-  weight: ['400', '500', '700', '900'],
+const openSans = Open_Sans({
+  weight: ['400', '500', '700', '600'],
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-roboto',
+  variable: '--font-open-sans',
+})
+
+const cormorantGaramond = Cormorant_Garamond({
+  weight: ['400'],
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-cormorant-garamond',
 })
 
 export const metadata = {
@@ -24,8 +31,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
       <body
         className={cn(
-          roboto.variable,
-          'leading-relaxed text-gray-600 antialiased dark:bg-gray-900 dark:text-gray-100',
+          openSans.variable,
+          cormorantGaramond.variable,
+          'text-neutral-700 antialiased',
         )}
         itemScope
         itemType="https://schema.org/WebPage"

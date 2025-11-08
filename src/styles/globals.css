@@ -9,15 +9,32 @@
 }
 
 @theme {
-  --color-primary-50: #ebf7ff;
-  --color-primary-100: #d1eeff;
-  --color-primary-200: #aee1ff;
-  --color-primary-300: #76d1ff;
-  --color-primary-400: #35b6ff;
-  --color-primary-500: #078eff;
-  --color-primary-600: #0068ff;
-  --color-primary-700: #004fff;
-  --color-primary-800: #0041d7;
-  --color-primary-900: #00338d;
-  --color-primary-950: #062665;
+  --font-sans: Open Sans, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+--font-serif: Cormorant Garamond, ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+
+--color-neutral-50: oklch(98.5% 0 0);
+--color-neutral-100: oklch(97% 0 0);
+--color-neutral-200: oklch(92.2% 0 0);
+--color-neutral-300: oklch(87% 0 0);
+--color-neutral-400: oklch(70.8% 0 0);
+--color-neutral-500: oklch(55.6% 0 0);
+--color-neutral-600: oklch(43.9% 0 0);
+--color-neutral-700: oklch(37.1% 0 0);
+--color-neutral-800: oklch(26.9% 0 0);
+--color-neutral-900: oklch(20.5% 0 0);
+--color-neutral-950: oklch(14.5% 0 0);
+
+--color-primary-50: oklch(98.005% 0.00725 80.569);
+--color-primary-100: oklch(94.884% 0.01921 80.063);
+--color-primary-200: oklch(88.949% 0.03821 77.578);
+--color-primary-300: oklch(81.65% 0.06264 75.567);
+--color-primary-400: oklch(72.969% 0.08503 68.776);
+--color-primary-500: oklch(66.472% 0.10112 62.095);
+--color-primary-600: oklch(61.172% 0.10333 55.252);
+--color-primary-700: oklch(52.703% 0.09095 49.086);
+--color-primary-800: oklch(45.682% 0.07141 45.995);
+--color-primary-900: oklch(40.158% 0.05763 45.889);
+--color-primary-950: oklch(26.387% 0.0367 43.896);
+
+--color-kornblau-400: #1556ba;
 }
