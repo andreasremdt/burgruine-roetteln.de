@@ -1,7 +1,7 @@
 import { cn } from '@/lib/utils'
-import Container from './ui/container'
+import Container from '../ui/container'
 import Link from 'next/link'
-import Icon from './ui/icon'
+import Icon from '../ui/icon'
 
 type Props = {
   border?: boolean

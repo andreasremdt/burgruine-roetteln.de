@@ -1,7 +1,7 @@
 import type { Media } from '@/payload-types'
-import Container from './ui/container'
+import Container from '../ui/container'
 import { getFooterInfo } from '@/lib/fetchers'
-import ImageKitImage from './imagekit-image'
+import ImageKitImage from '../imagekit-image'
 
 export default async function Footer() {
   const footer = await getFooterInfo()

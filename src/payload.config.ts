@@ -1,11 +1,16 @@
 import { mongooseAdapter } from '@payloadcms/db-mongodb'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
+import { seoPlugin } from '@payloadcms/plugin-seo'
 import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
+import { de } from '@payloadcms/translations/languages/de'
+import { en } from '@payloadcms/translations/languages/en'
 
 import users from './payload/collections/users'
 import media from './payload/collections/media'
+import tours from './payload/collections/tours'
+import pages from './payload/collections/pages'
 import footer from './payload/globals/footer'
 import contact from './payload/globals/contact'
 
@@ -19,7 +24,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [users, media],
+  collections: [users, media, tours, pages],
   globals: [footer, contact],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET,
@@ -40,4 +45,17 @@ export default buildConfig({
   graphQL: {
     disable: true,
   },
+  i18n: {
+    supportedLanguages: { de, en },
+    fallbackLanguage: 'de',
+  },
+  plugins: [
+    seoPlugin({
+      collections: ['pages', 'tours'],
+      uploadsCollection: 'media',
+      tabbedUI: true,
+      generateTitle: ({ doc }) => `${doc.title} - Burgruine Rötteln`,
+      generateDescription: ({ doc }) => doc.description,
+    }),
+  ],
 })

@@ -1,0 +1,109 @@
+import { CollectionConfig, slugField } from 'payload'
+
+const pages: CollectionConfig = {
+  slug: 'pages',
+  admin: {
+    useAsTitle: 'title',
+  },
+  labels: {
+    singular: 'Seite',
+    plural: 'Seiten',
+  },
+  fields: [
+    {
+      type: 'tabs',
+      tabs: [
+        {
+          label: 'Allgemein',
+          fields: [
+            {
+              type: 'group',
+              label: 'Allgemein',
+              fields: [
+                {
+                  type: 'select',
+                  name: 'layout',
+                  label: 'Design',
+                  admin: {
+                    description:
+                      'Das Design der Seite legt fest, welcher Inhalt angezeigt wird und sollte auf die jeweilige Seite angepasst werden.',
+                  },
+                  required: true,
+                  defaultValue: 'title',
+                  options: [
+                    {
+                      label: 'Nur Titel',
+                      value: 'title',
+                    },
+                    {
+                      label: 'Titel, Untertitel und Beschreibung',
+                      value: 'title-subtitle-description',
+                    },
+                    {
+                      label: 'Startseite',
+                      value: 'home',
+                    },
+                    {
+                      label: 'Kontakt (mit Karte)',
+                      value: 'contact',
+                    },
+                  ],
+                },
+                {
+                  type: 'text',
+                  name: 'title',
+                  label: 'Titel',
+                  required: true,
+                },
+                {
+                  type: 'text',
+                  name: 'subtitle',
+                  label: 'Untertitel',
+                  required: true,
+                  admin: {
+                    condition: (data) => data.layout === 'title-subtitle-description',
+                    description: 'Der Untertitel wird unter dem Titel angezeigt.',
+                  },
+                },
+                {
+                  type: 'textarea',
+                  name: 'description',
+                  label: 'Beschreibung',
+                  required: true,
+                  admin: {
+                    condition: (data) =>
+                      data.layout === 'title-subtitle-description' || data.layout === 'home',
+                    description: 'Die Beschreibung wird unter dem Untertitel angezeigt.',
+                  },
+                },
+                slugField({
+                  name: 'slug',
+                  fieldToUse: 'title',
+                  required: true,
+                }),
+              ],
+            },
+          ],
+        },
+        {
+          label: 'Inhalt',
+          fields: [
+            {
+              type: 'blocks',
+              name: 'content',
+              label: 'Inhalt',
+              blocks: [
+                {
+                  slug: 'text',
+                  fields: [],
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+  ],
+}
+
+export default pages

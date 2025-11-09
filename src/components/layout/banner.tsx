@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import Container from './ui/container'
-import Icon from './ui/icon'
+import Container from '../ui/container'
+import Icon from '../ui/icon'
 
 export default function Banner() {
   return (

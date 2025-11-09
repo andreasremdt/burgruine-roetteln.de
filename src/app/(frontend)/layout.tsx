@@ -1,8 +1,8 @@
 import { Open_Sans, Cormorant_Garamond } from 'next/font/google'
 import { cn } from '@/lib/utils'
-import Banner from '@/components/banner'
-import Header from '@/components/header'
-import Footer from '@/components/footer'
+import Banner from '@/components/layout/banner'
+import Header from '@/components/layout/header'
+import Footer from '@/components/layout/footer'
 import '@/styles/globals.css'
 
 const openSans = Open_Sans({
