@@ -1,4 +1,6 @@
 import { CollectionConfig, slugField } from 'payload'
+import tours from '../blocks/tours'
+import richText from '../blocks/rich-text'
 
 const pages: CollectionConfig = {
   slug: 'pages',
@@ -92,12 +94,7 @@ const pages: CollectionConfig = {
               type: 'blocks',
               name: 'content',
               label: 'Inhalt',
-              blocks: [
-                {
-                  slug: 'text',
-                  fields: [],
-                },
-              ],
+              blocks: [tours, richText],
             },
           ],
         },

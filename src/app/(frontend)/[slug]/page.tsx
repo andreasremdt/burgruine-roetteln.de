@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation'
 import { getPageBySlug } from '@/lib/fetchers'
 import HeroRenderer from '@/components/hero-renderer'
+import BlockRenderer from '@/components/block-renderer'
 
 type Props = {
   params: Promise<{
@@ -20,6 +21,7 @@ export default async function Page({ params }: Props) {
   return (
     <>
       <HeroRenderer page={page} />
+      <BlockRenderer blocks={page.content} />
     </>
   )
 }

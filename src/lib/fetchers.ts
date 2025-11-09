@@ -38,3 +38,21 @@ export const getPageBySlug = cache(async function getPageBySlug(slug: string) {
 
   return result.docs[0]
 })
+
+export const getTourBySlug = cache(async function getTourBySlug(slug: string) {
+  const { isEnabled } = await draftMode()
+  const payload = await getPayload({ config })
+  const result = await payload.find({
+    collection: 'tours',
+    draft: isEnabled,
+    pagination: false,
+    limit: 1,
+    where: {
+      slug: {
+        equals: slug,
+      },
+    },
+  })
+
+  return result.docs[0]
+})

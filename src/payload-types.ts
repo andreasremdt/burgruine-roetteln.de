@@ -258,13 +258,7 @@ export interface Page {
    */
   generateSlug?: boolean | null;
   slug: string;
-  content?:
-    | {
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'text';
-      }[]
-    | null;
+  content?: (ToursBlock | RichTextBlock)[] | null;
   meta?: {
     title?: string | null;
     description?: string | null;
@@ -275,6 +269,46 @@ export interface Page {
   };
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ToursBlock".
+ */
+export interface ToursBlock {
+  title: string;
+  description: string;
+  dark?: boolean | null;
+  /**
+   * Wählen Sie alle Führungen aus, die in der Liste angezeigt werden sollen.
+   */
+  tours: (string | Tour)[];
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'tours';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "RichTextBlock".
+ */
+export interface RichTextBlock {
+  content: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'richText';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -443,12 +477,8 @@ export interface PagesSelect<T extends boolean = true> {
   content?:
     | T
     | {
-        text?:
-          | T
-          | {
-              id?: T;
-              blockName?: T;
-            };
+        tours?: T | ToursBlockSelect<T>;
+        richText?: T | RichTextBlockSelect<T>;
       };
   meta?:
     | T
@@ -459,6 +489,27 @@ export interface PagesSelect<T extends boolean = true> {
       };
   updatedAt?: T;
   createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ToursBlock_select".
+ */
+export interface ToursBlockSelect<T extends boolean = true> {
+  title?: T;
+  description?: T;
+  dark?: T;
+  tours?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "RichTextBlock_select".
+ */
+export interface RichTextBlockSelect<T extends boolean = true> {
+  content?: T;
+  id?: T;
+  blockName?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
