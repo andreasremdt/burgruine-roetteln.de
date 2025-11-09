@@ -258,7 +258,16 @@ export interface Page {
    */
   generateSlug?: boolean | null;
   slug: string;
-  content?: (ToursBlock | RichTextBlock)[] | null;
+  content?:
+    | (
+        | ToursBlock
+        | RichTextBlock
+        | TwoColumnsWithImageBlock
+        | TextWithTwoImagesBlock
+        | StatisticsBlock
+        | GalleryBlock
+      )[]
+    | null;
   meta?: {
     title?: string | null;
     description?: string | null;
@@ -309,6 +318,107 @@ export interface RichTextBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'richText';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TwoColumnsWithImageBlock".
+ */
+export interface TwoColumnsWithImageBlock {
+  title: string;
+  description: string;
+  content: string;
+  image: string | Media;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'twoColumnsWithImage';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TextWithTwoImagesBlock".
+ */
+export interface TextWithTwoImagesBlock {
+  title: string;
+  description: string;
+  content: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  buttons?:
+    | {
+        label: string;
+        link: string;
+        theme: 'primary' | 'secondary';
+        id?: string | null;
+      }[]
+    | null;
+  image: (string | Media)[];
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'textWithTwoImages';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "StatisticsBlock".
+ */
+export interface StatisticsBlock {
+  title: string;
+  description: string;
+  statistics?:
+    | {
+        value: string;
+        label: string;
+        id?: string | null;
+      }[]
+    | null;
+  content: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  buttons?:
+    | {
+        label: string;
+        link: string;
+        theme: 'primary' | 'secondary';
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'statistics';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "GalleryBlock".
+ */
+export interface GalleryBlock {
+  title: string;
+  description?: string | null;
+  images: (string | Media)[];
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'gallery';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -479,6 +589,10 @@ export interface PagesSelect<T extends boolean = true> {
     | {
         tours?: T | ToursBlockSelect<T>;
         richText?: T | RichTextBlockSelect<T>;
+        twoColumnsWithImage?: T | TwoColumnsWithImageBlockSelect<T>;
+        textWithTwoImages?: T | TextWithTwoImagesBlockSelect<T>;
+        statistics?: T | StatisticsBlockSelect<T>;
+        gallery?: T | GalleryBlockSelect<T>;
       };
   meta?:
     | T
@@ -508,6 +622,75 @@ export interface ToursBlockSelect<T extends boolean = true> {
  */
 export interface RichTextBlockSelect<T extends boolean = true> {
   content?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TwoColumnsWithImageBlock_select".
+ */
+export interface TwoColumnsWithImageBlockSelect<T extends boolean = true> {
+  title?: T;
+  description?: T;
+  content?: T;
+  image?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TextWithTwoImagesBlock_select".
+ */
+export interface TextWithTwoImagesBlockSelect<T extends boolean = true> {
+  title?: T;
+  description?: T;
+  content?: T;
+  buttons?:
+    | T
+    | {
+        label?: T;
+        link?: T;
+        theme?: T;
+        id?: T;
+      };
+  image?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "StatisticsBlock_select".
+ */
+export interface StatisticsBlockSelect<T extends boolean = true> {
+  title?: T;
+  description?: T;
+  statistics?:
+    | T
+    | {
+        value?: T;
+        label?: T;
+        id?: T;
+      };
+  content?: T;
+  buttons?:
+    | T
+    | {
+        label?: T;
+        link?: T;
+        theme?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "GalleryBlock_select".
+ */
+export interface GalleryBlockSelect<T extends boolean = true> {
+  title?: T;
+  description?: T;
+  images?: T;
   id?: T;
   blockName?: T;
 }

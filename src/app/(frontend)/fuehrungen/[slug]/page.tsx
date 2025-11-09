@@ -5,6 +5,7 @@ import Container from '@/components/ui/container'
 import Button from '@/components/ui/button'
 import ImageKitImage from '@/components/imagekit-image'
 import Prose from '@/components/blocks/prose'
+import Gallery from '@/components/blocks/gallery'
 
 type Props = {
   params: Promise<{
@@ -51,29 +52,12 @@ export default async function Page({ params }: Props) {
       </section>
 
       {tour.images ? (
-        <section className="py-24 lg:py-40">
-          <Container>
-            <h2 className="mb-12 text-5xl text-neutral-900">Impressionen dieser Führung</h2>
-
-            <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
-              {tour.images.map((image) => (
-                <figure key={typeof image === 'string' ? image : image.id}>
-                  <ImageKitImage
-                    image={image}
-                    width={300}
-                    height={300}
-                    loading="lazy"
-                    decoding="async"
-                    className="mb-1 aspect-square w-full rounded-sm object-cover"
-                  />
-                  <figcaption className="font-sans font-medium">
-                    Platzhalter-Text für dieses Bild
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
-          </Container>
-        </section>
+        <Gallery
+          title="Impressionen dieser Führung"
+          images={tour.images}
+          className="bg-white"
+          blockType="gallery"
+        />
       ) : null}
     </>
   )

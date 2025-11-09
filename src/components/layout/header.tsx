@@ -104,10 +104,7 @@ export default function Header({ border = true }: Props) {
                 className="text flex items-center gap-2 transition-colors hover:text-neutral-700 focus-visible:text-neutral-700"
                 href="/fuehrungen"
               >
-                Führungen{' '}
-                <svg className="hidden lg:block" role="presentation" width="20" height="20">
-                  <use href="/symbol-defs.svg#icon-chevron-down"></use>
-                </svg>
+                Führungen <Icon name="chevron-down" className="hidden lg:block" />
               </Link>
               <ul className="top-full left-0 rounded-sm bg-white py-2 group-focus-within:block group-hover:block lg:absolute lg:hidden lg:shadow-sm">
                 <li>
@@ -165,10 +162,7 @@ export default function Header({ border = true }: Props) {
                 className="text flex items-center gap-2 transition-colors hover:text-neutral-700 focus-visible:text-neutral-700"
                 href="/verein"
               >
-                Der Verein{' '}
-                <svg className="hidden lg:block" role="presentation" width="20" height="20">
-                  <use href="/symbol-defs.svg#icon-chevron-down"></use>
-                </svg>
+                Der Verein <Icon name="chevron-down" className="hidden lg:block" />
               </Link>
               <ul className="top-full left-0 rounded-sm bg-white py-2 group-focus-within:block group-hover:block lg:absolute lg:hidden lg:shadow-sm">
                 <li>

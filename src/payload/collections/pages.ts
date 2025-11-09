@@ -1,6 +1,10 @@
 import { CollectionConfig, slugField } from 'payload'
 import tours from '../blocks/tours'
 import richText from '../blocks/rich-text'
+import twoColumnsWithImage from '../blocks/two-columns-with-image'
+import textWithTwoImages from '../blocks/text-with-two-images'
+import statistics from '../blocks/statistics'
+import gallery from '../blocks/gallery'
 
 const pages: CollectionConfig = {
   slug: 'pages',
@@ -94,7 +98,14 @@ const pages: CollectionConfig = {
               type: 'blocks',
               name: 'content',
               label: 'Inhalt',
-              blocks: [tours, richText],
+              blocks: [
+                tours,
+                richText,
+                twoColumnsWithImage,
+                textWithTwoImages,
+                statistics,
+                gallery,
+              ],
             },
           ],
         },
