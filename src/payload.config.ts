@@ -6,6 +6,8 @@ import { fileURLToPath } from 'url'
 
 import users from './payload/collections/users'
 import media from './payload/collections/media'
+import footer from './payload/globals/footer'
+import contact from './payload/globals/contact'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -18,6 +20,7 @@ export default buildConfig({
     },
   },
   collections: [users, media],
+  globals: [footer, contact],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET,
   typescript: {

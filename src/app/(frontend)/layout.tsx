@@ -1,5 +1,8 @@
 import { Open_Sans, Cormorant_Garamond } from 'next/font/google'
 import { cn } from '@/lib/utils'
+import Banner from '@/components/banner'
+import Header from '@/components/header'
+import Footer from '@/components/footer'
 import '@/styles/globals.css'
 
 const openSans = Open_Sans({
@@ -38,9 +41,15 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         itemScope
         itemType="https://schema.org/WebPage"
       >
-        <main id="content" className="mx-auto max-w-7xl px-4 md:px-8" itemProp="mainContentOfPage">
+        <Banner />
+
+        <Header />
+
+        <main id="content" className="font-serif" itemProp="mainContentOfPage">
           {children}
         </main>
+
+        <Footer />
       </body>
     </html>
   )
