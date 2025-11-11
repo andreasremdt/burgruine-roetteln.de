@@ -71,6 +71,7 @@ export interface Config {
     media: Media;
     tours: Tour;
     pages: Page;
+    events: Event;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -82,6 +83,7 @@ export interface Config {
     media: MediaSelect<false> | MediaSelect<true>;
     tours: ToursSelect<false> | ToursSelect<true>;
     pages: PagesSelect<false> | PagesSelect<true>;
+    events: EventsSelect<false> | EventsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -93,10 +95,14 @@ export interface Config {
   globals: {
     footer: Footer;
     contact: Contact;
+    costs: Cost;
+    'opening-hours': OpeningHour;
   };
   globalsSelect: {
     footer: FooterSelect<false> | FooterSelect<true>;
     contact: ContactSelect<false> | ContactSelect<true>;
+    costs: CostsSelect<false> | CostsSelect<true>;
+    'opening-hours': OpeningHoursSelect<false> | OpeningHoursSelect<true>;
   };
   locale: null;
   user: User & {
@@ -266,6 +272,10 @@ export interface Page {
         | TextWithTwoImagesBlock
         | StatisticsBlock
         | GalleryBlock
+        | CostsBlock
+        | DirectionsBlock
+        | EventsBlock
+        | OpeningHoursBlock
       )[]
     | null;
   meta?: {
@@ -422,6 +432,122 @@ export interface GalleryBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CostsBlock".
+ */
+export interface CostsBlock {
+  title: string;
+  description?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'costs';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "DirectionsBlock".
+ */
+export interface DirectionsBlock {
+  title: string;
+  description: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  buttons?:
+    | {
+        label: string;
+        link: string;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'directions';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "EventsBlock".
+ */
+export interface EventsBlock {
+  title: string;
+  description?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'events';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "OpeningHoursBlock".
+ */
+export interface OpeningHoursBlock {
+  /**
+   * Das Layout bestimmt die Anordnung der Öffnungszeiten.
+   */
+  layout?: ('horizontal' | 'vertical') | null;
+  /**
+   * Die Öffnungszeiten bekommen einen grauen Hintergrund, wenn diese Option aktiviert ist.
+   */
+  background?: boolean | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'opening-hours';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "events".
+ */
+export interface Event {
+  id: string;
+  /**
+   * Dieses Datum dient der Sortierung und wird nicht in der Liste angezeigt.
+   */
+  date: string;
+  /**
+   * Wenn nicht veröffentlicht, wird die Veranstaltung nicht in der Liste angezeigt.
+   */
+  published?: boolean | null;
+  title: string;
+  /**
+   * Optionaler Link zur Veranstaltung. Falls angegeben wird eine Schaltfläche unter dem Titel angezeigt.
+   */
+  url?: string | null;
+  description?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  /**
+   * Der Zeitraum wird links in der Liste angezeigt.
+   */
+  displayedDate: string;
+  /**
+   * Die Uhrzeit wird unter dem Zeitraum angezeigt und ist optional.
+   */
+  time?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -459,6 +585,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'pages';
         value: string | Page;
+      } | null)
+    | ({
+        relationTo: 'events';
+        value: string | Event;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -593,6 +723,10 @@ export interface PagesSelect<T extends boolean = true> {
         textWithTwoImages?: T | TextWithTwoImagesBlockSelect<T>;
         statistics?: T | StatisticsBlockSelect<T>;
         gallery?: T | GalleryBlockSelect<T>;
+        costs?: T | CostsBlockSelect<T>;
+        directions?: T | DirectionsBlockSelect<T>;
+        events?: T | EventsBlockSelect<T>;
+        'opening-hours'?: T | OpeningHoursBlockSelect<T>;
       };
   meta?:
     | T
@@ -696,6 +830,68 @@ export interface GalleryBlockSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CostsBlock_select".
+ */
+export interface CostsBlockSelect<T extends boolean = true> {
+  title?: T;
+  description?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "DirectionsBlock_select".
+ */
+export interface DirectionsBlockSelect<T extends boolean = true> {
+  title?: T;
+  description?: T;
+  buttons?:
+    | T
+    | {
+        label?: T;
+        link?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "EventsBlock_select".
+ */
+export interface EventsBlockSelect<T extends boolean = true> {
+  title?: T;
+  description?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "OpeningHoursBlock_select".
+ */
+export interface OpeningHoursBlockSelect<T extends boolean = true> {
+  layout?: T;
+  background?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "events_select".
+ */
+export interface EventsSelect<T extends boolean = true> {
+  date?: T;
+  published?: T;
+  title?: T;
+  url?: T;
+  description?: T;
+  displayedDate?: T;
+  time?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv_select".
  */
 export interface PayloadKvSelect<T extends boolean = true> {
@@ -762,8 +958,43 @@ export interface Footer {
 export interface Contact {
   id: string;
   name: string;
+  location: string;
   phone: string;
   email: string;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "costs".
+ */
+export interface Cost {
+  id: string;
+  items?:
+    | {
+        title: string;
+        price: string;
+        /**
+         * Diese Beschreibung ist optional und wird unter der Bezeichnung und dem Preis angezeigt.
+         */
+        description?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "opening-hours".
+ */
+export interface OpeningHour {
+  id: string;
+  titleInnerWard: string;
+  notesInnerWard?: string | null;
+  titleOuterWard: string;
+  notesOuterWard?: string | null;
+  exceptions?: string | null;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -785,8 +1016,40 @@ export interface FooterSelect<T extends boolean = true> {
  */
 export interface ContactSelect<T extends boolean = true> {
   name?: T;
+  location?: T;
   phone?: T;
   email?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "costs_select".
+ */
+export interface CostsSelect<T extends boolean = true> {
+  items?:
+    | T
+    | {
+        title?: T;
+        price?: T;
+        description?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "opening-hours_select".
+ */
+export interface OpeningHoursSelect<T extends boolean = true> {
+  titleInnerWard?: T;
+  notesInnerWard?: T;
+  titleOuterWard?: T;
+  notesOuterWard?: T;
+  exceptions?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

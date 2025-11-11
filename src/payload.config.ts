@@ -11,8 +11,11 @@ import users from './payload/collections/users'
 import media from './payload/collections/media'
 import tours from './payload/collections/tours'
 import pages from './payload/collections/pages'
+import events from './payload/collections/events'
 import footer from './payload/globals/footer'
 import contact from './payload/globals/contact'
+import costs from './payload/globals/costs'
+import openingHours from './payload/globals/opening-hours'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -24,8 +27,8 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [users, media, tours, pages],
-  globals: [footer, contact],
+  collections: [users, media, tours, pages, events],
+  globals: [footer, contact, costs, openingHours],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET,
   typescript: {

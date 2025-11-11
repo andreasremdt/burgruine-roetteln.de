@@ -11,6 +11,12 @@ const contact: GlobalConfig = {
       required: true,
     },
     {
+      type: 'textarea',
+      name: 'location',
+      label: 'Lage',
+      required: true,
+    },
+    {
       type: 'text',
       name: 'phone',
       label: 'Telefon',

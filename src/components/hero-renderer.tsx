@@ -1,12 +1,8 @@
-'use client'
-
-import dynamic from 'next/dynamic'
 import type { Page } from '@/payload-types'
 import HomeHero from './layout/home-hero'
 import TitleHero from './layout/title-hero'
 import AdvancedHero from './layout/advanced-hero'
-
-const ContactHero = dynamic(() => import('./layout/contact-hero'), { ssr: false })
+import ContactHero from './layout/contact-hero'
 
 type Props = {
   page: Page

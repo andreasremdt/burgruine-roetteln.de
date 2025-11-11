@@ -1,10 +1,14 @@
-import { CollectionConfig, slugField } from 'payload'
+import { type CollectionConfig, slugField } from 'payload'
+import directions from '../blocks/directions'
 import tours from '../blocks/tours'
 import richText from '../blocks/rich-text'
 import twoColumnsWithImage from '../blocks/two-columns-with-image'
 import textWithTwoImages from '../blocks/text-with-two-images'
 import statistics from '../blocks/statistics'
 import gallery from '../blocks/gallery'
+import costs from '../blocks/costs'
+import events from '../blocks/events'
+import openingHours from '../blocks/opening-hours'
 
 const pages: CollectionConfig = {
   slug: 'pages',
@@ -105,6 +109,10 @@ const pages: CollectionConfig = {
                 textWithTwoImages,
                 statistics,
                 gallery,
+                costs,
+                directions,
+                events,
+                openingHours,
               ],
             },
           ],

@@ -4,6 +4,10 @@ import TwoColumnsWithImage from './blocks/two-columns-with-image'
 import TextWithTwoImages from './blocks/text-with-two-images'
 import Statistics from './blocks/statistics'
 import Gallery from './blocks/gallery'
+import Costs from './blocks/costs'
+import Directions from './blocks/directions'
+import Events from './blocks/events'
+import OpeningHours from './blocks/opening-hours'
 
 type Props = {
   blocks: Page['content']
@@ -24,6 +28,14 @@ export default function BlockRenderer({ blocks }: Props) {
         return <Statistics {...block} key={block.id} />
       case 'gallery':
         return <Gallery {...block} key={block.id} />
+      case 'costs':
+        return <Costs {...block} key={block.id} />
+      case 'directions':
+        return <Directions {...block} key={block.id} />
+      case 'events':
+        return <Events {...block} key={block.id} />
+      case 'opening-hours':
+        return <OpeningHours {...block} key={block.id} />
       default:
         return null
     }
