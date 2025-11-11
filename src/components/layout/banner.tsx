@@ -1,23 +1,40 @@
 import Link from 'next/link'
+import { getBanner, getEvents, getOpeningHours } from '@/lib/fetchers'
 import Container from '../ui/container'
 import Icon from '../ui/icon'
 
-export default function Banner() {
+export default async function Banner() {
+  const banner = await getBanner()
+  const openingHours = await getOpeningHours()
+  const events = await getEvents()
+
+  const nextEvent = events.find((event) => event.date > new Date().toISOString())
+
   return (
     <div className="bg-kornblau-400 font-medium text-white">
       <Container className="flex flex-wrap items-center justify-between gap-4 py-4 text-sm">
         <p className="hidden items-center gap-2 md:flex">
-          <Icon name="clock" />
-          Täglich geöffnet von 10:00 - 18:00 Uhr
+          {banner.showOpeningHours ? (
+            <>
+              <Icon name="clock" />
+              {openingHours.titleInnerWard}
+            </>
+          ) : (
+            banner.leftSideText
+          )}
         </p>
 
-        <Link
-          href="/besuchen#veranstaltungen"
-          className="flex items-center gap-2 transition-colors hover:text-white focus-visible:text-white"
-        >
-          <Icon name="bell" />
-          Nächste Veranstaltung: 1. Mai Hock auf Rötteln
-        </Link>
+        {banner.showNextEvent && nextEvent ? (
+          <Link
+            href="/besuchen#veranstaltungen"
+            className="flex items-center gap-2 transition-colors hover:text-white focus-visible:text-white"
+          >
+            <Icon name="bell" />
+            Nächste Veranstaltung: {nextEvent.title}
+          </Link>
+        ) : null}
+
+        {!banner.showNextEvent ? banner.rightSideText : null}
       </Container>
     </div>
   )

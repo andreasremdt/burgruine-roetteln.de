@@ -97,12 +97,14 @@ export interface Config {
     contact: Contact;
     costs: Cost;
     'opening-hours': OpeningHour;
+    banner: Banner;
   };
   globalsSelect: {
     footer: FooterSelect<false> | FooterSelect<true>;
     contact: ContactSelect<false> | ContactSelect<true>;
     costs: CostsSelect<false> | CostsSelect<true>;
     'opening-hours': OpeningHoursSelect<false> | OpeningHoursSelect<true>;
+    banner: BannerSelect<false> | BannerSelect<true>;
   };
   locale: null;
   user: User & {
@@ -1000,6 +1002,25 @@ export interface OpeningHour {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "banner".
+ */
+export interface Banner {
+  id: string;
+  showOpeningHours?: boolean | null;
+  /**
+   * Dieser Text wird in der linken Seite des Banners angezeigt, wenn der Haken nicht gesetzt ist.
+   */
+  leftSideText?: string | null;
+  showNextEvent?: boolean | null;
+  /**
+   * Dieser Text wird in der rechten Seite des Banners angezeigt, wenn der Haken nicht gesetzt ist.
+   */
+  rightSideText?: string | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "footer_select".
  */
 export interface FooterSelect<T extends boolean = true> {
@@ -1050,6 +1071,19 @@ export interface OpeningHoursSelect<T extends boolean = true> {
   titleOuterWard?: T;
   notesOuterWard?: T;
   exceptions?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "banner_select".
+ */
+export interface BannerSelect<T extends boolean = true> {
+  showOpeningHours?: T;
+  leftSideText?: T;
+  showNextEvent?: T;
+  rightSideText?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

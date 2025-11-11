@@ -56,6 +56,15 @@ export const getOpeningHours = cache(async function getOpeningHours() {
   return openingHours
 })
 
+export const getBanner = cache(async function getBanner() {
+  const payload = await getPayload({ config })
+  const banner = await payload.findGlobal({
+    slug: 'banner',
+  })
+
+  return banner
+})
+
 export const getPageBySlug = cache(async function getPageBySlug(slug: string) {
   const { isEnabled } = await draftMode()
   const payload = await getPayload({ config })
