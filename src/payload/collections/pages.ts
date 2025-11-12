@@ -9,6 +9,8 @@ import gallery from '../blocks/gallery'
 import costs from '../blocks/costs'
 import events from '../blocks/events'
 import openingHours from '../blocks/opening-hours'
+import oneColumnWithImage from '../blocks/one-column-with-image'
+import timeline from '../blocks/timeline'
 
 const pages: CollectionConfig = {
   slug: 'pages',
@@ -106,6 +108,7 @@ const pages: CollectionConfig = {
                 tours,
                 richText,
                 twoColumnsWithImage,
+                oneColumnWithImage,
                 textWithTwoImages,
                 statistics,
                 gallery,
@@ -113,6 +116,7 @@ const pages: CollectionConfig = {
                 directions,
                 events,
                 openingHours,
+                timeline,
               ],
             },
           ],

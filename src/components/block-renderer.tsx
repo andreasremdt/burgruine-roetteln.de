@@ -8,6 +8,8 @@ import Costs from './blocks/costs'
 import Directions from './blocks/directions'
 import Events from './blocks/events'
 import OpeningHours from './blocks/opening-hours'
+import OneColumnWithImage from './blocks/one-column-with-image'
+import Timeline from './blocks/timeline'
 
 type Props = {
   blocks: Page['content']
@@ -36,6 +38,10 @@ export default function BlockRenderer({ blocks }: Props) {
         return <Events {...block} key={block.id} />
       case 'opening-hours':
         return <OpeningHours {...block} key={block.id} />
+      case 'oneColumnWithImage':
+        return <OneColumnWithImage {...block} key={block.id} />
+      case 'timeline':
+        return <Timeline {...block} key={block.id} />
       default:
         return null
     }

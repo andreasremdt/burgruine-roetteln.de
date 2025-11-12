@@ -271,6 +271,7 @@ export interface Page {
         | ToursBlock
         | RichTextBlock
         | TwoColumnsWithImageBlock
+        | OneColumnWithImageBlock
         | TextWithTwoImagesBlock
         | StatisticsBlock
         | GalleryBlock
@@ -278,6 +279,7 @@ export interface Page {
         | DirectionsBlock
         | EventsBlock
         | OpeningHoursBlock
+        | TimelineBlock
       )[]
     | null;
   meta?: {
@@ -343,6 +345,39 @@ export interface TwoColumnsWithImageBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'twoColumnsWithImage';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "OneColumnWithImageBlock".
+ */
+export interface OneColumnWithImageBlock {
+  content: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  image: string | Media;
+  buttons?:
+    | {
+        label: string;
+        link: string;
+        theme: 'primary' | 'secondary';
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'oneColumnWithImage';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -502,6 +537,37 @@ export interface OpeningHoursBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'opening-hours';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TimelineBlock".
+ */
+export interface TimelineBlock {
+  description?: string | null;
+  items?:
+    | {
+        year?: number | null;
+        content: {
+          root: {
+            type: string;
+            children: {
+              type: any;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'timeline';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -722,6 +788,7 @@ export interface PagesSelect<T extends boolean = true> {
         tours?: T | ToursBlockSelect<T>;
         richText?: T | RichTextBlockSelect<T>;
         twoColumnsWithImage?: T | TwoColumnsWithImageBlockSelect<T>;
+        oneColumnWithImage?: T | OneColumnWithImageBlockSelect<T>;
         textWithTwoImages?: T | TextWithTwoImagesBlockSelect<T>;
         statistics?: T | StatisticsBlockSelect<T>;
         gallery?: T | GalleryBlockSelect<T>;
@@ -729,6 +796,7 @@ export interface PagesSelect<T extends boolean = true> {
         directions?: T | DirectionsBlockSelect<T>;
         events?: T | EventsBlockSelect<T>;
         'opening-hours'?: T | OpeningHoursBlockSelect<T>;
+        timeline?: T | TimelineBlockSelect<T>;
       };
   meta?:
     | T
@@ -770,6 +838,24 @@ export interface TwoColumnsWithImageBlockSelect<T extends boolean = true> {
   description?: T;
   content?: T;
   image?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "OneColumnWithImageBlock_select".
+ */
+export interface OneColumnWithImageBlockSelect<T extends boolean = true> {
+  content?: T;
+  image?: T;
+  buttons?:
+    | T
+    | {
+        label?: T;
+        link?: T;
+        theme?: T;
+        id?: T;
+      };
   id?: T;
   blockName?: T;
 }
@@ -874,6 +960,22 @@ export interface EventsBlockSelect<T extends boolean = true> {
 export interface OpeningHoursBlockSelect<T extends boolean = true> {
   layout?: T;
   background?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TimelineBlock_select".
+ */
+export interface TimelineBlockSelect<T extends boolean = true> {
+  description?: T;
+  items?:
+    | T
+    | {
+        year?: T;
+        content?: T;
+        id?: T;
+      };
   id?: T;
   blockName?: T;
 }
