@@ -28,6 +28,28 @@ const contact: GlobalConfig = {
       label: 'E-Mail',
       required: true,
     },
+    {
+      type: 'group',
+      name: 'social',
+      label: 'Social Media',
+      fields: [
+        {
+          type: 'row',
+          fields: [
+            {
+              type: 'text',
+              name: 'instagram',
+              label: 'Instagram',
+            },
+            {
+              type: 'text',
+              name: 'facebook',
+              label: 'Facebook',
+            },
+          ],
+        },
+      ],
+    },
   ],
 }
 

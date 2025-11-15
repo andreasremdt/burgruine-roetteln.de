@@ -1199,6 +1199,10 @@ export interface Contact {
   location: string;
   phone: string;
   email: string;
+  social?: {
+    instagram?: string | null;
+    facebook?: string | null;
+  };
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -1289,6 +1293,12 @@ export interface ContactSelect<T extends boolean = true> {
   location?: T;
   phone?: T;
   email?: T;
+  social?:
+    | T
+    | {
+        instagram?: T;
+        facebook?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

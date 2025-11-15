@@ -1,7 +1,9 @@
+import Link from 'next/link'
 import type { Media } from '@/payload-types'
 import Container from '../ui/container'
 import { getContactInfo, getFooterInfo, getOpeningHours } from '@/lib/fetchers'
 import ImageKitImage from '../imagekit-image'
+import Icon from '../ui/icon'
 
 export default async function Footer() {
   const footer = await getFooterInfo()
@@ -33,52 +35,52 @@ export default async function Footer() {
 
           <ul>
             <li>
-              <a
+              <Link
                 className="transition-colors hover:text-white focus-visible:text-white"
                 href="/burg"
               >
                 Die Burg
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 className="transition-colors hover:text-white focus-visible:text-white"
                 href="/besuchen"
               >
                 Ihr Besuch
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 className="transition-colors hover:text-white focus-visible:text-white"
                 href="/verein"
               >
                 Der Verein
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 className="transition-colors hover:text-white focus-visible:text-white"
                 href="/kontakt"
               >
                 Kontakt
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 className="transition-colors hover:text-white focus-visible:text-white"
                 href="/impressum"
               >
                 Impressum
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 className="transition-colors hover:text-white focus-visible:text-white"
                 href="/datenschutz"
               >
                 Datenschutz
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>
@@ -120,6 +122,21 @@ export default async function Footer() {
               {contactInfo.email}
             </a>
           </p>
+
+          {contactInfo.social?.instagram || contactInfo.social?.facebook ? (
+            <div className="mt-4 flex items-center gap-2">
+              {contactInfo.social?.instagram && (
+                <a href={contactInfo.social.instagram} target="_blank" rel="noopener noreferrer">
+                  <Icon name="instagram" className="size-6" />
+                </a>
+              )}
+              {contactInfo.social?.facebook && (
+                <a href={contactInfo.social.facebook} target="_blank" rel="noopener noreferrer">
+                  <Icon name="facebook" className="size-6" />
+                </a>
+              )}
+            </div>
+          ) : null}
         </div>
       </Container>
 
