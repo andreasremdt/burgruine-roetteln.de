@@ -1,10 +1,12 @@
 import type { Media } from '@/payload-types'
 import Container from '../ui/container'
-import { getFooterInfo } from '@/lib/fetchers'
+import { getContactInfo, getFooterInfo, getOpeningHours } from '@/lib/fetchers'
 import ImageKitImage from '../imagekit-image'
 
 export default async function Footer() {
   const footer = await getFooterInfo()
+  const contactInfo = await getContactInfo()
+  const openingHours = await getOpeningHours()
 
   return (
     <footer className="bg-gray-900 text-sm text-gray-300">
@@ -84,45 +86,54 @@ export default async function Footer() {
         <div>
           <h2 className="mb-4 font-serif text-3xl text-white">Öffnungszeiten</h2>
 
-          <h3 className="mb-2 font-medium text-white">Mitte März - Anfang November</h3>
-          <p className="mb-2">Täglich 10:00 - 18:00 Uhr</p>
+          <h3 className="mb-2 font-medium text-white">Unterburg</h3>
+          <p>{openingHours.titleInnerWard}</p>
+          <p>{openingHours.notesInnerWard}</p>
 
-          <h3 className="mb-2 font-medium text-white">Anfang November - Mitte März</h3>
-          <p className="mb-2">Jedes Wochenende und an Feiertagen 10:00 - 16:00 Uhr</p>
-
-          <p>Der letzte Einlass ist jeweils eine halbe Stunde vor Schließung.</p>
+          <h3 className="mt-4 mb-2 font-medium text-white">Oberburg</h3>
+          <p>{openingHours.titleOuterWard}</p>
+          <p>{openingHours.notesOuterWard}</p>
         </div>
 
         <div>
           <h2 className="mb-4 font-serif text-3xl text-white">Kontakt</h2>
 
+          <p
+            className="mb-4"
+            dangerouslySetInnerHTML={{ __html: contactInfo.name.replaceAll('\n', '<br />') }}
+          />
+
           <p>
-            Röttelnbund e.V. Haagen
-            <br />
-            Burgruine Rötteln
-            <br />
-            79541 Lörrach Haagen
-            <br />
-            <br />
             <a
               className="transition-colors hover:text-white focus-visible:text-white"
-              href="tel:+49762156494"
+              href={`tel:${contactInfo.phone}`}
             >
-              +49 (0)7621 56494
+              {contactInfo.phone}
             </a>
-            <br />
+          </p>
+
+          <p>
             <a
               className="transition-colors hover:text-white focus-visible:text-white"
-              href="mailto:info@burgruine-roetteln.de"
+              href={`mailto:${contactInfo.email}`}
             >
-              info@burgruine-roetteln.de
+              {contactInfo.email}
             </a>
           </p>
         </div>
       </Container>
 
-      <div className="border-t border-gray-700 py-8 text-center">
-        <p>&copy; {new Date().getFullYear()} Burgruine Rötteln. Alle Rechte vorbehalten.</p>
+      <div className="border-t border-gray-700 py-8 text-center text-xs">
+        <p className="mb-1">
+          &copy; {new Date().getFullYear()} Burgruine Rötteln. Alle Rechte vorbehalten.
+        </p>
+        <p>
+          Design & Entwicklung{' '}
+          <a href="https://andreasremdt.com" target="_blank" rel="noopener noreferrer">
+            Softwareentwicklung Andreas Remdt
+          </a>
+          .
+        </p>
       </div>
     </footer>
   )

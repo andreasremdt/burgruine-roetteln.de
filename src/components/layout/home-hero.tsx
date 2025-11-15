@@ -13,7 +13,6 @@ type Props = ComponentPropsWithoutRef<'section'> & {
 export default async function HomeHero({ title, description, className, ...props }: Props) {
   const header = await getHeader()
 
-  console.log(header)
   return (
     <section
       className={cn(
