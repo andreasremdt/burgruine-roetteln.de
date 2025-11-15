@@ -262,9 +262,8 @@ export interface Page {
    */
   description?: string | null;
   /**
-   * When enabled, the slug will auto-generate from the title field on save and autosave.
+   * Der Slug wird verwendet, um die Seite zu identifizieren.
    */
-  generateSlug?: boolean | null;
   slug: string;
   content?:
     | (
@@ -283,6 +282,7 @@ export interface Page {
         | OfferOverviewBlock
         | TextWithSidebarBlock
         | ContactFormBlock
+        | BookingFormBlock
       )[]
     | null;
   meta?: {
@@ -630,6 +630,17 @@ export interface ContactFormBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BookingFormBlock".
+ */
+export interface BookingFormBlock {
+  title: string;
+  description: string;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'booking-form';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "events".
  */
 export interface Event {
@@ -839,7 +850,6 @@ export interface PagesSelect<T extends boolean = true> {
   title?: T;
   subtitle?: T;
   description?: T;
-  generateSlug?: T;
   slug?: T;
   content?:
     | T
@@ -859,6 +869,7 @@ export interface PagesSelect<T extends boolean = true> {
         'offer-overview'?: T | OfferOverviewBlockSelect<T>;
         'text-with-sidebar'?: T | TextWithSidebarBlockSelect<T>;
         'contact-form'?: T | ContactFormBlockSelect<T>;
+        'booking-form'?: T | BookingFormBlockSelect<T>;
       };
   meta?:
     | T
@@ -1087,6 +1098,16 @@ export interface ContactFormBlockSelect<T extends boolean = true> {
     | {
         'opening-hours'?: T | OpeningHoursBlockSelect<T>;
       };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BookingFormBlock_select".
+ */
+export interface BookingFormBlockSelect<T extends boolean = true> {
+  title?: T;
+  description?: T;
   id?: T;
   blockName?: T;
 }

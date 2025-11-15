@@ -14,6 +14,7 @@ import OfferOverview from './blocks/offer-overview'
 import TextWithSidebar from './blocks/text-with-sidebar'
 import ContactForm from './blocks/contact-form'
 import RichText from './blocks/rich-text'
+import BookingForm from './blocks/booking-form'
 
 type Props = {
   blocks: Page['content']
@@ -54,6 +55,8 @@ export default function BlockRenderer({ blocks }: Props) {
         return <ContactForm {...block} key={block.id} />
       case 'richText':
         return <RichText {...block} key={block.id} />
+      case 'booking-form':
+        return <BookingForm {...block} key={block.id} />
       default:
         return null
     }

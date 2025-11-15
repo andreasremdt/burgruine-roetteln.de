@@ -14,6 +14,7 @@ import timeline from '../blocks/timeline'
 import offerOverview from '../blocks/offer-overview'
 import textWithSidebar from '../blocks/text-with-sidebar'
 import contactForm from '../blocks/contact-form'
+import bookingForm from '../blocks/booking-form'
 
 const pages: CollectionConfig = {
   slug: 'pages',
@@ -127,6 +128,7 @@ const pages: CollectionConfig = {
                 offerOverview,
                 textWithSidebar,
                 contactForm,
+                bookingForm,
               ],
             },
           ],

@@ -12,3 +12,11 @@ export function formatDate(date: string) {
     year: 'numeric',
   })
 }
+
+export function getSearchParam(name: string) {
+  if (typeof window === 'undefined') {
+    return ''
+  }
+
+  return new URL(window.location.href).searchParams.get(name) || ''
+}
