@@ -4,6 +4,7 @@ import type { DirectionsBlock } from '@/payload-types'
 import Button from '../ui/button'
 import Prose from './prose'
 import dynamic from 'next/dynamic'
+import Heading from '../ui/heading'
 
 const Map = dynamic(() => import('../ui/map'), { ssr: false })
 
@@ -16,7 +17,9 @@ export default function Directions({ title, description, buttons }: DirectionsBl
       <Map className="order-1 col-span-2 hidden h-full w-full lg:block" />
 
       <div className="order-1 py-16 pr-4 pl-4 lg:pl-16">
-        <h2 className="mb-8 text-5xl text-gray-900">{title}</h2>
+        <Heading level="h1" tag="h2">
+          {title}
+        </Heading>
 
         <Prose content={description} />
 

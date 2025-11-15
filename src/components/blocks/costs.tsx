@@ -1,6 +1,7 @@
 import Container from '../ui/container'
 import type { CostsBlock } from '@/payload-types'
 import { getCosts } from '@/lib/fetchers'
+import Heading from '../ui/heading'
 
 export default async function Costs({ title, description }: CostsBlock) {
   const items = await getCosts()
@@ -8,7 +9,9 @@ export default async function Costs({ title, description }: CostsBlock) {
   return (
     <section className="pb-24 lg:pb-40" id="eintrittspreise">
       <Container>
-        <h2 className="text-5xl text-gray-900 md:text-center">{title}</h2>
+        <Heading level="h1" tag="h2" className="md:text-center">
+          {title}
+        </Heading>
         <p className="text-2xl md:text-center">{description}</p>
 
         {items ? (

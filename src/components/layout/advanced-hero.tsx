@@ -3,6 +3,7 @@ import { getHeader } from '@/lib/fetchers'
 import { cn } from '@/lib/utils'
 import Container from '../ui/container'
 import ImageKitImage from '../imagekit-image'
+import Heading from '../ui/heading'
 
 type Props = ComponentPropsWithoutRef<'section'> & {
   title: string
@@ -34,7 +35,9 @@ export default async function AdvancedHero({
 
       <Container className="grid grid-cols-5 py-20 md:py-32">
         <div className="col-span-5 md:col-span-2">
-          <h1 className="mb-2 text-5xl text-gray-900">{title}</h1>
+          <Heading level="h1" tag="h1" className="">
+            {title}
+          </Heading>
           {subtitle ? (
             <p className="mb-4 font-sans font-medium text-gray-600 uppercase md:mb-0">{subtitle}</p>
           ) : null}

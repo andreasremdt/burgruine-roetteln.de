@@ -4,6 +4,7 @@ import Button from '../ui/button'
 import Container from '../ui/container'
 import { getHeader } from '@/lib/fetchers'
 import ImageKitImage from '../imagekit-image'
+import Heading from '../ui/heading'
 
 type Props = ComponentPropsWithoutRef<'section'> & {
   title: string
@@ -31,7 +32,9 @@ export default async function HomeHero({ title, description, className, ...props
       />
 
       <Container className="z-10 w-full">
-        <h1 className="mb-4 text-4xl text-balance text-white md:text-5xl lg:max-w-1/2">{title}</h1>
+        <Heading level="h1" tag="h1" className="text-white lg:max-w-1/2">
+          {title}
+        </Heading>
         {description ? (
           <p className="mb-6 text-xl text-gray-100 md:mb-14 md:text-2xl lg:max-w-1/2">
             {description}

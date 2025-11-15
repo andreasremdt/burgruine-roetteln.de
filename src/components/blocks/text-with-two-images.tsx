@@ -3,6 +3,7 @@ import Container from '../ui/container'
 import Button from '../ui/button'
 import ImageKitImage from '../imagekit-image'
 import Prose from './prose'
+import Heading from '../ui/heading'
 
 export default function TextWithTwoImages({
   title,
@@ -17,7 +18,9 @@ export default function TextWithTwoImages({
         <h2 className="mb-2 flex items-center font-sans font-medium text-gray-600 uppercase before:mr-4 before:block before:h-px before:w-8 before:bg-gray-600">
           {title}
         </h2>
-        <p className="mb-16 text-5xl text-gray-900">{description}</p>
+        <Heading level="h1" tag="p" className="mb-16">
+          {description}
+        </Heading>
 
         <div className="mb-16 ml-[35%]">
           <Prose content={content} className="mb-4" />

@@ -3,6 +3,7 @@ import type { GalleryBlock } from '@/payload-types'
 import { cn } from '@/lib/utils'
 import Container from '../ui/container'
 import ImageKitImage from '../imagekit-image'
+import Heading from '../ui/heading'
 
 type Props = GalleryBlock & {
   className?: string
@@ -17,7 +18,9 @@ export default function Gallery({ title, description, images, className }: Props
             {title}
           </h2>
         ) : null}
-        <p className="mb-16 text-5xl text-gray-900">{description || title}</p>
+        <Heading level="h1" tag="p" className="mb-16">
+          {description || title}
+        </Heading>
 
         <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
           {images.map((image) => (

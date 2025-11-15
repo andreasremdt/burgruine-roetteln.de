@@ -2,13 +2,16 @@ import Link from 'next/link'
 import Image from 'next/image'
 import type { OfferOverviewBlock } from '@/payload-types'
 import Container from '../ui/container'
+import Heading from '../ui/heading'
 
 export default function OfferOverview({ title, description, offers }: OfferOverviewBlock) {
   return (
     <section className="bg-gray-50 py-24 lg:py-40">
       <Container className="grid grid-cols-5 gap-16">
         <div className="col-span-5 md:col-span-2">
-          <h2 className="mb-8 text-4xl text-balance text-gray-900">{title}</h2>
+          <Heading level="h2" tag="h2" className="mb-8">
+            {title}
+          </Heading>
           <p className="text-xl">{description}</p>
         </div>
 

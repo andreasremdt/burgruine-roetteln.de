@@ -4,6 +4,7 @@ import { cn } from '@/lib/utils'
 import Container from '../ui/container'
 import { getEvents } from '@/lib/fetchers'
 import Prose from './prose'
+import Heading from '../ui/heading'
 
 function isPreviousEvent(event: Event) {
   return event.date < new Date().toISOString()
@@ -16,7 +17,9 @@ export default async function Events({ title, description }: EventsBlock) {
   return (
     <section className="py-24 lg:py-40" id="veranstaltungen">
       <Container>
-        <h2 className="mb-16 text-center text-5xl text-gray-900">{title}</h2>
+        <Heading level="h1" tag="h2" className="mb-16 text-center">
+          {title}
+        </Heading>
         {description ? <p className="mb-16 text-5xl text-gray-900">{description}</p> : null}
 
         {events.map((event) => (

@@ -1,8 +1,9 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import { cn } from '@/lib/utils'
-import Container from '../ui/container'
 import { getHeader } from '@/lib/fetchers'
+import Container from '../ui/container'
 import ImageKitImage from '../imagekit-image'
+import Heading from '../ui/heading'
 
 type Props = ComponentPropsWithoutRef<'section'> & {
   title: string
@@ -29,7 +30,9 @@ export default async function ImageHero({ title, className, ...props }: Props) {
       />
 
       <Container className="relative z-20 flex h-full items-end justify-center">
-        <h1 className="mb-16 text-5xl text-white">{title}</h1>
+        <Heading level="h1" tag="h1" className="mb-16 text-white">
+          {title}
+        </Heading>
       </Container>
     </section>
   )

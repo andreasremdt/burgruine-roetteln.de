@@ -3,6 +3,7 @@ import type { ToursBlock } from '@/payload-types'
 import { cn } from '@/lib/utils'
 import Container from '../ui/container'
 import ImageKitImage from '../imagekit-image'
+import Heading from '../ui/heading'
 
 export default function ToursBlock({ title, description, tours, dark }: ToursBlock) {
   return (
@@ -24,7 +25,9 @@ export default function ToursBlock({ title, description, tours, dark }: ToursBlo
         >
           {title}
         </h2>
-        <p className="mb-16 text-5xl">{description}</p>
+        <Heading level="h1" tag="p" className="mb-16">
+          {description}
+        </Heading>
 
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:gap-16">
           {tours.map((tour) => {
@@ -42,7 +45,9 @@ export default function ToursBlock({ title, description, tours, dark }: ToursBlo
                   className="mb-4 aspect-video w-full object-cover sm:aspect-square"
                 />
                 <div>
-                  <h3 className="mb-2 text-3xl">{tour.title}</h3>
+                  <Heading level="h3" tag="h3">
+                    {tour.title}
+                  </Heading>
                   <Link
                     className={cn(
                       'font-sans font-medium uppercase transition-colors after:absolute after:inset-0',

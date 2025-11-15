@@ -9,9 +9,9 @@ export default async function Header() {
   return (
     <header className="relative z-20 text-white">
       <Container className="flex h-24 items-center justify-between gap-4 border-b border-gray-500 md:h-32">
-        <a href="/" className="font-serif text-3xl sm:text-4xl">
+        <Link href="/" className="font-serif text-3xl sm:text-4xl">
           Burgruine Rötteln
-        </a>
+        </Link>
 
         <button
           type="button"

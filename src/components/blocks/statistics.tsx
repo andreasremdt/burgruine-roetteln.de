@@ -2,6 +2,7 @@ import type { StatisticsBlock } from '@/payload-types'
 import Container from '../ui/container'
 import Prose from './prose'
 import Button from '../ui/button'
+import Heading from '../ui/heading'
 
 export default function Statistics({
   title,
@@ -16,7 +17,9 @@ export default function Statistics({
         <h2 className="mb-2 flex items-center font-sans font-medium text-gray-600 uppercase before:mr-4 before:block before:h-px before:w-8 before:bg-gray-600">
           {title}
         </h2>
-        <p className="mb-16 max-w-1/2 text-5xl text-gray-900">{description}</p>
+        <Heading level="h1" tag="p" className="mb-16 max-w-1/2">
+          {description}
+        </Heading>
 
         <div className="ml-[35%]">
           <dl className="mb-16 grid grid-cols-3 gap-16">
