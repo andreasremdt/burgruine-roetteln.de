@@ -6,10 +6,10 @@ import Prose from './prose'
 export default function Timeline({ description, items }: TimelineBlock) {
   return (
     <Container tag="section" aria-label="Timeline" className="py-24 lg:py-40">
-      <p className="mb-24 text-3xl text-neutral-900 md:text-4xl lg:mb-40">{description}</p>
+      <p className="mb-24 text-3xl text-gray-900 md:text-4xl lg:mb-40">{description}</p>
 
       {items ? (
-        <ul className="relative after:absolute after:top-0 after:bottom-0 after:left-1/2 after:-z-10 after:w-px md:after:bg-neutral-300">
+        <ul className="relative after:absolute after:top-0 after:bottom-0 after:left-1/2 after:-z-10 after:w-px md:after:bg-gray-300">
           {items.map((item, index) => (
             <li
               key={item.id}
@@ -18,7 +18,7 @@ export default function Timeline({ description, items }: TimelineBlock) {
                 index % 2 === 1 ? 'md:items-end md:text-right' : '',
               )}
             >
-              <h3 className="text-primary-500 mb-2 bg-white font-sans text-2xl font-bold md:absolute md:left-1/2 md:-translate-x-1/2">
+              <h3 className="mb-2 bg-white font-sans text-2xl font-bold text-gray-500 md:absolute md:left-1/2 md:-translate-x-1/2">
                 {item.year}
               </h3>
               <Prose className="mt-2 md:max-w-1/3" content={item.content} />
@@ -26,7 +26,7 @@ export default function Timeline({ description, items }: TimelineBlock) {
           ))}
           {/* <li class="relative mb-20 flex flex-col">
             <h3
-                class="text-primary-500 mb-2 bg-white font-sans text-2xl font-bold md:absolute md:left-1/2 md:-translate-x-1/2"
+                class="text-gray-500 mb-2 bg-white font-sans text-2xl font-bold md:absolute md:left-1/2 md:-translate-x-1/2"
             >
                 751
             </h3>
@@ -37,7 +37,7 @@ export default function Timeline({ description, items }: TimelineBlock) {
             </li>
             <li class="relative mb-20 flex flex-col md:items-end md:text-right">
             <h3
-                class="text-primary-500 mb-2 bg-white font-sans text-2xl font-bold md:absolute md:left-1/2 md:-translate-x-1/2"
+                class="text-gray-500 mb-2 bg-white font-sans text-2xl font-bold md:absolute md:left-1/2 md:-translate-x-1/2"
             >
                 1103
             </h3>
@@ -58,7 +58,7 @@ export default function Timeline({ description, items }: TimelineBlock) {
             </li> */}
           {/* <li class="relative mb-20 flex flex-col">
             <h3
-                class="text-primary-500 mb-2 bg-white font-sans text-2xl font-bold md:absolute md:left-1/2 md:-translate-x-1/2"
+                class="text-gray-500 mb-2 bg-white font-sans text-2xl font-bold md:absolute md:left-1/2 md:-translate-x-1/2"
             >
                 1147
             </h3>
@@ -68,7 +68,7 @@ export default function Timeline({ description, items }: TimelineBlock) {
             </li>
             <li class="relative mb-20 flex flex-col md:items-end md:text-right">
             <h3
-                class="text-primary-500 mb-2 bg-white font-sans text-2xl font-bold md:absolute md:left-1/2 md:-translate-x-1/2"
+                class="text-gray-500 mb-2 bg-white font-sans text-2xl font-bold md:absolute md:left-1/2 md:-translate-x-1/2"
             >
                 1259
             </h3>
@@ -78,7 +78,7 @@ export default function Timeline({ description, items }: TimelineBlock) {
             </li>
             <li class="relative mb-20 flex flex-col">
             <h3
-                class="text-primary-500 mb-2 bg-white font-sans text-2xl font-bold md:absolute md:left-1/2 md:-translate-x-1/2"
+                class="text-gray-500 mb-2 bg-white font-sans text-2xl font-bold md:absolute md:left-1/2 md:-translate-x-1/2"
             >
                 1315
             </h3>
@@ -99,7 +99,7 @@ export default function Timeline({ description, items }: TimelineBlock) {
             </li>
             <li class="relative mb-20 flex flex-col md:items-end md:text-right">
             <h3
-                class="text-primary-500 mb-2 bg-white font-sans text-2xl font-bold md:absolute md:left-1/2 md:-translate-x-1/2"
+                class="text-gray-500 mb-2 bg-white font-sans text-2xl font-bold md:absolute md:left-1/2 md:-translate-x-1/2"
             >
                 1356
             </h3>
@@ -110,7 +110,7 @@ export default function Timeline({ description, items }: TimelineBlock) {
             </li>
             <li class="relative mb-20 flex flex-col">
             <h3
-                class="text-primary-500 mb-2 bg-white font-sans text-2xl font-bold md:absolute md:left-1/2 md:-translate-x-1/2"
+                class="text-gray-500 mb-2 bg-white font-sans text-2xl font-bold md:absolute md:left-1/2 md:-translate-x-1/2"
             >
                 1444
             </h3>
@@ -131,7 +131,7 @@ export default function Timeline({ description, items }: TimelineBlock) {
             </li>
             <li class="relative mb-20 flex flex-col md:items-end md:text-right">
             <h3
-                class="text-primary-500 mb-2 bg-white font-sans text-2xl font-bold md:absolute md:left-1/2 md:-translate-x-1/2"
+                class="text-gray-500 mb-2 bg-white font-sans text-2xl font-bold md:absolute md:left-1/2 md:-translate-x-1/2"
             >
                 1503
             </h3>
@@ -141,7 +141,7 @@ export default function Timeline({ description, items }: TimelineBlock) {
             </li>
             <li class="relative mb-20 flex flex-col">
             <h3
-                class="text-primary-500 mb-2 bg-white font-sans text-2xl font-bold md:absolute md:left-1/2 md:-translate-x-1/2"
+                class="text-gray-500 mb-2 bg-white font-sans text-2xl font-bold md:absolute md:left-1/2 md:-translate-x-1/2"
             >
                 1525
             </h3>
@@ -152,7 +152,7 @@ export default function Timeline({ description, items }: TimelineBlock) {
             </li>
             <li class="relative mb-20 flex flex-col md:items-end md:text-right">
             <h3
-                class="text-primary-500 mb-2 bg-white font-sans text-2xl font-bold md:absolute md:left-1/2 md:-translate-x-1/2"
+                class="text-gray-500 mb-2 bg-white font-sans text-2xl font-bold md:absolute md:left-1/2 md:-translate-x-1/2"
             >
                 1678
             </h3>
@@ -163,7 +163,7 @@ export default function Timeline({ description, items }: TimelineBlock) {
             </li>
             <li class="relative mb-20 flex flex-col">
             <h3
-                class="text-primary-500 mb-2 bg-white font-sans text-2xl font-bold md:absolute md:left-1/2 md:-translate-x-1/2"
+                class="text-gray-500 mb-2 bg-white font-sans text-2xl font-bold md:absolute md:left-1/2 md:-translate-x-1/2"
             >
                 1926
             </h3>
@@ -173,7 +173,7 @@ export default function Timeline({ description, items }: TimelineBlock) {
             </li>
             <li class="relative mb-20 flex flex-col md:items-end md:text-right">
             <h3
-                class="text-primary-500 mb-2 bg-white font-sans text-2xl font-bold md:absolute md:left-1/2 md:-translate-x-1/2"
+                class="text-gray-500 mb-2 bg-white font-sans text-2xl font-bold md:absolute md:left-1/2 md:-translate-x-1/2"
             >
                 1989
             </h3>
@@ -183,7 +183,7 @@ export default function Timeline({ description, items }: TimelineBlock) {
             </li>
             <li class="relative mb-20 flex flex-col">
             <h3
-                class="text-primary-500 mb-2 bg-white font-sans text-2xl font-bold md:absolute md:left-1/2 md:-translate-x-1/2"
+                class="text-gray-500 mb-2 bg-white font-sans text-2xl font-bold md:absolute md:left-1/2 md:-translate-x-1/2"
             >
                 2001
             </h3>
@@ -194,7 +194,7 @@ export default function Timeline({ description, items }: TimelineBlock) {
             </li>
             <li class="relative mb-20 flex flex-col md:items-end md:text-right">
             <h3
-                class="text-primary-500 mb-2 bg-white font-sans text-2xl font-bold md:absolute md:left-1/2 md:-translate-x-1/2"
+                class="text-gray-500 mb-2 bg-white font-sans text-2xl font-bold md:absolute md:left-1/2 md:-translate-x-1/2"
             >
                 2010
             </h3>
@@ -204,7 +204,7 @@ export default function Timeline({ description, items }: TimelineBlock) {
             </li>
             <li class="relative mb-20 flex flex-col">
             <h3
-                class="text-primary-500 mb-2 bg-white font-sans text-2xl font-bold md:absolute md:left-1/2 md:-translate-x-1/2"
+                class="text-gray-500 mb-2 bg-white font-sans text-2xl font-bold md:absolute md:left-1/2 md:-translate-x-1/2"
             >
                 2019
             </h3>
@@ -215,7 +215,7 @@ export default function Timeline({ description, items }: TimelineBlock) {
             </li>
             <li class="relative mb-20 flex flex-col md:items-end md:text-right">
             <h3
-                class="text-primary-500 mb-2 bg-white font-sans text-2xl font-bold md:absolute md:left-1/2 md:-translate-x-1/2"
+                class="text-gray-500 mb-2 bg-white font-sans text-2xl font-bold md:absolute md:left-1/2 md:-translate-x-1/2"
             >
                 2022
             </h3>
@@ -225,7 +225,7 @@ export default function Timeline({ description, items }: TimelineBlock) {
             </li>
             <li class="relative flex flex-col">
             <h3
-                class="text-primary-500 mb-2 bg-white font-sans text-2xl font-bold md:absolute md:left-1/2 md:-translate-x-1/2"
+                class="text-gray-500 mb-2 bg-white font-sans text-2xl font-bold md:absolute md:left-1/2 md:-translate-x-1/2"
             >
                 2023
             </h3>
@@ -236,7 +236,7 @@ export default function Timeline({ description, items }: TimelineBlock) {
             </li> */}
         </ul>
       ) : (
-        <p className="text-center text-2xl text-neutral-900">Keine Einträge in der Timeline.</p>
+        <p className="text-center text-2xl text-gray-900">Keine Einträge in der Timeline.</p>
       )}
     </Container>
   )

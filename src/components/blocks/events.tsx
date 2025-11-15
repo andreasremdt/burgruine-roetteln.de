@@ -16,15 +16,15 @@ export default async function Events({ title, description }: EventsBlock) {
   return (
     <section className="py-24 lg:py-40" id="veranstaltungen">
       <Container>
-        <h2 className="mb-16 text-center text-5xl text-neutral-900">{title}</h2>
-        {description ? <p className="mb-16 text-5xl text-neutral-900">{description}</p> : null}
+        <h2 className="mb-16 text-center text-5xl text-gray-900">{title}</h2>
+        {description ? <p className="mb-16 text-5xl text-gray-900">{description}</p> : null}
 
         {events.map((event) => (
           <article
             className={cn(
-              'relative mb-12 grid-cols-6 gap-8 border-b border-neutral-300 pb-12 transition-opacity last:mb-0 last:border-b-0 last:pb-0 hover:opacity-100 md:grid',
+              'relative mb-12 grid-cols-6 gap-8 border-b border-gray-300 pb-12 transition-opacity last:mb-0 last:border-b-0 last:pb-0 hover:opacity-100 md:grid',
               {
-                'border-primary-300 to-primary-50 bg-linear-to-b from-white':
+                'to-primary-50 border-gray-300 bg-linear-to-b from-white':
                   nextEvent?.id === event.id,
                 'opacity-50': isPreviousEvent(event) && nextEvent,
               },
@@ -37,11 +37,11 @@ export default async function Events({ title, description }: EventsBlock) {
             >
               {event.displayedDate}
               {event.time ? (
-                <span className="block text-base font-normal text-neutral-500">{event.time}</span>
+                <span className="block text-base font-normal text-gray-500">{event.time}</span>
               ) : null}
             </time>
             <div className="col-span-4 lg:col-span-5">
-              <h3 className="mb-2 text-3xl text-neutral-900">{event.title}</h3>
+              <h3 className="mb-2 text-3xl text-gray-900">{event.title}</h3>
 
               {event.description ? <Prose content={event.description} /> : null}
               {event.url ? (
@@ -49,14 +49,14 @@ export default async function Events({ title, description }: EventsBlock) {
                   href={event.url}
                   target="_blank"
                   rel="noopener noreferrer nofollow"
-                  className="mt-4 inline-block font-sans uppercase transition-colors hover:text-neutral-600 hover:underline focus-visible:text-neutral-600"
+                  className="mt-4 inline-block font-sans uppercase transition-colors hover:text-gray-600 hover:underline focus-visible:text-gray-600"
                 >
                   Mehr erfahren
                 </Link>
               ) : null}
 
               {nextEvent?.id === event.id ? (
-                <p className="text-primary-500 absolute right-0 bottom-2 font-sans text-sm font-medium uppercase">
+                <p className="absolute right-0 bottom-2 font-sans text-sm font-medium text-gray-500 uppercase">
                   Nächste Veranstaltung
                 </p>
               ) : null}

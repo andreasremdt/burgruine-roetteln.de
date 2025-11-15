@@ -7,7 +7,7 @@ export default async function Footer() {
   const footer = await getFooterInfo()
 
   return (
-    <footer className="bg-neutral-900 text-sm text-neutral-300">
+    <footer className="bg-gray-900 text-sm text-gray-300">
       <figure className="grid grid-cols-6">
         {footer.image.map((image) => (
           <ImageKitImage
@@ -121,7 +121,7 @@ export default async function Footer() {
         </div>
       </Container>
 
-      <div className="border-t border-neutral-600 py-8 text-center">
+      <div className="border-t border-gray-700 py-8 text-center">
         <p>&copy; {new Date().getFullYear()} Burgruine Rötteln. Alle Rechte vorbehalten.</p>
       </div>
     </footer>

@@ -10,12 +10,12 @@ export default async function OpeningHours({ layout, background }: OpeningHoursB
   return (
     <dl
       className={cn('grid grid-cols-1 font-sans', {
-        'rounded-sm bg-neutral-100 p-12': background,
+        'rounded-sm bg-gray-50 p-12': background,
         'mx-auto max-w-7xl gap-16 px-4 py-24 md:grid-cols-4': layout === 'horizontal',
       })}
     >
       <div>
-        <dt className="flex items-center gap-4 font-medium text-neutral-900">
+        <dt className="flex items-center gap-4 font-medium text-gray-900">
           <Icon name="clock" className="size-5" />
           Öffnungszeiten Unterburg
         </dt>
@@ -27,10 +27,10 @@ export default async function OpeningHours({ layout, background }: OpeningHoursB
       </div>
       <div
         className={cn({
-          'mt-4 border-t border-neutral-200 pt-4': layout === 'vertical',
+          'mt-4 border-t border-gray-200 pt-4': layout === 'vertical',
         })}
       >
-        <dt className="flex items-center gap-4 font-medium text-neutral-900">
+        <dt className="flex items-center gap-4 font-medium text-gray-900">
           <Icon name="clock" className="size-5" />
           Öffnungszeiten Oberburg
         </dt>
@@ -42,10 +42,10 @@ export default async function OpeningHours({ layout, background }: OpeningHoursB
       </div>
       <div
         className={cn({
-          'mt-4 border-t border-neutral-200 pt-4': layout === 'vertical',
+          'mt-4 border-t border-gray-200 pt-4': layout === 'vertical',
         })}
       >
-        <dt className="flex items-center gap-4 font-medium text-neutral-900">
+        <dt className="flex items-center gap-4 font-medium text-gray-900">
           <Icon name="map-pin" className="size-5" />
           Lage
         </dt>
@@ -53,10 +53,10 @@ export default async function OpeningHours({ layout, background }: OpeningHoursB
       </div>
       <div
         className={cn({
-          'mt-4 border-t border-neutral-200 pt-4': layout === 'vertical',
+          'mt-4 border-t border-gray-200 pt-4': layout === 'vertical',
         })}
       >
-        <dt className="flex items-center gap-4 font-medium text-neutral-900">
+        <dt className="flex items-center gap-4 font-medium text-gray-900">
           <Icon name="lightning" className="size-5" />
           Ausnahmen
         </dt>

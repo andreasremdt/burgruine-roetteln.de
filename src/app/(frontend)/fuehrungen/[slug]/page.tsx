@@ -26,7 +26,7 @@ export default async function Page({ params }: Props) {
     <>
       <AdvancedHero title={tour.title} subtitle={tour.subtitle} description={tour.description} />
 
-      <section className="bg-primary-50 pb-24 lg:pb-40">
+      <section className="bg-gray-50 pb-24 lg:pb-40">
         <Container className="relative grid grid-cols-2 gap-16">
           <figure className="col-span-2 md:col-span-1">
             <ImageKitImage

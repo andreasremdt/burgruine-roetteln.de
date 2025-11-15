@@ -8,7 +8,7 @@ export default async function Costs({ title, description }: CostsBlock) {
   return (
     <section className="pb-24 lg:pb-40" id="eintrittspreise">
       <Container>
-        <h2 className="text-5xl text-neutral-900 md:text-center">{title}</h2>
+        <h2 className="text-5xl text-gray-900 md:text-center">{title}</h2>
         <p className="text-2xl md:text-center">{description}</p>
 
         {items ? (
@@ -19,7 +19,7 @@ export default async function Costs({ title, description }: CostsBlock) {
                   {item.title}:
                   {item.description ? <i className="block">{item.description}</i> : null}
                 </span>
-                <b className="font-bold text-neutral-900">{item.price}</b>
+                <b className="font-bold text-gray-900">{item.price}</b>
               </li>
             ))}
           </ul>

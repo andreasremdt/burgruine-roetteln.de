@@ -9,10 +9,10 @@ type Props = {
 
 export default function Header({ border = true }: Props) {
   return (
-    <header className="relative z-10 text-neutral-900">
+    <header className="relative z-10 text-gray-900">
       <Container
         className={cn('flex h-24 items-center justify-between gap-4 md:h-32', {
-          'border-b border-neutral-300': border,
+          'border-b border-gray-300': border,
         })}
       >
         <a href="/" className="font-serif text-3xl sm:text-4xl">
@@ -26,7 +26,7 @@ export default function Header({ border = true }: Props) {
           aria-controls="menu"
           aria-expanded="false"
           data-action="toggle-menu"
-          className="z-20 block cursor-pointer transition-colors hover:text-neutral-700 focus-visible:text-neutral-700 lg:hidden"
+          className="z-20 block cursor-pointer transition-colors hover:text-gray-700 focus-visible:text-gray-700 lg:hidden"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -59,14 +59,14 @@ export default function Header({ border = true }: Props) {
             <li>
               <Link
                 href="/burg"
-                className="transition-colors hover:text-neutral-700 focus-visible:text-neutral-700"
+                className="transition-colors hover:text-gray-700 focus-visible:text-gray-700"
               >
                 Die Burg
               </Link>
             </li>
             <li className="group relative">
               <Link
-                className="text flex items-center gap-2 transition-colors hover:text-neutral-700 focus-visible:text-neutral-700"
+                className="text flex items-center gap-2 transition-colors hover:text-gray-700 focus-visible:text-gray-700"
                 href="/besuchen"
               >
                 Ihr Besuch
@@ -75,7 +75,7 @@ export default function Header({ border = true }: Props) {
               <ul className="top-full left-0 rounded-sm bg-white py-2 group-focus-within:block group-hover:block lg:absolute lg:hidden lg:shadow-sm">
                 <li>
                   <Link
-                    className="block px-4 py-2 transition-colors hover:bg-neutral-100 focus-visible:bg-neutral-100"
+                    className="block px-4 py-2 transition-colors hover:bg-gray-100 focus-visible:bg-gray-100"
                     href="/besuchen#anfahrt"
                   >
                     Anfahrt
@@ -83,7 +83,7 @@ export default function Header({ border = true }: Props) {
                 </li>
                 <li>
                   <Link
-                    className="block px-4 py-2 transition-colors hover:bg-neutral-100 focus-visible:bg-neutral-100"
+                    className="block px-4 py-2 transition-colors hover:bg-gray-100 focus-visible:bg-gray-100"
                     href="/besuchen#eintrittspreise"
                   >
                     Eintrittspreise
@@ -91,7 +91,7 @@ export default function Header({ border = true }: Props) {
                 </li>
                 <li>
                   <Link
-                    className="block px-4 py-2 transition-colors hover:bg-neutral-100 focus-visible:bg-neutral-100"
+                    className="block px-4 py-2 transition-colors hover:bg-gray-100 focus-visible:bg-gray-100"
                     href="/besuchen#veranstaltungen"
                   >
                     Veranstaltungen
@@ -101,7 +101,7 @@ export default function Header({ border = true }: Props) {
             </li>
             <li className="group relative">
               <Link
-                className="text flex items-center gap-2 transition-colors hover:text-neutral-700 focus-visible:text-neutral-700"
+                className="text flex items-center gap-2 transition-colors hover:text-gray-700 focus-visible:text-gray-700"
                 href="/fuehrungen"
               >
                 Führungen <Icon name="chevron-down" className="hidden lg:block" />
@@ -109,7 +109,7 @@ export default function Header({ border = true }: Props) {
               <ul className="top-full left-0 rounded-sm bg-white py-2 group-focus-within:block group-hover:block lg:absolute lg:hidden lg:shadow-sm">
                 <li>
                   <Link
-                    className="block px-4 py-2 transition-colors hover:bg-neutral-100 focus-visible:bg-neutral-100"
+                    className="block px-4 py-2 transition-colors hover:bg-gray-100 focus-visible:bg-gray-100"
                     href="/fuehrungen/regulaere-fuehrungen"
                   >
                     Reguläre Führungen
@@ -117,7 +117,7 @@ export default function Header({ border = true }: Props) {
                 </li>
                 <li>
                   <Link
-                    className="block px-4 py-2 transition-colors hover:bg-neutral-100 focus-visible:bg-neutral-100"
+                    className="block px-4 py-2 transition-colors hover:bg-gray-100 focus-visible:bg-gray-100"
                     href="/fuehrungen/kinder-schulklassen"
                   >
                     Kinder- und Schulklassen
@@ -125,7 +125,7 @@ export default function Header({ border = true }: Props) {
                 </li>
                 <li>
                   <Link
-                    className="block px-4 py-2 transition-colors hover:bg-neutral-100 focus-visible:bg-neutral-100"
+                    className="block px-4 py-2 transition-colors hover:bg-gray-100 focus-visible:bg-gray-100"
                     href="/fuehrungen/sonderfuehrungen"
                   >
                     Sonderführungen
@@ -133,7 +133,7 @@ export default function Header({ border = true }: Props) {
                 </li>
                 <li>
                   <Link
-                    className="block px-4 py-2 transition-colors hover:bg-neutral-100 focus-visible:bg-neutral-100"
+                    className="block px-4 py-2 transition-colors hover:bg-gray-100 focus-visible:bg-gray-100"
                     href="/fuehrungen/virtuelle-fuehrungen"
                   >
                     Virtuelle Führungen
@@ -141,7 +141,7 @@ export default function Header({ border = true }: Props) {
                 </li>
                 <li>
                   <Link
-                    className="block px-4 py-2 transition-colors hover:bg-neutral-100 focus-visible:bg-neutral-100"
+                    className="block px-4 py-2 transition-colors hover:bg-gray-100 focus-visible:bg-gray-100"
                     href="/fuehrungen/kindergeburtstage"
                   >
                     Kindergeburtstage
@@ -149,7 +149,7 @@ export default function Header({ border = true }: Props) {
                 </li>
                 <li>
                   <Link
-                    className="block px-4 py-2 transition-colors hover:bg-neutral-100 focus-visible:bg-neutral-100"
+                    className="block px-4 py-2 transition-colors hover:bg-gray-100 focus-visible:bg-gray-100"
                     href="/fuehrungen/burgwaechterrundgang"
                   >
                     Burgwächterrundgang
@@ -159,7 +159,7 @@ export default function Header({ border = true }: Props) {
             </li>
             <li className="group relative">
               <Link
-                className="text flex items-center gap-2 transition-colors hover:text-neutral-700 focus-visible:text-neutral-700"
+                className="text flex items-center gap-2 transition-colors hover:text-gray-700 focus-visible:text-gray-700"
                 href="/verein"
               >
                 Der Verein <Icon name="chevron-down" className="hidden lg:block" />
@@ -167,7 +167,7 @@ export default function Header({ border = true }: Props) {
               <ul className="top-full left-0 rounded-sm bg-white py-2 group-focus-within:block group-hover:block lg:absolute lg:hidden lg:shadow-sm">
                 <li>
                   <Link
-                    className="block px-4 py-2 transition-colors hover:bg-neutral-100 focus-visible:bg-neutral-100"
+                    className="block px-4 py-2 transition-colors hover:bg-gray-100 focus-visible:bg-gray-100"
                     href="/verein#arbeitsgruppe"
                   >
                     Arbeitsgruppe
@@ -177,7 +177,7 @@ export default function Header({ border = true }: Props) {
             </li>
             <li>
               <Link
-                className="transition-colors hover:text-neutral-700 focus-visible:text-neutral-700"
+                className="transition-colors hover:text-gray-700 focus-visible:text-gray-700"
                 href="/kontakt"
               >
                 Kontakt

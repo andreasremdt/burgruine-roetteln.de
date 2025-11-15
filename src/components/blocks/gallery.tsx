@@ -10,14 +10,14 @@ type Props = GalleryBlock & {
 
 export default function Gallery({ title, description, images, className }: Props) {
   return (
-    <section className={cn('bg-primary-50 py-24 lg:py-40', className)}>
+    <section className={cn('bg-gray-50 py-24 lg:py-40', className)}>
       <Container>
         {description ? (
-          <h2 className="mb-2 flex items-center font-sans font-medium text-neutral-600 uppercase before:mr-4 before:block before:h-px before:w-8 before:bg-neutral-600">
+          <h2 className="mb-2 flex items-center font-sans font-medium text-gray-600 uppercase before:mr-4 before:block before:h-px before:w-8 before:bg-gray-600">
             {title}
           </h2>
         ) : null}
-        <p className="mb-16 text-5xl text-neutral-900">{description || title}</p>
+        <p className="mb-16 text-5xl text-gray-900">{description || title}</p>
 
         <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
           {images.map((image) => (

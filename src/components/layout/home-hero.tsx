@@ -12,7 +12,7 @@ export default function HomeHero({ title, description, className, ...props }: Pr
   return (
     <section
       className={cn(
-        'bg-primary-50 -mt-24 flex max-h-220 flex-col justify-end bg-cover bg-center bg-no-repeat pt-32 pb-8 sm:h-[75vw] sm:pt-0 md:-mt-32 md:justify-center md:pb-0',
+        '-mt-24 flex max-h-220 flex-col justify-end bg-gray-50 bg-cover bg-center bg-no-repeat pt-32 pb-8 sm:h-[75vw] sm:pt-0 md:-mt-32 md:justify-center md:pb-0',
         className,
       )}
       style={{

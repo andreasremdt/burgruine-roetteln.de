@@ -5,10 +5,10 @@ import Container from '../ui/container'
 
 export default function OfferOverview({ title, description, offers }: OfferOverviewBlock) {
   return (
-    <section className="bg-primary-50 py-24 lg:py-40">
+    <section className="bg-gray-50 py-24 lg:py-40">
       <Container className="grid grid-cols-5 gap-16">
         <div className="col-span-5 md:col-span-2">
-          <h2 className="mb-8 text-4xl text-balance text-neutral-900">{title}</h2>
+          <h2 className="mb-8 text-4xl text-balance text-gray-900">{title}</h2>
           <p className="text-xl">{description}</p>
         </div>
 
@@ -18,7 +18,7 @@ export default function OfferOverview({ title, description, offers }: OfferOverv
               <Image src="/history.svg" width="60" height="60" className="mb-4 opacity-50" alt="" />
               <h3 className="mb-2 text-3xl">
                 <Link
-                  className="text-neutral-900 transition-colors hover:text-neutral-700 focus-visible:text-neutral-700"
+                  className="text-gray-900 transition-colors hover:text-gray-700 focus-visible:text-gray-700"
                   href={offer.url}
                 >
                   {offer.title}

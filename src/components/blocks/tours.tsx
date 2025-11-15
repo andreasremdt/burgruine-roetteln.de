@@ -8,8 +8,8 @@ export default function ToursBlock({ title, description, tours, dark }: ToursBlo
   return (
     <section
       className={cn('py-24 lg:py-40', {
-        'bg-primary-100': !dark,
-        'bg-neutral-900 text-white': dark,
+        'bg-gray-100': !dark,
+        'bg-gray-900 text-white': dark,
       })}
     >
       <Container className="mx-auto max-w-7xl px-4">
@@ -17,7 +17,7 @@ export default function ToursBlock({ title, description, tours, dark }: ToursBlo
           className={cn(
             'mb-2 flex items-center font-sans font-medium uppercase before:mr-4 before:block before:h-px before:w-8',
             {
-              'before:bg-neutral-600': !dark,
+              'before:bg-gray-600': !dark,
               'before:bg-white': dark,
             },
           )}
@@ -47,10 +47,8 @@ export default function ToursBlock({ title, description, tours, dark }: ToursBlo
                     className={cn(
                       'font-sans font-medium uppercase transition-colors after:absolute after:inset-0',
                       {
-                        'text-primary-300 hover:text-primary-400 focus-visible:text-primary-400':
-                          dark,
-                        'text-primary-500 hover:text-primary-500 focus-visible:text-primary-500':
-                          !dark,
+                        'text-gray-300 hover:text-gray-400 focus-visible:text-gray-400': dark,
+                        'text-gray-500 hover:text-gray-500 focus-visible:text-gray-500': !dark,
                       },
                     )}
                     href={`/fuehrungen/${tour.slug}`}

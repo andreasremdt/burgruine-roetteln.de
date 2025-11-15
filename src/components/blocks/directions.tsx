@@ -10,13 +10,13 @@ const Map = dynamic(() => import('../ui/map'), { ssr: false })
 export default function Directions({ title, description, buttons }: DirectionsBlock) {
   return (
     <section
-      className="bg-primary-50 grid grid-cols-1 lg:grid-cols-[auto_minmax(0%,640px)_minmax(0%,640px)_auto]"
+      className="grid grid-cols-1 bg-gray-50 lg:grid-cols-[auto_minmax(0%,640px)_minmax(0%,640px)_auto]"
       id="anfahrt"
     >
       <Map className="order-1 col-span-2 hidden h-full w-full lg:block" />
 
       <div className="order-1 py-16 pr-4 pl-4 lg:pl-16">
-        <h2 className="mb-8 text-5xl text-neutral-900">{title}</h2>
+        <h2 className="mb-8 text-5xl text-gray-900">{title}</h2>
 
         <Prose content={description} />
 

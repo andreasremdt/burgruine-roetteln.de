@@ -9,12 +9,12 @@ export default function TwoColumnsWithImage({
   image,
 }: TwoColumnsWithImageBlock) {
   return (
-    <section className="after:bg-primary-50 relative pt-24 after:absolute after:right-0 after:bottom-0 after:left-0 after:-z-10 after:h-32 lg:pt-40">
+    <section className="relative pt-24 after:absolute after:right-0 after:bottom-0 after:left-0 after:-z-10 after:h-32 after:bg-gray-50 lg:pt-40">
       <Container>
-        <h2 className="mb-2 flex items-center font-sans font-medium text-neutral-600 uppercase before:mr-4 before:block before:h-px before:w-8 before:bg-neutral-600">
+        <h2 className="mb-2 flex items-center font-sans font-medium text-gray-600 uppercase before:mr-4 before:block before:h-px before:w-8 before:bg-gray-600">
           {title}
         </h2>
-        <p className="mb-16 text-5xl text-neutral-900">{description}</p>
+        <p className="mb-16 text-5xl text-gray-900">{description}</p>
 
         <p className="mb-16 ml-[35%] columns-2 gap-18 text-xl">{content}</p>
 

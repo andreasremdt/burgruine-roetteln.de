@@ -20,7 +20,7 @@ export default function Prose({ content, className }: Props) {
       }}
       data={content}
       className={cn(
-        'prose prose-a:underline prose-xl prose-blockquote:text-primary-800 prose-blockquote:mb-8 prose-blockquote:-translate-x-48 max-w-none',
+        'prose prose-a:underline prose-xl prose-blockquote:text-gray-800 prose-blockquote:mb-8 prose-blockquote:-translate-x-48 max-w-none',
         className,
       )}
     />

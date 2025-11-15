@@ -12,12 +12,12 @@ export default function TextWithTwoImages({
   buttons,
 }: TextWithTwoImagesBlock) {
   return (
-    <section className="bg-primary-100 relative border-b border-neutral-300 pt-24 pb-24 after:absolute after:right-0 after:bottom-0 after:left-0 after:h-56 after:bg-white lg:pt-40">
+    <section className="relative border-b border-gray-300 bg-gray-100 pt-24 pb-24 after:absolute after:right-0 after:bottom-0 after:left-0 after:h-56 after:bg-white lg:pt-40">
       <Container>
-        <h2 className="mb-2 flex items-center font-sans font-medium text-neutral-600 uppercase before:mr-4 before:block before:h-px before:w-8 before:bg-neutral-600">
+        <h2 className="mb-2 flex items-center font-sans font-medium text-gray-600 uppercase before:mr-4 before:block before:h-px before:w-8 before:bg-gray-600">
           {title}
         </h2>
-        <p className="mb-16 text-5xl text-neutral-900">{description}</p>
+        <p className="mb-16 text-5xl text-gray-900">{description}</p>
 
         <div className="mb-16 ml-[35%]">
           <Prose content={content} className="mb-4" />

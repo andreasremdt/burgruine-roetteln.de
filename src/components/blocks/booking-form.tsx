@@ -14,7 +14,7 @@ export default function BookingForm({ title, description }: BookingFormBlock) {
     <section className="pb-24 lg:pb-40">
       <Container className="grid grid-cols-1 gap-16 lg:grid-cols-3">
         <div>
-          <h2 className="mb-4 text-4xl text-neutral-900">{title}</h2>
+          <h2 className="mb-4 text-4xl text-gray-900">{title}</h2>
           <p className="mb-4 text-xl">{description}</p>
         </div>
 

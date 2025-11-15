@@ -5,7 +5,7 @@ export default function Textarea({ className, ...props }: ComponentPropsWithoutR
   return (
     <textarea
       className={cn(
-        'w-full rounded-sm border border-neutral-300 px-4 py-2 font-sans transition-colors hover:border-neutral-400 focus-visible:border-neutral-400',
+        'w-full rounded-sm border border-gray-300 px-4 py-2 font-sans transition-colors hover:border-gray-400 focus-visible:border-gray-400',
         className,
       )}
       {...props}

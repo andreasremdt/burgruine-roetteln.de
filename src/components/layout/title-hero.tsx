@@ -9,10 +9,7 @@ type Props = ComponentPropsWithoutRef<'section'> & {
 
 export default function ImageHero({ title, className, ...props }: Props) {
   return (
-    <section
-      className={cn('bg-primary-50 relative -mt-32 h-[75vh] max-h-96', className)}
-      {...props}
-    >
+    <section className={cn('relative -mt-32 h-[75vh] max-h-96 bg-gray-50', className)} {...props}>
       <Image
         src="https://ik.imagekit.io/6uqkzvybwk/burgruine-roetteln/main-hero_-jQldRFqI.webp"
         alt=""
@@ -23,7 +20,7 @@ export default function ImageHero({ title, className, ...props }: Props) {
       />
 
       <Container className="relative flex h-full items-end justify-center">
-        <h1 className="mb-16 text-5xl text-neutral-900">{title}</h1>
+        <h1 className="mb-16 text-5xl text-gray-900">{title}</h1>
       </Container>
     </section>
   )
