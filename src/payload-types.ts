@@ -280,6 +280,8 @@ export interface Page {
         | EventsBlock
         | OpeningHoursBlock
         | TimelineBlock
+        | OfferOverviewBlock
+        | TextWithSidebarBlock
       )[]
     | null;
   meta?: {
@@ -571,6 +573,50 @@ export interface TimelineBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "OfferOverviewBlock".
+ */
+export interface OfferOverviewBlock {
+  title: string;
+  description: string;
+  offers: {
+    title: string;
+    url: string;
+    description: string;
+    id?: string | null;
+  }[];
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'offer-overview';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TextWithSidebarBlock".
+ */
+export interface TextWithSidebarBlock {
+  title: string;
+  description: string;
+  content: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  sidebar: OpeningHoursBlock[];
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'text-with-sidebar';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "events".
  */
 export interface Event {
@@ -797,6 +843,8 @@ export interface PagesSelect<T extends boolean = true> {
         events?: T | EventsBlockSelect<T>;
         'opening-hours'?: T | OpeningHoursBlockSelect<T>;
         timeline?: T | TimelineBlockSelect<T>;
+        'offer-overview'?: T | OfferOverviewBlockSelect<T>;
+        'text-with-sidebar'?: T | TextWithSidebarBlockSelect<T>;
       };
   meta?:
     | T
@@ -975,6 +1023,40 @@ export interface TimelineBlockSelect<T extends boolean = true> {
         year?: T;
         content?: T;
         id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "OfferOverviewBlock_select".
+ */
+export interface OfferOverviewBlockSelect<T extends boolean = true> {
+  title?: T;
+  description?: T;
+  offers?:
+    | T
+    | {
+        title?: T;
+        url?: T;
+        description?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TextWithSidebarBlock_select".
+ */
+export interface TextWithSidebarBlockSelect<T extends boolean = true> {
+  title?: T;
+  description?: T;
+  content?: T;
+  sidebar?:
+    | T
+    | {
+        'opening-hours'?: T | OpeningHoursBlockSelect<T>;
       };
   id?: T;
   blockName?: T;

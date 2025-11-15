@@ -11,6 +11,8 @@ import events from '../blocks/events'
 import openingHours from '../blocks/opening-hours'
 import oneColumnWithImage from '../blocks/one-column-with-image'
 import timeline from '../blocks/timeline'
+import offerOverview from '../blocks/offer-overview'
+import textWithSidebar from '../blocks/text-with-sidebar'
 
 const pages: CollectionConfig = {
   slug: 'pages',
@@ -117,6 +119,8 @@ const pages: CollectionConfig = {
                 events,
                 openingHours,
                 timeline,
+                offerOverview,
+                textWithSidebar,
               ],
             },
           ],
