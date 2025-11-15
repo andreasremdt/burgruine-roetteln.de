@@ -1,8 +1,11 @@
 import Link from 'next/link'
 import Container from '../ui/container'
 import Icon from '../ui/icon'
+import { getTours } from '@/lib/fetchers'
 
-export default function Header() {
+export default async function Header() {
+  const tours = await getTours()
+  console.log(tours)
   return (
     <header className="relative z-20 text-white">
       <Container className="flex h-24 items-center justify-between gap-4 border-b border-gray-500 md:h-32">
@@ -17,7 +20,7 @@ export default function Header() {
           aria-controls="menu"
           aria-expanded="false"
           data-action="toggle-menu"
-          className="z-20 block cursor-pointer transition-colors hover:text-gray-700 focus-visible:text-gray-700 lg:hidden"
+          className="z-20 block cursor-pointer transition-colors hover:text-gray-200 focus-visible:text-gray-200 lg:hidden"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -50,23 +53,23 @@ export default function Header() {
             <li>
               <Link
                 href="/burg"
-                className="transition-colors hover:text-gray-700 focus-visible:text-gray-700"
+                className="transition-colors hover:text-gray-200 focus-visible:text-gray-200"
               >
                 Die Burg
               </Link>
             </li>
             <li className="group relative">
               <Link
-                className="text flex items-center gap-2 transition-colors hover:text-gray-700 focus-visible:text-gray-700"
+                className="text flex items-center gap-2 transition-colors hover:text-gray-200 focus-visible:text-gray-200"
                 href="/besuchen"
               >
                 Ihr Besuch
                 <Icon name="chevron-down" className="hidden lg:block" />
               </Link>
-              <ul className="top-full left-0 bg-white py-2 group-focus-within:block group-hover:block lg:absolute lg:hidden lg:shadow-sm">
+              <ul className="top-full left-0 mt-2 bg-white py-2 group-focus-within:block group-hover:block before:absolute before:-top-2 before:h-2 before:w-full lg:absolute lg:hidden lg:shadow-sm">
                 <li>
                   <Link
-                    className="block px-4 py-2 transition-colors hover:bg-gray-100 focus-visible:bg-gray-100"
+                    className="block px-4 py-2 text-gray-700 transition-colors hover:bg-gray-100 focus-visible:bg-gray-100"
                     href="/besuchen#anfahrt"
                   >
                     Anfahrt
@@ -74,7 +77,7 @@ export default function Header() {
                 </li>
                 <li>
                   <Link
-                    className="block px-4 py-2 transition-colors hover:bg-gray-100 focus-visible:bg-gray-100"
+                    className="block px-4 py-2 text-gray-700 transition-colors hover:bg-gray-100 focus-visible:bg-gray-100"
                     href="/besuchen#eintrittspreise"
                   >
                     Eintrittspreise
@@ -82,7 +85,7 @@ export default function Header() {
                 </li>
                 <li>
                   <Link
-                    className="block px-4 py-2 transition-colors hover:bg-gray-100 focus-visible:bg-gray-100"
+                    className="block px-4 py-2 text-gray-700 transition-colors hover:bg-gray-100 focus-visible:bg-gray-100"
                     href="/besuchen#veranstaltungen"
                   >
                     Veranstaltungen
@@ -92,73 +95,35 @@ export default function Header() {
             </li>
             <li className="group relative">
               <Link
-                className="text flex items-center gap-2 transition-colors hover:text-gray-700 focus-visible:text-gray-700"
+                className="text flex items-center gap-2 transition-colors hover:text-gray-200 focus-visible:text-gray-200"
                 href="/fuehrungen"
               >
                 Führungen <Icon name="chevron-down" className="hidden lg:block" />
               </Link>
-              <ul className="top-full left-0 bg-white py-2 group-focus-within:block group-hover:block lg:absolute lg:hidden lg:shadow-sm">
-                <li>
-                  <Link
-                    className="block px-4 py-2 transition-colors hover:bg-gray-100 focus-visible:bg-gray-100"
-                    href="/fuehrungen/regulaere-fuehrungen"
-                  >
-                    Reguläre Führungen
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className="block px-4 py-2 transition-colors hover:bg-gray-100 focus-visible:bg-gray-100"
-                    href="/fuehrungen/kinder-schulklassen"
-                  >
-                    Kinder- und Schulklassen
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className="block px-4 py-2 transition-colors hover:bg-gray-100 focus-visible:bg-gray-100"
-                    href="/fuehrungen/sonderfuehrungen"
-                  >
-                    Sonderführungen
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className="block px-4 py-2 transition-colors hover:bg-gray-100 focus-visible:bg-gray-100"
-                    href="/fuehrungen/virtuelle-fuehrungen"
-                  >
-                    Virtuelle Führungen
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className="block px-4 py-2 transition-colors hover:bg-gray-100 focus-visible:bg-gray-100"
-                    href="/fuehrungen/kindergeburtstage"
-                  >
-                    Kindergeburtstage
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className="block px-4 py-2 transition-colors hover:bg-gray-100 focus-visible:bg-gray-100"
-                    href="/fuehrungen/burgwaechterrundgang"
-                  >
-                    Burgwächterrundgang
-                  </Link>
-                </li>
+              <ul className="top-full left-0 mt-2 bg-white py-2 group-focus-within:block group-hover:block before:absolute before:-top-2 before:h-2 before:w-full lg:absolute lg:hidden lg:shadow-sm">
+                {tours.map((tour) => (
+                  <li key={tour.id}>
+                    <Link
+                      className="block px-4 py-2 text-gray-700 transition-colors hover:bg-gray-100 focus-visible:bg-gray-100"
+                      href={`/fuehrungen/${tour.slug}`}
+                    >
+                      {tour.title}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </li>
             <li className="group relative">
               <Link
-                className="text flex items-center gap-2 transition-colors hover:text-gray-700 focus-visible:text-gray-700"
+                className="text flex items-center gap-2 transition-colors hover:text-gray-200 focus-visible:text-gray-200"
                 href="/verein"
               >
                 Der Verein <Icon name="chevron-down" className="hidden lg:block" />
               </Link>
-              <ul className="top-full left-0 bg-white py-2 group-focus-within:block group-hover:block lg:absolute lg:hidden lg:shadow-sm">
+              <ul className="top-full left-0 mt-2 bg-white py-2 group-focus-within:block group-hover:block before:absolute before:-top-2 before:h-2 before:w-full lg:absolute lg:hidden lg:shadow-sm">
                 <li>
                   <Link
-                    className="block px-4 py-2 transition-colors hover:bg-gray-100 focus-visible:bg-gray-100"
+                    className="block px-4 py-2 text-gray-700 transition-colors hover:bg-gray-100 focus-visible:bg-gray-100"
                     href="/verein#arbeitsgruppe"
                   >
                     Arbeitsgruppe
@@ -168,7 +133,7 @@ export default function Header() {
             </li>
             <li>
               <Link
-                className="transition-colors hover:text-gray-700 focus-visible:text-gray-700"
+                className="transition-colors hover:text-gray-200 focus-visible:text-gray-200"
                 href="/kontakt"
               >
                 Kontakt

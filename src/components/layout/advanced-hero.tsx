@@ -21,7 +21,7 @@ export default async function AdvancedHero({
 
   return (
     <section className={cn('bg-gray-50', className)} {...props}>
-      <div className="relative -mt-24 h-[75vh] max-h-96 before:absolute before:inset-0 before:z-10 before:bg-black/40 md:-mt-32">
+      <div className="relative -mt-24 h-[75vh] max-h-96 before:absolute before:inset-0 before:z-10 before:bg-linear-to-b before:from-black/60 before:to-black/40 before:to-40% md:-mt-32">
         <ImageKitImage
           image={header.image}
           width={1920}

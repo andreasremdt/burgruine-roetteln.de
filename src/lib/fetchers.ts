@@ -92,6 +92,17 @@ export const getPageBySlug = cache(async function getPageBySlug(slug: string) {
   return result.docs[0]
 })
 
+export const getTours = cache(async function getTours() {
+  const payload = await getPayload({ config })
+  const tours = await payload.find({
+    collection: 'tours',
+    pagination: false,
+    limit: 100,
+  })
+
+  return tours.docs
+})
+
 export const getTourBySlug = cache(async function getTourBySlug(slug: string) {
   const { isEnabled } = await draftMode()
   const payload = await getPayload({ config })
