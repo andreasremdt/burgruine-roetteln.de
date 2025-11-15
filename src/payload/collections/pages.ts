@@ -1,4 +1,4 @@
-import { type CollectionConfig, slugField } from 'payload'
+import { type CollectionConfig } from 'payload'
 import directions from '../blocks/directions'
 import tours from '../blocks/tours'
 import richText from '../blocks/rich-text'
@@ -91,11 +91,15 @@ const pages: CollectionConfig = {
                     description: 'Die Beschreibung wird unter dem Untertitel angezeigt.',
                   },
                 },
-                slugField({
+                {
+                  type: 'text',
                   name: 'slug',
-                  fieldToUse: 'title',
+                  label: 'Slug',
                   required: true,
-                }),
+                  admin: {
+                    description: 'Der Slug wird verwendet, um die Seite zu identifizieren.',
+                  },
+                },
               ],
             },
           ],
