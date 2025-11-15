@@ -14,7 +14,7 @@ export default async function Footer() {
             key={(image as Media).id}
             image={image}
             width={400}
-            className="aspect-square w-full object-cover"
+            className="aspect-square w-full object-cover grayscale transition-all duration-300 hover:grayscale-0"
             height={400}
           />
         ))}

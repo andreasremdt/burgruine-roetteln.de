@@ -37,7 +37,7 @@ export default function TextWithTwoImages({
               decoding="async"
               width={600}
               height={600}
-              className="mb-1 aspect-square rounded-sm object-cover"
+              className="mb-1 aspect-square object-cover"
             />
             <figcaption className="font-sans font-medium">Mitglieder bei der Arbeit</figcaption>
           </figure>
@@ -47,7 +47,7 @@ export default function TextWithTwoImages({
               image={image[1]}
               loading="lazy"
               decoding="async"
-              className="mb-1 aspect-square rounded-sm object-cover"
+              className="mb-1 aspect-square object-cover"
             />
             <figcaption className="font-sans font-medium">Mitglieder bei der Arbeit</figcaption>
           </figure>

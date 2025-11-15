@@ -39,7 +39,7 @@ export default function ToursBlock({ title, description, tours, dark }: ToursBlo
                   height="400"
                   loading="lazy"
                   decoding="async"
-                  className="mb-4 aspect-video w-full rounded-sm object-cover sm:aspect-square"
+                  className="mb-4 aspect-video w-full object-cover sm:aspect-square"
                 />
                 <div>
                   <h3 className="mb-2 text-3xl">{tour.title}</h3>

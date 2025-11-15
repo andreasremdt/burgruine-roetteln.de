@@ -25,7 +25,7 @@ export default function TwoColumnsWithImage({
             height={700}
             loading="eager"
             decoding="async"
-            className="aspect-video w-full rounded-t-sm object-cover"
+            className="aspect-video w-full object-cover"
           />
         </figure>
       </Container>

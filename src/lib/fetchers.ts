@@ -65,6 +65,15 @@ export const getBanner = cache(async function getBanner() {
   return banner
 })
 
+export const getHeader = cache(async function getHeader() {
+  const payload = await getPayload({ config })
+  const header = await payload.findGlobal({
+    slug: 'header',
+  })
+
+  return header
+})
+
 export const getPageBySlug = cache(async function getPageBySlug(slug: string) {
   const { isEnabled } = await draftMode()
   const payload = await getPayload({ config })

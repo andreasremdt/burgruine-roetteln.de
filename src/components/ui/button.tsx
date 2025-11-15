@@ -30,7 +30,7 @@ export default function Button({
   ...props
 }: Props) {
   const baseClasses = cn(
-    'inline-flex items-center px-4 h-12 uppercase font-sans text-sm font-medium transition-colors rounded-sm"',
+    'inline-flex items-center px-4 h-12 uppercase font-sans text-sm font-medium transition-colors',
     {
       'bg-kornblau-400 text-white hover:bg-gray-700 focus-visible:bg-gray-700':
         variant === 'primary',

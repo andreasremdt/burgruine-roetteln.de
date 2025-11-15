@@ -17,6 +17,7 @@ import contact from './payload/globals/contact'
 import costs from './payload/globals/costs'
 import openingHours from './payload/globals/opening-hours'
 import banner from './payload/globals/banner'
+import header from './payload/globals/header'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -29,7 +30,7 @@ export default buildConfig({
     },
   },
   collections: [users, media, tours, pages, events],
-  globals: [footer, contact, costs, openingHours, banner],
+  globals: [footer, contact, costs, openingHours, banner, header],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET,
   typescript: {

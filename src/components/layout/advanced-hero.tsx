@@ -1,6 +1,8 @@
 import type { ComponentPropsWithoutRef } from 'react'
-import Container from '../ui/container'
+import { getHeader } from '@/lib/fetchers'
 import { cn } from '@/lib/utils'
+import Container from '../ui/container'
+import ImageKitImage from '../imagekit-image'
 
 type Props = ComponentPropsWithoutRef<'section'> & {
   title: string
@@ -8,13 +10,29 @@ type Props = ComponentPropsWithoutRef<'section'> & {
   description?: string | null
 }
 
-export default function AdvancedHero({ title, subtitle, description, className, ...props }: Props) {
+export default async function AdvancedHero({
+  title,
+  subtitle,
+  description,
+  className,
+  ...props
+}: Props) {
+  const header = await getHeader()
+
   return (
-    <section
-      className={cn('-mt-24 bg-gray-50 pt-48 pb-24 md:-mt-32 md:pt-64 md:pb-32', className)}
-      {...props}
-    >
-      <Container className="grid grid-cols-5">
+    <section className={cn('bg-gray-50', className)} {...props}>
+      <div className="relative -mt-24 h-[75vh] max-h-96 before:absolute before:inset-0 before:z-10 before:bg-black/40 md:-mt-32">
+        <ImageKitImage
+          image={header.image}
+          width={1920}
+          height={400}
+          loading="eager"
+          role="presentation"
+          className="h-full w-full object-cover"
+        />
+      </div>
+
+      <Container className="grid grid-cols-5 py-20 md:py-32">
         <div className="col-span-5 md:col-span-2">
           <h1 className="mb-2 text-5xl text-gray-900">{title}</h1>
           {subtitle ? (

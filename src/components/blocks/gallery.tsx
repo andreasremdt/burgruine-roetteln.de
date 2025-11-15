@@ -28,7 +28,7 @@ export default function Gallery({ title, description, images, className }: Props
                 height={300}
                 loading="lazy"
                 decoding="async"
-                className="mb-1 aspect-square w-full rounded-sm object-cover"
+                className="mb-1 aspect-square w-full object-cover"
               />
               <figcaption className="font-sans font-medium">
                 Platzhalter-Text für dieses Bild

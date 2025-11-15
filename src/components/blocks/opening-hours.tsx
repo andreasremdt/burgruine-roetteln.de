@@ -10,7 +10,7 @@ export default async function OpeningHours({ layout, background }: OpeningHoursB
   return (
     <dl
       className={cn('grid grid-cols-1 font-sans', {
-        'rounded-sm bg-gray-50 p-12': background,
+        'bg-gray-50 p-12': background,
         'mx-auto max-w-7xl gap-16 px-4 py-24 md:grid-cols-4': layout === 'horizontal',
       })}
     >

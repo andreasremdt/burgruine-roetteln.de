@@ -34,7 +34,7 @@ export default async function Page({ params }: Props) {
               width={600}
               height={600}
               loading="eager"
-              className="mb-1 aspect-square rounded-sm object-cover"
+              className="mb-1 aspect-square object-cover"
             />
             {tour.caption ? (
               <figcaption className="font-sans font-medium">{tour.caption}</figcaption>

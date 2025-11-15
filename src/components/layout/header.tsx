@@ -1,20 +1,11 @@
-import { cn } from '@/lib/utils'
-import Container from '../ui/container'
 import Link from 'next/link'
+import Container from '../ui/container'
 import Icon from '../ui/icon'
 
-type Props = {
-  border?: boolean
-}
-
-export default function Header({ border = true }: Props) {
+export default function Header() {
   return (
-    <header className="relative z-10 text-gray-900">
-      <Container
-        className={cn('flex h-24 items-center justify-between gap-4 md:h-32', {
-          'border-b border-gray-300': border,
-        })}
-      >
+    <header className="relative z-20 text-white">
+      <Container className="flex h-24 items-center justify-between gap-4 border-b border-gray-500 md:h-32">
         <a href="/" className="font-serif text-3xl sm:text-4xl">
           Burgruine Rötteln
         </a>
@@ -72,7 +63,7 @@ export default function Header({ border = true }: Props) {
                 Ihr Besuch
                 <Icon name="chevron-down" className="hidden lg:block" />
               </Link>
-              <ul className="top-full left-0 rounded-sm bg-white py-2 group-focus-within:block group-hover:block lg:absolute lg:hidden lg:shadow-sm">
+              <ul className="top-full left-0 bg-white py-2 group-focus-within:block group-hover:block lg:absolute lg:hidden lg:shadow-sm">
                 <li>
                   <Link
                     className="block px-4 py-2 transition-colors hover:bg-gray-100 focus-visible:bg-gray-100"
@@ -106,7 +97,7 @@ export default function Header({ border = true }: Props) {
               >
                 Führungen <Icon name="chevron-down" className="hidden lg:block" />
               </Link>
-              <ul className="top-full left-0 rounded-sm bg-white py-2 group-focus-within:block group-hover:block lg:absolute lg:hidden lg:shadow-sm">
+              <ul className="top-full left-0 bg-white py-2 group-focus-within:block group-hover:block lg:absolute lg:hidden lg:shadow-sm">
                 <li>
                   <Link
                     className="block px-4 py-2 transition-colors hover:bg-gray-100 focus-visible:bg-gray-100"
@@ -164,7 +155,7 @@ export default function Header({ border = true }: Props) {
               >
                 Der Verein <Icon name="chevron-down" className="hidden lg:block" />
               </Link>
-              <ul className="top-full left-0 rounded-sm bg-white py-2 group-focus-within:block group-hover:block lg:absolute lg:hidden lg:shadow-sm">
+              <ul className="top-full left-0 bg-white py-2 group-focus-within:block group-hover:block lg:absolute lg:hidden lg:shadow-sm">
                 <li>
                   <Link
                     className="block px-4 py-2 transition-colors hover:bg-gray-100 focus-visible:bg-gray-100"

@@ -33,7 +33,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       </head>
 
       <body
-        className={cn(openSans.variable, cormorantGaramond.variable, 'text-gray-700 antialiased')}
+        className={cn(openSans.variable, cormorantGaramond.variable, 'text-gray-700')}
         itemScope
         itemType="https://schema.org/WebPage"
       >

@@ -98,6 +98,7 @@ export interface Config {
     costs: Cost;
     'opening-hours': OpeningHour;
     banner: Banner;
+    header: Header;
   };
   globalsSelect: {
     footer: FooterSelect<false> | FooterSelect<true>;
@@ -105,6 +106,7 @@ export interface Config {
     costs: CostsSelect<false> | CostsSelect<true>;
     'opening-hours': OpeningHoursSelect<false> | OpeningHoursSelect<true>;
     banner: BannerSelect<false> | BannerSelect<true>;
+    header: HeaderSelect<false> | HeaderSelect<true>;
   };
   locale: null;
   user: User & {
@@ -1255,6 +1257,19 @@ export interface Banner {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "header".
+ */
+export interface Header {
+  id: string;
+  /**
+   * Dieses Bild wird als Hauptbild im Kopfbereich der Seite angezeigt.
+   */
+  image: string | Media;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "footer_select".
  */
 export interface FooterSelect<T extends boolean = true> {
@@ -1318,6 +1333,16 @@ export interface BannerSelect<T extends boolean = true> {
   leftSideText?: T;
   showNextEvent?: T;
   rightSideText?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "header_select".
+ */
+export interface HeaderSelect<T extends boolean = true> {
+  image?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
