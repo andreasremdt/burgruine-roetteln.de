@@ -13,6 +13,7 @@ import oneColumnWithImage from '../blocks/one-column-with-image'
 import timeline from '../blocks/timeline'
 import offerOverview from '../blocks/offer-overview'
 import textWithSidebar from '../blocks/text-with-sidebar'
+import contactForm from '../blocks/contact-form'
 
 const pages: CollectionConfig = {
   slug: 'pages',
@@ -121,6 +122,7 @@ const pages: CollectionConfig = {
                 timeline,
                 offerOverview,
                 textWithSidebar,
+                contactForm,
               ],
             },
           ],

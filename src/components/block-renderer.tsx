@@ -12,6 +12,7 @@ import OneColumnWithImage from './blocks/one-column-with-image'
 import Timeline from './blocks/timeline'
 import OfferOverview from './blocks/offer-overview'
 import TextWithSidebar from './blocks/text-with-sidebar'
+import ContactForm from './blocks/contact-form'
 
 type Props = {
   blocks: Page['content']
@@ -48,6 +49,8 @@ export default function BlockRenderer({ blocks }: Props) {
         return <OfferOverview {...block} key={block.id} />
       case 'text-with-sidebar':
         return <TextWithSidebar {...block} key={block.id} />
+      case 'contact-form':
+        return <ContactForm {...block} key={block.id} />
       default:
         return null
     }

@@ -282,6 +282,7 @@ export interface Page {
         | TimelineBlock
         | OfferOverviewBlock
         | TextWithSidebarBlock
+        | ContactFormBlock
       )[]
     | null;
   meta?: {
@@ -617,6 +618,18 @@ export interface TextWithSidebarBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ContactFormBlock".
+ */
+export interface ContactFormBlock {
+  title: string;
+  description: string;
+  sidebar: OpeningHoursBlock[];
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'contact-form';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "events".
  */
 export interface Event {
@@ -845,6 +858,7 @@ export interface PagesSelect<T extends boolean = true> {
         timeline?: T | TimelineBlockSelect<T>;
         'offer-overview'?: T | OfferOverviewBlockSelect<T>;
         'text-with-sidebar'?: T | TextWithSidebarBlockSelect<T>;
+        'contact-form'?: T | ContactFormBlockSelect<T>;
       };
   meta?:
     | T
@@ -1053,6 +1067,21 @@ export interface TextWithSidebarBlockSelect<T extends boolean = true> {
   title?: T;
   description?: T;
   content?: T;
+  sidebar?:
+    | T
+    | {
+        'opening-hours'?: T | OpeningHoursBlockSelect<T>;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ContactFormBlock_select".
+ */
+export interface ContactFormBlockSelect<T extends boolean = true> {
+  title?: T;
+  description?: T;
   sidebar?:
     | T
     | {
