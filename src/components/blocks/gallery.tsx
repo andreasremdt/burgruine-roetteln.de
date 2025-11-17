@@ -49,9 +49,9 @@ export default function Gallery({ title, description, images, className }: Props
                   className="mb-1 aspect-square w-full object-cover"
                 />
               </a>
-              <figcaption className="font-sans font-medium">
-                Platzhalter-Text für dieses Bild
-              </figcaption>
+              {typeof image === 'object' && image.caption ? (
+                <figcaption className="font-sans font-medium">{image.caption}</figcaption>
+              ) : null}
             </figure>
           ))}
         </div>

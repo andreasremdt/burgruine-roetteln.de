@@ -17,6 +17,7 @@ export default function FooterGallery({ images }: Props) {
     <figure className="grid grid-cols-6">
       {images.map((image, index) => (
         <a
+          key={typeof image === 'string' ? image : image.id}
           href={typeof image === 'string' ? image : image.imagekit?.url || ''}
           onClick={(event) => {
             event.preventDefault()

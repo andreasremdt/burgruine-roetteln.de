@@ -16,9 +16,9 @@ export default function OneColumnWithImage({ content, image, buttons }: OneColum
             loading="eager"
             className="mb-1 aspect-square object-cover"
           />
-          <figcaption className="font-sans font-medium">
-            Der große Burgturm kann erklommen werden.
-          </figcaption>
+          {typeof image === 'object' && image.caption ? (
+            <figcaption className="font-sans font-medium">{image.caption}</figcaption>
+          ) : null}
         </figure>
 
         <div className="col-span-2 md:col-span-1">

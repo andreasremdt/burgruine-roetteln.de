@@ -46,7 +46,9 @@ export default function TextWithTwoImages({
               height={600}
               className="mb-1 aspect-square object-cover"
             />
-            <figcaption className="font-sans font-medium">Mitglieder bei der Arbeit</figcaption>
+            {typeof image[0] === 'object' && image[0].caption ? (
+              <figcaption className="font-sans font-medium">{image[0].caption}</figcaption>
+            ) : null}
           </figure>
 
           <figure className="mt-16">
@@ -56,7 +58,9 @@ export default function TextWithTwoImages({
               decoding="async"
               className="mb-1 aspect-square object-cover"
             />
-            <figcaption className="font-sans font-medium">Mitglieder bei der Arbeit</figcaption>
+            {typeof image[1] === 'object' && image[1].caption ? (
+              <figcaption className="font-sans font-medium">{image[1].caption}</figcaption>
+            ) : null}
           </figure>
         </div>
       </Container>

@@ -169,6 +169,10 @@ export interface Media {
    * Dieser Text wird für Suchmaschinen und Menschen mit Sehbehinderungen benötigt.
    */
   alt?: string | null;
+  /**
+   * Dieser Text wird unter dem Bild angezeigt.
+   */
+  caption?: string | null;
   imagekit?: {
     fileId?: string | null;
     thumbnailUrl?: string | null;
@@ -801,6 +805,7 @@ export interface UsersSelect<T extends boolean = true> {
  */
 export interface MediaSelect<T extends boolean = true> {
   alt?: T;
+  caption?: T;
   imagekit?:
     | T
     | {

@@ -61,6 +61,14 @@ const media: CollectionConfig = {
       },
     },
     {
+      name: 'caption',
+      label: 'Bildunterschrift',
+      type: 'text',
+      admin: {
+        description: 'Dieser Text wird unter dem Bild angezeigt.',
+      },
+    },
+    {
       type: 'group',
       name: 'imagekit',
       label: 'Bildinformationen',
