@@ -1,4 +1,5 @@
 import { type CollectionConfig } from 'payload'
+import { generatePreviewPath, revalidateDelete, revalidatePage } from '@/lib/live-preview'
 import directions from '../blocks/directions'
 import tours from '../blocks/tours'
 import richText from '../blocks/rich-text'
@@ -20,6 +21,25 @@ const pages: CollectionConfig = {
   slug: 'pages',
   admin: {
     useAsTitle: 'title',
+    livePreview: {
+      url: ({ data, req }) =>
+        generatePreviewPath({
+          slug: typeof data?.slug === 'string' ? data.slug : '',
+          collection: 'pages',
+          req,
+        }),
+    },
+  },
+  hooks: {
+    afterChange: [revalidatePage],
+    afterDelete: [revalidateDelete],
+  },
+  versions: {
+    drafts: {
+      autosave: {
+        interval: 100,
+      },
+    },
   },
   labels: {
     singular: 'Seite',
