@@ -54,7 +54,7 @@ export default async function Events({ title, description }: EventsBlock) {
                   href={event.url}
                   target="_blank"
                   rel="noopener noreferrer nofollow"
-                  className="mt-4 inline-block font-sans uppercase transition-colors hover:text-gray-600 hover:underline focus-visible:text-gray-600"
+                  className="mt-4 inline-block font-sans text-xs font-medium tracking-wider uppercase transition-colors hover:text-gray-600 hover:underline focus-visible:text-gray-600"
                 >
                   Mehr erfahren
                 </Link>
