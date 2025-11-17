@@ -4,6 +4,7 @@ import Container from '../ui/container'
 import { getContactInfo, getFooterInfo, getOpeningHours } from '@/lib/fetchers'
 import ImageKitImage from '../imagekit-image'
 import Icon from '../ui/icon'
+import Heading from '../ui/heading'
 
 export default async function Footer() {
   const footer = await getFooterInfo()
@@ -26,12 +27,16 @@ export default async function Footer() {
 
       <Container className="grid grid-cols-1 gap-8 py-10 sm:grid-cols-2 md:grid-cols-4 md:py-20">
         <div>
-          <p className="mb-4 font-serif text-3xl text-white">{footer.title}</p>
+          <Heading level="h3" tag="p" className="font-serif text-white">
+            {footer.title}
+          </Heading>
           <p>{footer.description}</p>
         </div>
 
         <nav>
-          <h2 className="mb-4 font-serif text-3xl text-white">Seitenmenü</h2>
+          <Heading level="h3" tag="h2" className="font-serif text-white">
+            Seitenmenü
+          </Heading>
 
           <ul>
             <li>
@@ -86,7 +91,9 @@ export default async function Footer() {
         </nav>
 
         <div>
-          <h2 className="mb-4 font-serif text-3xl text-white">Öffnungszeiten</h2>
+          <Heading level="h3" tag="h2" className="font-serif text-white">
+            Öffnungszeiten
+          </Heading>
 
           <h3 className="mb-2 font-medium text-white">Unterburg</h3>
           <p>{openingHours.titleInnerWard}</p>
@@ -98,7 +105,9 @@ export default async function Footer() {
         </div>
 
         <div>
-          <h2 className="mb-4 font-serif text-3xl text-white">Kontakt</h2>
+          <Heading level="h3" tag="h2" className="font-serif text-white">
+            Kontakt
+          </Heading>
 
           <p
             className="mb-4"

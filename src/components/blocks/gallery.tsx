@@ -18,7 +18,7 @@ export default function Gallery({ title, description, images, className }: Props
             {title}
           </h2>
         ) : null}
-        <Heading level="h1" tag="p" className="mb-16">
+        <Heading level="h1" tag="h2" className="mb-16">
           {description || title}
         </Heading>
 

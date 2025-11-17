@@ -11,7 +11,7 @@ export default async function OpeningHours({ layout, background }: OpeningHoursB
     <dl
       className={cn('grid grid-cols-1 font-sans', {
         'bg-gray-50 p-12': background,
-        'mx-auto max-w-7xl gap-16 px-4 py-24 md:grid-cols-4': layout === 'horizontal',
+        'mx-auto max-w-7xl gap-16 px-4 py-20 md:grid-cols-4 md:py-40': layout === 'horizontal',
       })}
     >
       <div>
@@ -19,7 +19,7 @@ export default async function OpeningHours({ layout, background }: OpeningHoursB
           <Icon name="clock" className="size-5" />
           Öffnungszeiten Unterburg
         </dt>
-        <dd className="ml-10">
+        <dd className="ml-9">
           {openingHours.titleInnerWard}
           <br />
           {openingHours.notesInnerWard}
@@ -34,7 +34,7 @@ export default async function OpeningHours({ layout, background }: OpeningHoursB
           <Icon name="clock" className="size-5" />
           Öffnungszeiten Oberburg
         </dt>
-        <dd className="ml-10">
+        <dd className="ml-9">
           {openingHours.titleOuterWard}
           <br />
           {openingHours.notesOuterWard}
@@ -49,7 +49,7 @@ export default async function OpeningHours({ layout, background }: OpeningHoursB
           <Icon name="map-pin" className="size-5" />
           Lage
         </dt>
-        <dd className="ml-10">{contactInfo.location}</dd>
+        <dd className="ml-9">{contactInfo.location}</dd>
       </div>
       <div
         className={cn({
@@ -60,7 +60,7 @@ export default async function OpeningHours({ layout, background }: OpeningHoursB
           <Icon name="lightning" className="size-5" />
           Ausnahmen
         </dt>
-        <dd className="ml-10">{openingHours.exceptions}</dd>
+        <dd className="ml-9">{openingHours.exceptions}</dd>
       </div>
     </dl>
   )

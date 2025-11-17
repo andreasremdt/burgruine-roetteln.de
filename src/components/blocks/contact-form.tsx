@@ -18,7 +18,7 @@ export default function ContactForm({ sidebar, title, description }: ContactForm
         <form
           action=""
           method="POST"
-          className="z-10 order-1 bg-white md:order-2 md:col-span-2 md:-mt-60 md:border md:border-gray-300 md:p-8 lg:p-16"
+          className="z-10 order-1 bg-white md:order-2 md:col-span-2 md:-mt-60 md:border md:border-gray-200 md:p-8 lg:p-16"
         >
           <Heading level="h1" tag="h1">
             {title}

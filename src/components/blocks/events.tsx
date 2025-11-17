@@ -17,7 +17,7 @@ export default async function Events({ title, description }: EventsBlock) {
   return (
     <section className="py-24 lg:py-40" id="veranstaltungen">
       <Container>
-        <Heading level="h1" tag="h2" className="mb-16 text-center">
+        <Heading level="h1" tag="h2" className="mb-20 text-center">
           {title}
         </Heading>
         {description ? <p className="mb-16 text-5xl text-gray-900">{description}</p> : null}
@@ -44,7 +44,9 @@ export default async function Events({ title, description }: EventsBlock) {
               ) : null}
             </time>
             <div className="col-span-4 lg:col-span-5">
-              <h3 className="mb-2 text-3xl text-gray-900">{event.title}</h3>
+              <Heading level="h3" tag="h3" className="mb-2 text-3xl">
+                {event.title}
+              </Heading>
 
               {event.description ? <Prose content={event.description} /> : null}
               {event.url ? (

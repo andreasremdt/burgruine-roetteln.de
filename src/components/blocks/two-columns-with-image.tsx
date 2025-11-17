@@ -16,7 +16,7 @@ export default function TwoColumnsWithImage({
         </h2>
         <p className="mb-16 text-5xl text-gray-900">{description}</p>
 
-        <p className="mb-16 ml-[35%] columns-2 gap-18 text-xl">{content}</p>
+        <p className="mb-24 ml-[35%] columns-2 gap-18 text-xl md:mb-40">{content}</p>
 
         <figure>
           <ImageKitImage

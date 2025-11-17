@@ -33,7 +33,7 @@ export default async function AdvancedHero({
         />
       </div>
 
-      <Container className="grid grid-cols-5 py-20 md:py-32">
+      <Container className="grid grid-cols-5 py-24 lg:py-40">
         <div className="col-span-5 md:col-span-2">
           <Heading level="h1" tag="h1" className="">
             {title}

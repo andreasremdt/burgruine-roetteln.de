@@ -22,14 +22,18 @@ export default function TextWithTwoImages({
           {description}
         </Heading>
 
-        <div className="mb-16 ml-[35%]">
+        <div className="mb-24 ml-[35%] md:mb-40">
           <Prose content={content} className="mb-4" />
 
-          {buttons?.map((button) => (
-            <Button key={button.id} href={button.link} variant={button.theme}>
-              {button.label}
-            </Button>
-          ))}
+          {buttons ? (
+            <div className="mt-4 flex flex-wrap gap-4">
+              {buttons.map((button) => (
+                <Button key={button.id} href={button.link} variant={button.theme}>
+                  {button.label}
+                </Button>
+              ))}
+            </div>
+          ) : null}
         </div>
 
         <div className="relative z-10 grid grid-cols-2 gap-16">

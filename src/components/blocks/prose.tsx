@@ -5,9 +5,14 @@ import ImageKitImage from '../imagekit-image'
 
 type Props = Pick<RichTextBlock, 'content'> & {
   className?: string
+  imageOverride?: {
+    width: number
+    height: number
+    className?: string
+  }
 }
 
-export default function Prose({ content, className }: Props) {
+export default function Prose({ content, className, imageOverride }: Props) {
   if (!content) return null
 
   return (
@@ -15,7 +20,14 @@ export default function Prose({ content, className }: Props) {
       converters={{
         ...defaultJSXConverters,
         upload: ({ node }) => {
-          return <ImageKitImage image={node.value as Media} width={900} height={500} />
+          return (
+            <ImageKitImage
+              image={node.value as Media}
+              width={imageOverride?.width || 900}
+              height={imageOverride?.height || 500}
+              className={imageOverride?.className}
+            />
+          )
         },
       }}
       data={content}

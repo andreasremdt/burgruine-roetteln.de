@@ -25,7 +25,13 @@ export default function ToursBlock({ title, description, tours, dark }: ToursBlo
         >
           {title}
         </h2>
-        <Heading level="h1" tag="p" className="mb-16">
+        <Heading
+          level="h1"
+          tag="p"
+          className={cn('mb-16', {
+            'text-white': dark,
+          })}
+        >
           {description}
         </Heading>
 
@@ -45,7 +51,13 @@ export default function ToursBlock({ title, description, tours, dark }: ToursBlo
                   className="mb-4 aspect-video w-full object-cover sm:aspect-square"
                 />
                 <div>
-                  <Heading level="h3" tag="h3">
+                  <Heading
+                    level="h3"
+                    tag="h3"
+                    className={cn({
+                      'text-white': dark,
+                    })}
+                  >
                     {tour.title}
                   </Heading>
                   <Link

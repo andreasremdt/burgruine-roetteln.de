@@ -23,16 +23,20 @@ export default function Directions({ title, description, buttons }: DirectionsBl
 
         <Prose content={description} />
 
-        {buttons?.map((button) => (
-          <Button
-            href={button.link}
-            target="_blank"
-            rel="noopener noreferrer nofollow"
-            key={button.id}
-          >
-            {button.label}
-          </Button>
-        ))}
+        {buttons ? (
+          <div className="mt-4 flex flex-wrap gap-4">
+            {buttons.map((button) => (
+              <Button
+                href={button.link}
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                key={button.id}
+              >
+                {button.label}
+              </Button>
+            ))}
+          </div>
+        ) : null}
       </div>
     </section>
   )
