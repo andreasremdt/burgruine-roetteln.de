@@ -5,6 +5,8 @@ import { getContactInfo, getFooterInfo, getOpeningHours } from '@/lib/fetchers'
 import ImageKitImage from '../imagekit-image'
 import Icon from '../ui/icon'
 import Heading from '../ui/heading'
+import logo from '../../../public/ssg-logo.svg'
+import Image from 'next/image'
 
 export default async function Footer() {
   const footer = await getFooterInfo()
@@ -30,7 +32,14 @@ export default async function Footer() {
           <Heading level="h3" tag="p" className="font-serif text-white">
             {footer.title}
           </Heading>
-          <p>{footer.description}</p>
+          <p className="mb-4">{footer.description}</p>
+          <a
+            href="https://www.schloesser-und-gaerten.de/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image src={logo} alt="SSG Logo" width={250} height={100} />
+          </a>
         </div>
 
         <nav>
