@@ -1,12 +1,11 @@
+import Image from 'next/image'
 import Link from 'next/link'
-import type { Media } from '@/payload-types'
-import Container from '../ui/container'
 import { getContactInfo, getFooterInfo, getOpeningHours } from '@/lib/fetchers'
-import ImageKitImage from '../imagekit-image'
+import Container from '../ui/container'
 import Icon from '../ui/icon'
 import Heading from '../ui/heading'
 import logo from '../../../public/ssg-logo.svg'
-import Image from 'next/image'
+import FooterGallery from './footer-gallery'
 
 export default async function Footer() {
   const footer = await getFooterInfo()
@@ -15,17 +14,7 @@ export default async function Footer() {
 
   return (
     <footer className="bg-gray-900 text-sm text-gray-300">
-      <figure className="grid grid-cols-6">
-        {footer.image.map((image) => (
-          <ImageKitImage
-            key={(image as Media).id}
-            image={image}
-            width={400}
-            className="aspect-square w-full object-cover grayscale transition-all duration-300 hover:grayscale-0"
-            height={400}
-          />
-        ))}
-      </figure>
+      <FooterGallery images={footer.image} />
 
       <Container className="grid grid-cols-1 gap-8 py-10 sm:grid-cols-2 md:grid-cols-4 md:py-20">
         <div>
