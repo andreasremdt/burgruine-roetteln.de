@@ -62,7 +62,7 @@ export default function ToursBlock({ title, description, tours, dark }: ToursBlo
                   </Heading>
                   <Link
                     className={cn(
-                      'font-sans font-medium uppercase transition-colors after:absolute after:inset-0',
+                      'font-sans text-xs font-medium tracking-wider uppercase transition-colors after:absolute after:inset-0',
                       {
                         'text-gray-300 hover:text-gray-400 focus-visible:text-gray-400': dark,
                         'text-gray-500 hover:text-gray-500 focus-visible:text-gray-500': !dark,
