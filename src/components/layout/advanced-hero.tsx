@@ -33,18 +33,22 @@ export default async function AdvancedHero({
         />
       </div>
 
-      <Container className="grid grid-cols-5 py-24 lg:py-40">
+      <Container className="grid grid-cols-5 gap-x-8 py-24 lg:py-40">
         <div className="col-span-5 md:col-span-2">
-          <Heading level="h1" tag="h1" className="">
+          {subtitle ? (
+            <Heading level="h5" tag="p" dash>
+              {subtitle}
+            </Heading>
+          ) : null}
+          <Heading level="h1" tag="h1" className="mb-8 md:mb-0">
             {title}
           </Heading>
-          {subtitle ? (
-            <p className="mb-4 font-sans font-medium text-gray-600 uppercase md:mb-0">{subtitle}</p>
-          ) : null}
         </div>
 
         {description ? (
-          <p className="col-span-5 text-xl md:col-span-3 md:text-3xl">{description}</p>
+          <p className="col-span-5 text-xl leading-relaxed md:col-span-3 md:text-3xl md:leading-tight">
+            {description}
+          </p>
         ) : null}
       </Container>
     </section>

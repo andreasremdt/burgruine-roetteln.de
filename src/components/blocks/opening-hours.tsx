@@ -12,7 +12,7 @@ export default async function OpeningHours({ layout, background }: OpeningHoursB
     <section
       className={cn({
         'bg-gray-50 p-12': background,
-        'py-20 md:py-40': layout === 'horizontal',
+        'px-4 py-20 md:py-40': layout === 'horizontal',
       })}
     >
       <dl
@@ -21,7 +21,7 @@ export default async function OpeningHours({ layout, background }: OpeningHoursB
         })}
       >
         <div>
-          <dt className="mb-2 flex items-center gap-4 font-sans font-medium text-gray-900 uppercase">
+          <dt className="mb-2 flex items-center gap-4 font-sans text-sm font-medium text-gray-900 uppercase sm:text-base">
             <Icon name="clock" className="size-5" />
             Öffnungszeiten Unterburg
           </dt>
@@ -36,7 +36,7 @@ export default async function OpeningHours({ layout, background }: OpeningHoursB
             'mt-4 border-t border-gray-200 pt-4': layout === 'vertical',
           })}
         >
-          <dt className="mb-2 flex items-center gap-4 font-sans font-medium text-gray-900 uppercase">
+          <dt className="mb-2 flex items-center gap-4 font-sans text-sm font-medium text-gray-900 uppercase sm:text-base">
             <Icon name="clock" className="size-5" />
             Öffnungszeiten Oberburg
           </dt>
@@ -51,7 +51,7 @@ export default async function OpeningHours({ layout, background }: OpeningHoursB
             'mt-4 border-t border-gray-200 pt-4': layout === 'vertical',
           })}
         >
-          <dt className="mb-2 flex items-center gap-4 font-sans font-medium text-gray-900 uppercase">
+          <dt className="mb-2 flex items-center gap-4 font-sans text-sm font-medium text-gray-900 uppercase sm:text-base">
             <Icon name="map-pin" className="size-5" />
             Lage
           </dt>
@@ -62,7 +62,7 @@ export default async function OpeningHours({ layout, background }: OpeningHoursB
             'mt-4 border-t border-gray-200 pt-4': layout === 'vertical',
           })}
         >
-          <dt className="mb-2 flex items-center gap-4 font-sans font-medium text-gray-900 uppercase">
+          <dt className="mb-2 flex items-center gap-4 font-sans text-sm font-medium text-gray-900 uppercase sm:text-base">
             <Icon name="lightning" className="size-5" />
             Ausnahmen
           </dt>
@@ -70,7 +70,7 @@ export default async function OpeningHours({ layout, background }: OpeningHoursB
         </div>
       </dl>
 
-      <div className="mt-8 flex justify-center">
+      <div className="mt-8 flex md:justify-center">
         <Button>Burgplan öffnen</Button>
       </div>
     </section>

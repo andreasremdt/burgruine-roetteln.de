@@ -11,11 +11,9 @@ export default async function Page() {
     <>
       <TitleHero title={page.title} />
 
-      <Container tag="section" className="py-24">
-        <OpeningHours blockType="opening-hours" layout="horizontal" />
+      <OpeningHours blockType="opening-hours" layout="horizontal" />
 
-        <BlockRenderer blocks={page.content} />
-      </Container>
+      <BlockRenderer blocks={page.content} />
     </>
   )
 }

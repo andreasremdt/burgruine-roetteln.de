@@ -20,9 +20,9 @@ export default function Gallery({ title, description, images, className }: Props
     <section className={cn('bg-gray-50 py-24 lg:py-40', className)}>
       <Container>
         {description ? (
-          <h2 className="mb-2 flex items-center font-sans font-medium text-gray-600 uppercase before:mr-4 before:block before:h-px before:w-8 before:bg-gray-600">
+          <Heading level="h5" tag="h2" dash>
             {title}
-          </h2>
+          </Heading>
         ) : null}
         <Heading level="h1" tag="h2" className="mb-16">
           {description || title}
@@ -50,7 +50,9 @@ export default function Gallery({ title, description, images, className }: Props
                 />
               </a>
               {typeof image === 'object' && image.caption ? (
-                <figcaption className="font-sans font-medium">{image.caption}</figcaption>
+                <figcaption className="font-sans text-sm font-medium md:text-base">
+                  {image.caption}
+                </figcaption>
               ) : null}
             </figure>
           ))}

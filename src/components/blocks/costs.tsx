@@ -2,6 +2,7 @@ import Container from '../ui/container'
 import type { CostsBlock } from '@/payload-types'
 import { getCosts } from '@/lib/fetchers'
 import Heading from '../ui/heading'
+import Text from '../ui/text'
 
 export default async function Costs({ title, description }: CostsBlock) {
   const items = await getCosts()
@@ -12,12 +13,12 @@ export default async function Costs({ title, description }: CostsBlock) {
         <Heading level="h1" tag="h2" className="md:text-center">
           {title}
         </Heading>
-        <p className="text-2xl md:text-center">{description}</p>
+        <Text className="md:text-center">{description}</Text>
 
         {items ? (
-          <ul className="mt-16 space-y-3 text-xl md:mx-auto md:max-w-lg">
+          <ul className="mt-16 space-y-6 text-xl sm:space-y-3 md:mx-auto md:max-w-lg">
             {items.map((item) => (
-              <li key={item.id} className="flex justify-between">
+              <li key={item.id} className="flex flex-col justify-between sm:flex-row">
                 <span>
                   {item.title}:
                   {item.description ? <i className="block">{item.description}</i> : null}

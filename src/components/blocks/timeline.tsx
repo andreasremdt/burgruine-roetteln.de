@@ -30,10 +30,10 @@ export default function Timeline({ description, items }: TimelineBlock) {
               </Heading>
               <Prose
                 className={cn('flex flex-col text-balance md:max-w-2/5', {
-                  'items-end': index % 2 === 1,
+                  'md:items-end': index % 2 === 1,
                 })}
                 content={item.content}
-                imageOverride={{ width: 200, height: 300, className: 'w-max mb-0' }}
+                imageOverride={{ width: 200, height: 300, className: 'w-max mb-0! mt-2 md:mt-0' }}
               />
             </li>
           ))}

@@ -14,19 +14,23 @@ export default function Statistics({
   return (
     <section className="py-24 lg:py-40" id="arbeitsgruppe">
       <Container>
-        <h2 className="mb-2 flex items-center font-sans font-medium text-gray-600 uppercase before:mr-4 before:block before:h-px before:w-8 before:bg-gray-600">
+        <Heading level="h5" tag="h2" dash>
           {title}
-        </h2>
-        <Heading level="h1" tag="p" className="mb-16 max-w-1/2">
+        </Heading>
+        <Heading level="h1" tag="p" className="mb-8 md:max-w-1/2">
           {description}
         </Heading>
 
-        <div className="ml-[35%]">
-          <dl className="mb-16 grid grid-cols-3 gap-16">
+        <div className="md:ml-[25%] lg:ml-[35%]">
+          <dl className="mb-16 grid grid-cols-2 gap-8 sm:grid-cols-3 md:gap-16">
             {statistics?.map((statistic) => (
               <div key={statistic.id} className="flex flex-col-reverse gap-4">
-                <dt className="font-sans font-medium text-gray-600 uppercase">{statistic.label}</dt>
-                <dd className="text-7xl text-gray-900">{statistic.value}</dd>
+                <Heading tag="dt" level="h5">
+                  {statistic.label}
+                </Heading>
+                <dd className="text-4xl text-gray-900 sm:text-5xl lg:text-6xl">
+                  {statistic.value}
+                </dd>
               </div>
             ))}
           </dl>

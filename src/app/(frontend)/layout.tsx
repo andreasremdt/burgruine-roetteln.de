@@ -13,7 +13,7 @@ const openSans = Open_Sans({
 })
 
 const cormorantGaramond = Cormorant_Garamond({
-  weight: ['400'],
+  weight: ['400', '600'],
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-cormorant-garamond',

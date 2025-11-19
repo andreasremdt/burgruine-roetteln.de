@@ -14,17 +14,17 @@ export default function ToursBlock({ title, description, tours, dark }: ToursBlo
       })}
     >
       <Container className="mx-auto max-w-7xl px-4">
-        <h2
-          className={cn(
-            'mb-2 flex items-center font-sans font-medium uppercase before:mr-4 before:block before:h-px before:w-8',
-            {
-              'before:bg-gray-600': !dark,
-              'before:bg-white': dark,
-            },
-          )}
+        <Heading
+          level="h5"
+          tag="h2"
+          dash
+          className={cn({
+            'before:bg-gray-600': !dark,
+            'before:bg-white': dark,
+          })}
         >
           {title}
-        </h2>
+        </Heading>
         <Heading
           level="h1"
           tag="p"

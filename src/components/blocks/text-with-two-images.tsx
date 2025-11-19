@@ -15,10 +15,10 @@ export default function TextWithTwoImages({
   return (
     <section className="relative border-b border-gray-300 bg-gray-100 pt-24 pb-24 after:absolute after:right-0 after:bottom-0 after:left-0 after:h-56 after:bg-white lg:pt-40">
       <Container>
-        <h2 className="mb-2 flex items-center font-sans font-medium text-gray-600 uppercase before:mr-4 before:block before:h-px before:w-8 before:bg-gray-600">
+        <Heading level="h5" tag="h2" dash>
           {title}
-        </h2>
-        <Heading level="h1" tag="p" className="mb-16">
+        </Heading>
+        <Heading level="h1" tag="p" className="mb-8">
           {description}
         </Heading>
 
@@ -36,7 +36,7 @@ export default function TextWithTwoImages({
           ) : null}
         </div>
 
-        <div className="relative z-10 grid grid-cols-2 gap-16">
+        <div className="relative z-10 grid grid-cols-2 gap-8 md:gap-16">
           <figure>
             <ImageKitImage
               image={image[0]}

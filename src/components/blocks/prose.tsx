@@ -32,7 +32,7 @@ export default function Prose({ content, className, imageOverride }: Props) {
       }}
       data={content}
       className={cn(
-        'prose prose-a:underline prose-xl prose-blockquote:text-gray-800 prose-blockquote:mb-8 prose-blockquote:-translate-x-48 prose-headings:font-normal max-w-none',
+        'prose prose-a:underline prose-lg sm:prose-xl prose-blockquote:text-gray-800 prose-blockquote:mb-8 prose-blockquote:-translate-x-48 prose-headings:font-normal max-w-none',
         className,
       )}
     />

@@ -1,6 +1,8 @@
 import type { TwoColumnsWithImageBlock } from '@/payload-types'
 import Container from '../ui/container'
 import ImageKitImage from '../imagekit-image'
+import Text from '../ui/text'
+import Heading from '../ui/heading'
 
 export default function TwoColumnsWithImage({
   title,
@@ -11,12 +13,14 @@ export default function TwoColumnsWithImage({
   return (
     <section className="relative pt-24 after:absolute after:right-0 after:bottom-0 after:left-0 after:-z-10 after:h-32 after:bg-gray-50 lg:pt-40">
       <Container>
-        <h2 className="mb-2 flex items-center font-sans font-medium text-gray-600 uppercase before:mr-4 before:block before:h-px before:w-8 before:bg-gray-600">
+        <Heading level="h5" tag="h2" dash>
           {title}
-        </h2>
-        <p className="mb-16 text-5xl text-gray-900">{description}</p>
+        </Heading>
+        <Heading level="h1" tag="p" className="mb-8">
+          {description}
+        </Heading>
 
-        <p className="mb-24 ml-[35%] columns-2 gap-18 text-xl md:mb-40">{content}</p>
+        <Text className="mb-24 gap-8 md:mb-40 md:ml-[35%] md:columns-2">{content}</Text>
 
         <figure>
           <ImageKitImage

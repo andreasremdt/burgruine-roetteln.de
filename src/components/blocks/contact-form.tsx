@@ -6,6 +6,7 @@ import Input from '../ui/input'
 import Textarea from '../ui/textarea'
 import Button from '../ui/button'
 import Heading from '../ui/heading'
+import Text from '../ui/text'
 
 export default function ContactForm({ sidebar, title, description }: ContactFormBlock) {
   return (
@@ -23,7 +24,7 @@ export default function ContactForm({ sidebar, title, description }: ContactForm
           <Heading level="h1" tag="h1">
             {title}
           </Heading>
-          <p className="mb-8 text-xl">{description}</p>
+          <Text className="mb-8">{description}</Text>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 sm:gap-4">
             <div className="mb-4">

@@ -8,7 +8,10 @@ export default function Label({
 }: ComponentPropsWithoutRef<'label'>) {
   return (
     <label
-      className={cn('mb-2 block font-sans text-sm font-medium text-gray-900 uppercase', className)}
+      className={cn(
+        'mb-2 block font-sans text-xs font-medium text-gray-900 uppercase sm:text-sm',
+        className,
+      )}
       {...props}
     >
       {children}

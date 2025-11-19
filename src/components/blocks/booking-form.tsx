@@ -9,16 +9,17 @@ import Select from '../ui/select'
 import Textarea from '../ui/textarea'
 import { getSearchParam } from '@/lib/utils'
 import Heading from '../ui/heading'
+import Text from '../ui/text'
 
 export default function BookingForm({ title, description }: BookingFormBlock) {
   return (
     <section className="pb-24 lg:pb-40">
       <Container className="grid grid-cols-1 gap-16 lg:grid-cols-3">
         <div>
-          <Heading level="h2" tag="h2">
+          <Heading level="h2" tag="h2" className="mb-4">
             {title}
           </Heading>
-          <p className="mb-4 text-xl">{description}</p>
+          <Text>{description}</Text>
         </div>
 
         <form action="" method="POST" className="lg:col-span-2">

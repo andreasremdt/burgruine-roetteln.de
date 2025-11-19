@@ -2,6 +2,7 @@ import type { TextWithSidebarBlock } from '@/payload-types'
 import Container from '../ui/container'
 import Prose from './prose'
 import BlockRenderer from '../block-renderer'
+import Heading from '../ui/heading'
 
 export default function TextWithSidebar({
   title,
@@ -13,11 +14,13 @@ export default function TextWithSidebar({
     <section className="py-24 lg:py-40">
       <Container className="grid grid-cols-5 gap-16">
         <div className="col-span-5 lg:col-span-3">
-          <h2 className="mb-2 flex items-center font-sans font-medium text-gray-600 uppercase before:mr-4 before:block before:h-px before:w-8 before:bg-gray-600">
+          <Heading level="h5" tag="h2" dash>
             {title}
-          </h2>
+          </Heading>
 
-          <p className="mb-4 text-3xl">{description}</p>
+          <p className="mb-4 text-xl leading-snug sm:text-2xl md:text-3xl md:leading-tight">
+            {description}
+          </p>
 
           <Prose content={content} />
         </div>

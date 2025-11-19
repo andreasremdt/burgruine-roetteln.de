@@ -14,7 +14,7 @@ export default function OneColumnWithImage({ content, image, buttons }: OneColum
             width={600}
             height={600}
             loading="eager"
-            className="mb-1 aspect-square object-cover"
+            className="mb-1 aspect-square w-full object-cover"
           />
           {typeof image === 'object' && image.caption ? (
             <figcaption className="font-sans font-medium">{image.caption}</figcaption>
