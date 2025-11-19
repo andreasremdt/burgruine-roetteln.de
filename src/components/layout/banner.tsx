@@ -26,6 +26,7 @@ export default async function Banner() {
 
         {banner.showNextEvent && nextEvent ? (
           <Link
+            prefetch
             href="/besuchen#veranstaltungen"
             className="flex items-center gap-2 transition-colors hover:text-white focus-visible:text-white"
           >

@@ -9,7 +9,7 @@ export default async function Header() {
   return (
     <header className="relative z-20 text-white">
       <Container className="flex h-24 items-center justify-between gap-4 md:h-32">
-        <Link href="/" className="font-serif text-3xl sm:text-4xl">
+        <Link href="/" className="font-serif text-3xl sm:text-4xl" prefetch>
           Burgruine Rötteln
         </Link>
 
@@ -52,6 +52,7 @@ export default async function Header() {
           <ul className="flex flex-col gap-4 font-medium uppercase lg:flex-row lg:gap-10 lg:text-sm">
             <li>
               <Link
+                prefetch
                 href="/burg"
                 className="transition-colors hover:text-gray-200 focus-visible:text-gray-200"
               >
@@ -60,6 +61,7 @@ export default async function Header() {
             </li>
             <li className="group relative">
               <Link
+                prefetch
                 className="text flex items-center gap-2 transition-colors hover:text-gray-200 focus-visible:text-gray-200"
                 href="/besuchen"
               >
@@ -69,6 +71,7 @@ export default async function Header() {
               <ul className="top-full left-0 mt-2 bg-white py-2 group-focus-within:block group-hover:block before:absolute before:-top-2 before:h-2 before:w-full lg:absolute lg:hidden lg:shadow-sm">
                 <li>
                   <Link
+                    prefetch
                     className="block px-4 py-2 text-gray-700 transition-colors hover:bg-gray-100 focus-visible:bg-gray-100"
                     href="/besuchen#anfahrt"
                   >
@@ -77,6 +80,7 @@ export default async function Header() {
                 </li>
                 <li>
                   <Link
+                    prefetch
                     className="block px-4 py-2 text-gray-700 transition-colors hover:bg-gray-100 focus-visible:bg-gray-100"
                     href="/besuchen#eintrittspreise"
                   >
@@ -85,6 +89,7 @@ export default async function Header() {
                 </li>
                 <li>
                   <Link
+                    prefetch
                     className="block px-4 py-2 text-gray-700 transition-colors hover:bg-gray-100 focus-visible:bg-gray-100"
                     href="/besuchen#veranstaltungen"
                   >
@@ -95,6 +100,7 @@ export default async function Header() {
             </li>
             <li className="group relative">
               <Link
+                prefetch
                 className="text flex items-center gap-2 transition-colors hover:text-gray-200 focus-visible:text-gray-200"
                 href="/fuehrungen"
               >
@@ -104,6 +110,7 @@ export default async function Header() {
                 {tours.map((tour) => (
                   <li key={tour.id}>
                     <Link
+                      prefetch
                       className="block px-4 py-2 text-gray-700 transition-colors hover:bg-gray-100 focus-visible:bg-gray-100"
                       href={`/fuehrungen/${tour.slug}`}
                     >
@@ -115,6 +122,7 @@ export default async function Header() {
             </li>
             <li className="group relative">
               <Link
+                prefetch
                 className="text flex items-center gap-2 transition-colors hover:text-gray-200 focus-visible:text-gray-200"
                 href="/verein"
               >
@@ -123,6 +131,7 @@ export default async function Header() {
               <ul className="top-full left-0 mt-2 bg-white py-2 group-focus-within:block group-hover:block before:absolute before:-top-2 before:h-2 before:w-full lg:absolute lg:hidden lg:shadow-sm">
                 <li>
                   <Link
+                    prefetch
                     className="block px-4 py-2 text-gray-700 transition-colors hover:bg-gray-100 focus-visible:bg-gray-100"
                     href="/verein#arbeitsgruppe"
                   >
@@ -133,6 +142,7 @@ export default async function Header() {
             </li>
             <li>
               <Link
+                prefetch
                 className="transition-colors hover:text-gray-200 focus-visible:text-gray-200"
                 href="/kontakt"
               >

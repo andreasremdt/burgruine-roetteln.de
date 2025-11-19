@@ -39,6 +39,7 @@ export default async function Footer() {
           <ul>
             <li>
               <Link
+                prefetch
                 className="transition-colors hover:text-white focus-visible:text-white"
                 href="/burg"
               >
@@ -47,6 +48,7 @@ export default async function Footer() {
             </li>
             <li>
               <Link
+                prefetch
                 className="transition-colors hover:text-white focus-visible:text-white"
                 href="/besuchen"
               >
@@ -55,6 +57,7 @@ export default async function Footer() {
             </li>
             <li>
               <Link
+                prefetch
                 className="transition-colors hover:text-white focus-visible:text-white"
                 href="/verein"
               >
@@ -63,6 +66,7 @@ export default async function Footer() {
             </li>
             <li>
               <Link
+                prefetch
                 className="transition-colors hover:text-white focus-visible:text-white"
                 href="/kontakt"
               >
@@ -71,6 +75,7 @@ export default async function Footer() {
             </li>
             <li>
               <Link
+                prefetch
                 className="transition-colors hover:text-white focus-visible:text-white"
                 href="/impressum"
               >
@@ -79,6 +84,7 @@ export default async function Footer() {
             </li>
             <li>
               <Link
+                prefetch
                 className="transition-colors hover:text-white focus-visible:text-white"
                 href="/datenschutz"
               >

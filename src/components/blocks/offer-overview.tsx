@@ -21,6 +21,7 @@ export default function OfferOverview({ title, description, offers }: OfferOverv
               <Image src="/history.svg" width="60" height="60" className="mb-4 opacity-50" alt="" />
               <h3 className="mb-2 text-3xl">
                 <Link
+                  prefetch
                   className="text-gray-900 transition-colors hover:text-gray-700 focus-visible:text-gray-700"
                   href={offer.url}
                 >

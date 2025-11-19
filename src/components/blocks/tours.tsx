@@ -61,6 +61,7 @@ export default function ToursBlock({ title, description, tours, dark }: ToursBlo
                     {tour.title}
                   </Heading>
                   <Link
+                    prefetch
                     className={cn(
                       'font-sans text-xs font-medium tracking-wider uppercase transition-colors after:absolute after:inset-0',
                       {
