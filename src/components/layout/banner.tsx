@@ -17,7 +17,7 @@ export default async function Banner() {
           {banner.showOpeningHours ? (
             <>
               <Icon name="clock" />
-              {openingHours.titleInnerWard}
+              {openingHours.titleOuterWard}
             </>
           ) : (
             banner.leftSideText
