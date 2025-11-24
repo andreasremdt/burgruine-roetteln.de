@@ -1,12 +1,7 @@
 import type { ContactFormBlock } from '@/payload-types'
 import BlockRenderer from '../block-renderer'
 import Container from '../ui/container'
-import Label from '../ui/label'
-import Input from '../ui/input'
-import Textarea from '../ui/textarea'
-import Button from '../ui/button'
-import Heading from '../ui/heading'
-import Text from '../ui/text'
+import ContactFormClient from './contact-form.client'
 
 export default function ContactForm({ sidebar, title, description }: ContactFormBlock) {
   return (
@@ -16,39 +11,7 @@ export default function ContactForm({ sidebar, title, description }: ContactForm
           <BlockRenderer blocks={sidebar} />
         </div>
 
-        <form
-          action=""
-          method="POST"
-          className="z-10 order-1 bg-white md:order-2 md:col-span-2 md:-mt-60 md:border md:border-gray-200 md:p-8 lg:p-16"
-        >
-          <Heading level="h1" tag="h1">
-            {title}
-          </Heading>
-          <Text className="mb-8">{description}</Text>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 sm:gap-4">
-            <div className="mb-4">
-              <Label htmlFor="name">Ihr Name</Label>
-              <Input name="name" id="name" required />
-            </div>
-            <div className="mb-4">
-              <Label htmlFor="email">Ihre E-Mail-Adresse</Label>
-              <Input type="email" name="email" id="email" required />
-            </div>
-          </div>
-
-          <div className="mb-4">
-            <Label htmlFor="subject">Betreff</Label>
-            <Input name="subject" id="subject" required />
-          </div>
-
-          <div className="mb-4">
-            <Label htmlFor="message">Ihre Nachricht</Label>
-            <Textarea name="message" id="message" rows={5} required />
-          </div>
-
-          <Button type="submit">Nachricht senden &rarr;</Button>
-        </form>
+        <ContactFormClient title={title} description={description} />
       </Container>
     </section>
   )

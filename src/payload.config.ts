@@ -1,5 +1,6 @@
 import { mongooseAdapter } from '@payloadcms/db-mongodb'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
+import { nodemailerAdapter } from '@payloadcms/email-nodemailer'
 import { seoPlugin } from '@payloadcms/plugin-seo'
 import path from 'path'
 import { buildConfig } from 'payload'
@@ -18,6 +19,7 @@ import costs from './payload/globals/costs'
 import openingHours from './payload/globals/opening-hours'
 import banner from './payload/globals/banner'
 import header from './payload/globals/header'
+import messages from './payload/collections/messages'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -29,7 +31,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [users, media, tours, pages, events],
+  collections: [users, media, tours, pages, events, messages],
   globals: [footer, contact, costs, openingHours, banner, header],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET,
@@ -44,6 +46,18 @@ export default buildConfig({
       retryWrites: true,
       writeConcern: {
         w: 'majority',
+      },
+    },
+  }),
+  email: nodemailerAdapter({
+    defaultFromAddress: 'info@burgruine-roetteln.de',
+    defaultFromName: 'Burgruine Rötteln',
+    transportOptions: {
+      host: process.env.EMAIL_SMTP_HOST,
+      port: 587,
+      auth: {
+        user: process.env.EMAIL_SMTP_USER,
+        pass: process.env.EMAIL_SMTP_PASSWORD,
       },
     },
   }),
