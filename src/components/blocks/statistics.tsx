@@ -21,7 +21,7 @@ export default function Statistics({
           {description}
         </Heading>
 
-        <div className="md:ml-[25%] lg:ml-[35%]">
+        <div className="md:ml-[25%]">
           <dl className="mb-16 grid grid-cols-2 gap-8 sm:grid-cols-3 md:gap-16">
             {statistics?.map((statistic) => (
               <div key={statistic.id} className="flex flex-col-reverse gap-4">

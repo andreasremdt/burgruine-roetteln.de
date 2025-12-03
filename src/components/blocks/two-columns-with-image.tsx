@@ -20,7 +20,7 @@ export default function TwoColumnsWithImage({
           {description}
         </Heading>
 
-        <Text className="mb-24 gap-8 md:mb-40 md:ml-[35%] md:columns-2">{content}</Text>
+        <Text className="mb-24 gap-8 md:mb-40 md:ml-[25%] md:columns-2">{content}</Text>
 
         <figure>
           <ImageKitImage

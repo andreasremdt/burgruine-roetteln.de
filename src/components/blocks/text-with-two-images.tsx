@@ -22,7 +22,7 @@ export default function TextWithTwoImages({
           {description}
         </Heading>
 
-        <div className="mb-24 ml-[35%] md:mb-40">
+        <div className="mb-24 md:mb-40 md:ml-[25%]">
           <Prose content={content} className="mb-4" />
 
           {buttons ? (
