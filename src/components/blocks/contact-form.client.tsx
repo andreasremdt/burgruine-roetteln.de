@@ -98,9 +98,9 @@ export default function ContactFormClient({ title, description }: Props) {
         >
           {(field) => (
             <div>
-              <Label htmlFor="firstname">Vorname</Label>
+              <Label htmlFor="name">Vor- und Nachname</Label>
               <Input
-                id="firstname"
+                id="name"
                 name={field.name}
                 value={field.state.value}
                 onChange={(e) => field.handleChange(e.target.value)}
@@ -121,7 +121,7 @@ export default function ContactFormClient({ title, description }: Props) {
         >
           {(field) => (
             <div className="mb-4">
-              <Label htmlFor="email">Ihre E-Mail-Adresse</Label>
+              <Label htmlFor="email">E-Mail-Adresse</Label>
               <Input
                 type="email"
                 name={field.name}

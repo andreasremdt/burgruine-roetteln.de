@@ -28,6 +28,7 @@ export default async function AdvancedHero({
           width={1920}
           height={400}
           loading="eager"
+          priority
           role="presentation"
           className="h-full w-full object-cover"
         />

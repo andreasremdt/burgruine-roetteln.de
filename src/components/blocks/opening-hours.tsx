@@ -11,7 +11,7 @@ export default async function OpeningHours({ layout, background }: OpeningHoursB
   return (
     <section
       className={cn({
-        'bg-gray-50 p-12': background,
+        'bg-gray-50 p-6 md:p-12': background,
         'px-4 py-20 md:py-40': layout === 'horizontal',
       })}
     >

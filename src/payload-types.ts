@@ -588,8 +588,10 @@ export interface TimelineBlock {
  */
 export interface OfferOverviewBlock {
   title: string;
+  subtitle: string;
   description: string;
   offers: {
+    image: string | Media;
     title: string;
     url: string;
     description: string;
@@ -1088,10 +1090,12 @@ export interface TimelineBlockSelect<T extends boolean = true> {
  */
 export interface OfferOverviewBlockSelect<T extends boolean = true> {
   title?: T;
+  subtitle?: T;
   description?: T;
   offers?:
     | T
     | {
+        image?: T;
         title?: T;
         url?: T;
         description?: T;

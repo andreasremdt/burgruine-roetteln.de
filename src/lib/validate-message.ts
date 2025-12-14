@@ -19,7 +19,7 @@ const MIN_MESSAGE_LENGTH = 10
 
 export function validateName(value: string): string | undefined {
   if (!value || value.trim() === '') {
-    return 'Name ist erforderlich'
+    return 'Vor- und Nachname sind erforderlich'
   }
 
   return undefined

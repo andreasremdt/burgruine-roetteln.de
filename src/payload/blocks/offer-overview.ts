@@ -15,6 +15,12 @@ const offerOverview: Block = {
       required: true,
     },
     {
+      name: 'subtitle',
+      type: 'text',
+      label: 'Untertitel',
+      required: true,
+    },
+    {
       name: 'description',
       type: 'textarea',
       label: 'Beschreibung',
@@ -30,6 +36,13 @@ const offerOverview: Block = {
       },
       required: true,
       fields: [
+        {
+          name: 'image',
+          type: 'upload',
+          label: 'Bild',
+          required: true,
+          relationTo: 'media',
+        },
         {
           type: 'row',
           fields: [

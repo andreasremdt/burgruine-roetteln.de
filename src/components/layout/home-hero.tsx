@@ -26,6 +26,7 @@ export default async function HomeHero({ title, description, className, ...props
         image={header.image}
         width={1920}
         height={800}
+        priority
         loading="eager"
         role="presentation"
         className="absolute inset-0 z-0 h-full w-full object-cover"

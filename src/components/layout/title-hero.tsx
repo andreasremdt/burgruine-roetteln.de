@@ -25,6 +25,7 @@ export default async function ImageHero({ title, className, ...props }: Props) {
         width={1920}
         height={400}
         loading="eager"
+        priority
         role="presentation"
         className="absolute inset-0 h-full w-full object-cover"
       />

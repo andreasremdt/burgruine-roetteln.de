@@ -5,6 +5,7 @@ import Container from '../ui/container'
 import { getEvents } from '@/lib/fetchers'
 import Prose from './prose'
 import Heading from '../ui/heading'
+import Button from '../ui/button'
 
 function isPreviousEvent(event: Event) {
   return event.date < new Date().toISOString()
@@ -36,11 +37,13 @@ export default async function Events({ title, description }: EventsBlock) {
           >
             <time
               dateTime={event.date}
-              className="col-span-2 mt-1 font-sans text-lg font-medium whitespace-nowrap uppercase lg:col-span-1"
+              className="col-span-2 mt-1 font-sans font-medium whitespace-nowrap uppercase lg:col-span-1"
             >
               {event.displayedDate}
               {event.time ? (
-                <span className="block text-base font-normal text-gray-500">{event.time}</span>
+                <span className="block text-sm font-normal text-wrap text-gray-500">
+                  {event.time}
+                </span>
               ) : null}
             </time>
             <div className="col-span-4 lg:col-span-5">
@@ -50,14 +53,14 @@ export default async function Events({ title, description }: EventsBlock) {
 
               {event.description ? <Prose content={event.description} /> : null}
               {event.url ? (
-                <Link
+                <Button
                   href={event.url}
                   target="_blank"
                   rel="noopener noreferrer nofollow"
-                  className="mt-4 inline-block font-sans text-xs font-medium tracking-wider uppercase transition-colors hover:text-gray-600 hover:underline focus-visible:text-gray-600"
+                  className="mt-4"
                 >
                   Mehr erfahren
-                </Link>
+                </Button>
               ) : null}
 
               {nextEvent?.id === event.id ? (
