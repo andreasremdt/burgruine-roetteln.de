@@ -94,6 +94,7 @@ export interface Config {
   db: {
     defaultIDType: string;
   };
+  fallbackLocale: null;
   globals: {
     footer: Footer;
     contact: Contact;
