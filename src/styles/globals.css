@@ -4,8 +4,10 @@
 @plugin '@tailwindcss/typography';
 
 @theme {
-  --font-sans: Open Sans, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-serif: Cormorant Garamond, ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-sans:
+    Open Sans, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-serif: Cormorant Garamond, ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
 
   --color-kornblau-400: oklch(0.4761 0.1704 259.63);
 }

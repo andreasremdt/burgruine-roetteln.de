@@ -7,7 +7,7 @@
     "generate:importmap": "payload generate:importmap",
     "generate:types": "payload generate:types",
     "format": "prettier --write src/",
-    "lint": "next lint",
+    "lint": "eslint .",
     "payload": "payload",
     "start": "next start"
   },
