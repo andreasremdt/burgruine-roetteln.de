@@ -134,7 +134,7 @@ export default function Lightbox({
       >
         {isLoading ? (
           <div className="absolute inset-0 flex items-center justify-center" aria-hidden="true">
-            <div className="size-12 animate-spin border-4 border-white/20 border-t-white" />
+            <div className="size-12 animate-spin rounded-full border-4 border-white/20 border-t-white" />
           </div>
         ) : null}
 
