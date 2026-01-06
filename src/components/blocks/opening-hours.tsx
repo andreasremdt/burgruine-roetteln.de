@@ -1,7 +1,7 @@
 import { getContactInfo, getOpeningHours } from '@/lib/fetchers'
 import type { OpeningHoursBlock } from '@/payload-types'
-import Icon from '../ui/icon'
 import { cn } from '@/lib/utils'
+import Icon from '../ui/icon'
 import Button from '../ui/button'
 
 export default async function OpeningHours({ layout, background }: OpeningHoursBlock) {

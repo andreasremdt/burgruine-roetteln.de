@@ -11,7 +11,7 @@ export default async function Banner() {
   const nextEvent = events.find((event) => event.date > new Date().toISOString())
 
   return (
-    <div className="bg-kornblau-400 font-medium text-white">
+    <div className="bg-kornblau-400 relative z-10 font-medium text-white">
       <Container className="flex flex-wrap items-center justify-between gap-4 py-4 text-sm">
         <p className="hidden items-center gap-2 md:flex">
           {banner.showOpeningHours ? (
