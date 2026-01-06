@@ -1,4 +1,3 @@
-import Container from '@/components/ui/container'
 import { getPageBySlug } from '@/lib/fetchers'
 import TitleHero from '@/components/layout/title-hero'
 import OpeningHours from '@/components/blocks/opening-hours'

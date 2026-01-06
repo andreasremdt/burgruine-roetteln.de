@@ -16,6 +16,7 @@ import {
   validateSubject,
 } from '@/lib/validate-message'
 import FieldError from '../ui/field-error'
+import Icon from '../ui/icon'
 
 type Props = {
   title: string
@@ -89,127 +90,142 @@ export default function ContactFormClient({ title, description }: Props) {
       </Heading>
       <Text className="mb-8">{description}</Text>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 sm:gap-4">
-        <form.Field
-          name="name"
-          validators={{
-            onChange: ({ value }) => validateName(value),
-          }}
-        >
+      <div className="relative">
+        {submitStatus === 'success' ? (
+          <div
+            className="absolute inset-0 flex flex-col items-center justify-center bg-white/90"
+            role="alert"
+          >
+            <Icon name="check-circle" className="text-kornblau-400 mb-4 size-8" />
+            <p className="text-center text-xl">
+              <strong className="block">Vielen Dank für Ihre Nachricht.</strong>
+              Wir werden uns schnellstmöglich um Ihre Anfrage kümmern.
+            </p>
+          </div>
+        ) : null}
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 sm:gap-4">
+          <form.Field
+            name="name"
+            validators={{
+              onChange: ({ value }) => validateName(value),
+            }}
+          >
+            {(field) => (
+              <div>
+                <Label htmlFor="name">Vor- und Nachname</Label>
+                <Input
+                  id="name"
+                  name={field.name}
+                  value={field.state.value}
+                  onChange={(e) => field.handleChange(e.target.value)}
+                  onBlur={field.handleBlur}
+                  required
+                  autoComplete="given-name"
+                  error={field.state.meta.errors[0]}
+                />
+                <FieldError id={field.name} error={field.state.meta.errors[0]} />
+              </div>
+            )}
+          </form.Field>
+          <form.Field
+            name="email"
+            validators={{
+              onChange: ({ value }) => validateEmail(value),
+            }}
+          >
+            {(field) => (
+              <div className="mb-4">
+                <Label htmlFor="email">E-Mail-Adresse</Label>
+                <Input
+                  type="email"
+                  name={field.name}
+                  id="email"
+                  value={field.state.value}
+                  onChange={(e) => field.handleChange(e.target.value)}
+                  onBlur={field.handleBlur}
+                  required
+                  autoComplete="email"
+                  error={field.state.meta.errors[0]}
+                />
+                <FieldError id={field.name} error={field.state.meta.errors[0]} />
+              </div>
+            )}
+          </form.Field>
+        </div>
+
+        <form.Field name="phone">
           {(field) => (
-            <div>
-              <Label htmlFor="name">Vor- und Nachname</Label>
+            <div className="mb-4 w-1/2 pr-2">
+              <Label htmlFor="phone">Telefonnummer</Label>
               <Input
-                id="name"
+                id="phone"
                 name={field.name}
                 value={field.state.value}
                 onChange={(e) => field.handleChange(e.target.value)}
                 onBlur={field.handleBlur}
-                required
-                autoComplete="given-name"
+                autoComplete="tel"
                 error={field.state.meta.errors[0]}
               />
               <FieldError id={field.name} error={field.state.meta.errors[0]} />
             </div>
           )}
         </form.Field>
+
         <form.Field
-          name="email"
+          name="subject"
           validators={{
-            onChange: ({ value }) => validateEmail(value),
+            onChange: ({ value }) => validateSubject(value),
           }}
         >
           {(field) => (
             <div className="mb-4">
-              <Label htmlFor="email">E-Mail-Adresse</Label>
+              <Label htmlFor="subject">Betreff</Label>
               <Input
-                type="email"
                 name={field.name}
-                id="email"
+                id="subject"
                 value={field.state.value}
                 onChange={(e) => field.handleChange(e.target.value)}
                 onBlur={field.handleBlur}
                 required
-                autoComplete="email"
                 error={field.state.meta.errors[0]}
               />
               <FieldError id={field.name} error={field.state.meta.errors[0]} />
             </div>
           )}
         </form.Field>
+
+        <form.Field
+          name="message"
+          validators={{
+            onChange: ({ value }) => validateMessage(value),
+          }}
+        >
+          {(field) => (
+            <div className="mb-4">
+              <Label htmlFor="message">Ihre Nachricht</Label>
+              <Textarea
+                name={field.name}
+                id="message"
+                rows={5}
+                value={field.state.value}
+                onChange={(e) => field.handleChange(e.target.value)}
+                onBlur={field.handleBlur}
+                required
+                error={field.state.meta.errors[0]}
+              />
+              <FieldError id={field.name} error={field.state.meta.errors[0]} />
+            </div>
+          )}
+        </form.Field>
+
+        <Button type="submit" disabled={submitStatus === 'loading' || submitStatus === 'success'}>
+          {submitStatus === 'success' ? 'Nachricht erfolgreich gesendet' : null}
+          {submitStatus === 'loading' ? 'Wird gesendet...' : null}
+          {submitStatus === 'idle' ? 'Nachricht senden' : null}
+          {submitStatus === 'error' ? 'Fehler beim Senden' : null}
+        </Button>
       </div>
-
-      <form.Field name="phone">
-        {(field) => (
-          <div className="mb-4 w-1/2 pr-2">
-            <Label htmlFor="phone">Telefonnummer</Label>
-            <Input
-              id="phone"
-              name={field.name}
-              value={field.state.value}
-              onChange={(e) => field.handleChange(e.target.value)}
-              onBlur={field.handleBlur}
-              autoComplete="tel"
-              error={field.state.meta.errors[0]}
-            />
-            <FieldError id={field.name} error={field.state.meta.errors[0]} />
-          </div>
-        )}
-      </form.Field>
-
-      <form.Field
-        name="subject"
-        validators={{
-          onChange: ({ value }) => validateSubject(value),
-        }}
-      >
-        {(field) => (
-          <div className="mb-4">
-            <Label htmlFor="subject">Betreff</Label>
-            <Input
-              name={field.name}
-              id="subject"
-              value={field.state.value}
-              onChange={(e) => field.handleChange(e.target.value)}
-              onBlur={field.handleBlur}
-              required
-              error={field.state.meta.errors[0]}
-            />
-            <FieldError id={field.name} error={field.state.meta.errors[0]} />
-          </div>
-        )}
-      </form.Field>
-
-      <form.Field
-        name="message"
-        validators={{
-          onChange: ({ value }) => validateMessage(value),
-        }}
-      >
-        {(field) => (
-          <div className="mb-4">
-            <Label htmlFor="message">Ihre Nachricht</Label>
-            <Textarea
-              name={field.name}
-              id="message"
-              rows={5}
-              value={field.state.value}
-              onChange={(e) => field.handleChange(e.target.value)}
-              onBlur={field.handleBlur}
-              required
-              error={field.state.meta.errors[0]}
-            />
-            <FieldError id={field.name} error={field.state.meta.errors[0]} />
-          </div>
-        )}
-      </form.Field>
-
-      <Button type="submit" disabled={submitStatus === 'loading' || submitStatus === 'success'}>
-        {submitStatus === 'success' ? 'Nachricht erfolgreich gesendet' : null}
-        {submitStatus === 'loading' ? 'Wird gesendet...' : null}
-        {submitStatus === 'idle' ? 'Nachricht senden' : null}
-        {submitStatus === 'error' ? 'Fehler beim Senden' : null}
-      </Button>
     </form>
   )
 }

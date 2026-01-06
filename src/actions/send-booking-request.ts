@@ -3,28 +3,30 @@
 import config from '@payload-config'
 import { getPayload } from 'payload'
 import {
-  validateMessageForm,
+  validateBookingForm,
   hasValidationErrors,
   type ValidationErrors,
-} from '@/lib/validate-message'
+} from '@/lib/validate-booking-form'
 
 type FormInputData = {
   name: string
+  type: string
   email: string
-  subject: string
-  phone?: string
+  participants: string
   message: string
 }
 
-type SendMessageState = {
+type SendBookingRequestState = {
   success: boolean
   errors?: ValidationErrors
   values?: FormInputData
 }
 
-export default async function sendMessage(data: FormInputData): Promise<SendMessageState> {
+export default async function sendBookingRequest(
+  data: FormInputData,
+): Promise<SendBookingRequestState> {
   // Validate input data
-  const errors = validateMessageForm(data)
+  const errors = validateBookingForm(data)
 
   if (hasValidationErrors(errors)) {
     return {
@@ -34,25 +36,25 @@ export default async function sendMessage(data: FormInputData): Promise<SendMess
     }
   }
 
-  const { name, subject, email, phone, message } = data
+  const { name, type, email, participants, message } = data
 
   try {
     const payload = await getPayload({ config })
 
     await payload.sendEmail({
-      to: process.env.EMAIL_RECIPIENT_CONTACT_FORM,
-      subject: `Anfrage von ${name} - ${subject}`,
+      to: process.env.EMAIL_RECIPIENT_BOOKING_FORM,
+      subject: `Anfrage Führung "${type}" von ${name}`,
       replyTo: email,
-      text: `Name: ${name}\nBetreff: ${subject}\nE-Mail: ${email}\nTelefon: ${phone || '-'}\n\n${message}`,
+      text: `Anfrage Führung "${type}" von ${name}\nE-Mail: ${email}\nAnzahl Teilnehmer: ${participants}\n\n${message}`,
     })
 
     await payload.create({
-      collection: 'messages',
+      collection: 'requests',
       data: {
         name,
-        subject,
+        type,
         email,
-        phone,
+        participants,
         message,
       },
     })

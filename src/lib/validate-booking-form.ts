@@ -1,16 +1,16 @@
 type FormInputData = {
   name: string
-  subject: string
+  type: string
   email: string
-  phone?: string
+  participants: string
   message: string
 }
 
 export type ValidationErrors = {
   name?: string[]
-  subject?: string[]
+  type?: string[]
   email?: string[]
-  phone?: string[]
+  participants?: string[]
   message?: string[]
 }
 
@@ -25,18 +25,17 @@ export function validateName(value: string): string | undefined {
   return undefined
 }
 
-export function validateNumber(value: string): string | undefined {
-  console.log(value)
+export function validateParticipants(value: string): string | undefined {
   if (!value || value.trim() === '') {
     return 'Anzahl Teilnehmer ist erforderlich'
   }
 
-  return undefined
-}
+  if (isNaN(Number(value))) {
+    return 'Anzahl Teilnehmer muss eine Zahl sein'
+  }
 
-export function validateSubject(value: string): string | undefined {
-  if (!value || value.trim() === '') {
-    return 'Betreff ist erforderlich'
+  if (Number(value) <= 0) {
+    return 'Anzahl Teilnehmer muss größer als 0 sein'
   }
 
   return undefined
@@ -69,7 +68,7 @@ export function validateMessage(value: string): string | undefined {
 /**
  * Validates form input data and returns validation errors
  */
-export function validateMessageForm(data: FormInputData): ValidationErrors {
+export function validateBookingForm(data: FormInputData): ValidationErrors {
   const errors: ValidationErrors = {}
 
   const nameError = validateName(data.name)
@@ -77,14 +76,14 @@ export function validateMessageForm(data: FormInputData): ValidationErrors {
     errors.name = [nameError]
   }
 
-  const subjectError = validateSubject(data.subject)
-  if (subjectError) {
-    errors.subject = [subjectError]
-  }
-
   const emailError = validateEmail(data.email)
   if (emailError) {
     errors.email = [emailError]
+  }
+
+  const participantsError = validateParticipants(data.participants)
+  if (participantsError) {
+    errors.participants = [participantsError]
   }
 
   const messageError = validateMessage(data.message)

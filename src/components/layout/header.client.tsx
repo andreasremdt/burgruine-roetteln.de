@@ -1,6 +1,5 @@
 'use client'
 
-import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import type { Tour } from '@/payload-types'
 import useMobileMenu from '@/hooks/use-mobile-menu'
@@ -23,7 +22,6 @@ export default function HeaderClient({ tours }: Props) {
     toggleRef,
   } = useMobileMenu()
   const focusTrapRef = useFocusTrap<HTMLDivElement>(isMenuVisible)
-  const pathname = usePathname()
 
   return (
     <div ref={focusTrapRef}>
@@ -81,7 +79,7 @@ export default function HeaderClient({ tours }: Props) {
               Ihr Besuch
               <Icon name="chevron-down" className="hidden lg:block" />
             </Link>
-            <ul className="top-full left-0 bg-white py-2 group-focus-within:block group-hover:block before:absolute before:-top-2 before:h-2 before:w-full lg:absolute lg:mt-2 lg:hidden lg:shadow-sm">
+            <ul className="top-full left-0 min-w-56 bg-white py-2 group-focus-within:block group-hover:block before:absolute before:-top-2 before:h-2 before:w-full lg:absolute lg:mt-2 lg:hidden lg:shadow-sm">
               <li>
                 <Link
                   prefetch
@@ -123,7 +121,7 @@ export default function HeaderClient({ tours }: Props) {
             >
               Führungen <Icon name="chevron-down" className="hidden lg:block" />
             </Link>
-            <ul className="top-full left-0 bg-white py-2 group-focus-within:block group-hover:block before:absolute before:-top-2 before:h-2 before:w-full lg:absolute lg:mt-2 lg:hidden lg:shadow-sm">
+            <ul className="top-full left-0 min-w-56 bg-white py-2 group-focus-within:block group-hover:block before:absolute before:-top-2 before:h-2 before:w-full lg:absolute lg:mt-2 lg:hidden lg:shadow-sm">
               {tours.map((tour) => (
                 <li key={tour.id}>
                   <Link
@@ -147,7 +145,7 @@ export default function HeaderClient({ tours }: Props) {
             >
               Der Verein <Icon name="chevron-down" className="hidden lg:block" />
             </Link>
-            <ul className="top-full left-0 bg-white py-2 group-focus-within:block group-hover:block before:absolute before:-top-2 before:h-2 before:w-full lg:absolute lg:mt-2 lg:hidden lg:shadow-sm">
+            <ul className="top-full left-0 min-w-56 bg-white py-2 group-focus-within:block group-hover:block before:absolute before:-top-2 before:h-2 before:w-full lg:absolute lg:mt-2 lg:hidden lg:shadow-sm">
               <li>
                 <Link
                   prefetch

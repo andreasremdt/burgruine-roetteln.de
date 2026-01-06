@@ -73,6 +73,7 @@ export interface Config {
     pages: Page;
     events: Event;
     messages: Message;
+    requests: Request;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -86,6 +87,7 @@ export interface Config {
     pages: PagesSelect<false> | PagesSelect<true>;
     events: EventsSelect<false> | EventsSelect<true>;
     messages: MessagesSelect<false> | MessagesSelect<true>;
+    requests: RequestsSelect<false> | RequestsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -712,6 +714,20 @@ export interface Message {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "requests".
+ */
+export interface Request {
+  id: string;
+  name: string;
+  email: string;
+  type?: string | null;
+  participants: string;
+  message: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -757,6 +773,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'messages';
         value: string | Message;
+      } | null)
+    | ({
+        relationTo: 'requests';
+        value: string | Request;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -1169,6 +1189,19 @@ export interface MessagesSelect<T extends boolean = true> {
   email?: T;
   phone?: T;
   subject?: T;
+  message?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "requests_select".
+ */
+export interface RequestsSelect<T extends boolean = true> {
+  name?: T;
+  email?: T;
+  type?: T;
+  participants?: T;
   message?: T;
   updatedAt?: T;
   createdAt?: T;
