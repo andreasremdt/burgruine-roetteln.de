@@ -110,7 +110,7 @@ export default function BookingFormClient({ tours }: Props) {
           }}
         >
           {(field) => (
-            <div>
+            <div className="mb-4">
               <Label htmlFor="name">Vor- und Nachname *</Label>
               <Input
                 id="name"
