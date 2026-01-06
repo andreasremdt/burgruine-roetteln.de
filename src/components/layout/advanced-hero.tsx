@@ -47,9 +47,10 @@ export default async function AdvancedHero({
         </div>
 
         {description ? (
-          <p className="col-span-5 text-xl leading-relaxed md:col-span-3 md:text-3xl md:leading-tight">
-            {description}
-          </p>
+          <p
+            className="col-span-5 text-xl leading-relaxed md:col-span-3 md:text-3xl md:leading-tight"
+            dangerouslySetInnerHTML={{ __html: description.replace(/\n/g, '<br />') }}
+          />
         ) : null}
       </Container>
     </section>

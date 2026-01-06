@@ -36,7 +36,7 @@ export default function TextWithTwoImages({
           ) : null}
         </div>
 
-        <div className="relative z-10 grid grid-cols-2 gap-8 md:gap-16">
+        <div className="relative z-10 grid max-w-5xl grid-cols-2 gap-8 md:gap-16">
           <figure>
             <ImageKitImage
               image={image[0]}
@@ -51,7 +51,7 @@ export default function TextWithTwoImages({
             ) : null}
           </figure>
 
-          <figure className="mt-16">
+          <figure>
             <ImageKitImage
               image={image[1]}
               loading="lazy"
