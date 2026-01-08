@@ -7,6 +7,7 @@ const tours: Block = {
     singular: 'Liste der Führungen',
   },
   interfaceName: 'ToursBlock',
+  imageURL: '/blocks/tours.png',
   fields: [
     {
       type: 'row',

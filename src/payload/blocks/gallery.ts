@@ -7,6 +7,7 @@ const gallery: Block = {
     plural: 'Bildergalerien',
   },
   interfaceName: 'GalleryBlock',
+  imageURL: '/blocks/gallery.png',
   fields: [
     {
       type: 'row',

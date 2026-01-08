@@ -7,6 +7,7 @@ const events: Block = {
     plural: 'Veranstaltungen',
   },
   interfaceName: 'EventsBlock',
+  imageURL: '/blocks/events.png',
   fields: [
     {
       type: 'row',

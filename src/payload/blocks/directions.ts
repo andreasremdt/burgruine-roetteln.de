@@ -7,6 +7,7 @@ const directions: Block = {
     plural: 'Anfahrten',
   },
   interfaceName: 'DirectionsBlock',
+  imageURL: '/blocks/directions.png',
   fields: [
     {
       name: 'title',

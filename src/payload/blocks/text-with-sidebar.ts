@@ -8,6 +8,7 @@ const textWithSidebar: Block = {
     plural: 'Text mit Seitenleiste',
   },
   interfaceName: 'TextWithSidebarBlock',
+  imageURL: '/blocks/text-with-sidebar.png',
   fields: [
     {
       name: 'title',

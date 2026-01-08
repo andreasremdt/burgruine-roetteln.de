@@ -7,6 +7,7 @@ const bookingForm: Block = {
     plural: 'Buchungsformulare',
   },
   interfaceName: 'BookingFormBlock',
+  imageURL: '/blocks/booking-form.png',
   fields: [
     {
       name: 'title',

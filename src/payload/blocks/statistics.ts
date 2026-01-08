@@ -7,6 +7,7 @@ const statistics: Block = {
     singular: 'Text mit Zahlen',
   },
   interfaceName: 'StatisticsBlock',
+  imageURL: '/blocks/statistics.png',
   fields: [
     {
       type: 'row',

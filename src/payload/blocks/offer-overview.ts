@@ -7,6 +7,7 @@ const offerOverview: Block = {
     plural: 'Angebotsübersichten',
   },
   interfaceName: 'OfferOverviewBlock',
+  imageURL: '/blocks/offer-overview.png',
   fields: [
     {
       name: 'title',

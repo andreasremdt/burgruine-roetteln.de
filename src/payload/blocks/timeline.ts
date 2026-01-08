@@ -7,6 +7,7 @@ const timeline: Block = {
     plural: 'Zeitstrahlen',
   },
   interfaceName: 'TimelineBlock',
+  imageURL: '/blocks/timeline.png',
   fields: [
     {
       name: 'description',

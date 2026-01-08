@@ -7,6 +7,7 @@ const oneColumnWithImage: Block = {
     plural: 'Text mit Bilder',
   },
   interfaceName: 'OneColumnWithImageBlock',
+  imageURL: '/blocks/one-column-with-image.png',
   fields: [
     {
       type: 'richText',

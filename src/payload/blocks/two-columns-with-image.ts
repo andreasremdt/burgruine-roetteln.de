@@ -7,6 +7,7 @@ const twoColumnsWithImage: Block = {
     singular: 'Spaltentext mit Bild',
   },
   interfaceName: 'TwoColumnsWithImageBlock',
+  imageURL: '/blocks/two-columns-with-image.png',
   fields: [
     {
       type: 'row',

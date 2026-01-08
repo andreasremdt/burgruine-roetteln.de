@@ -7,6 +7,7 @@ const textWithTwoImages: Block = {
     singular: 'Text mit zwei Bildern',
   },
   interfaceName: 'TextWithTwoImagesBlock',
+  imageURL: '/blocks/text-with-two-images.png',
   fields: [
     {
       type: 'row',

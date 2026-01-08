@@ -7,6 +7,7 @@ const openingHours: Block = {
     plural: 'Öffnungszeiten',
   },
   interfaceName: 'OpeningHoursBlock',
+  imageURL: '/blocks/opening-hours.png',
   fields: [
     {
       type: 'select',

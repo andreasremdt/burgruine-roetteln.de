@@ -7,6 +7,7 @@ const richText: Block = {
     singular: 'Freitext',
   },
   interfaceName: 'RichTextBlock',
+  imageURL: '/blocks/rich-text.png',
   fields: [
     {
       name: 'content',

@@ -8,6 +8,7 @@ const contactForm: Block = {
     plural: 'Kontaktformulare',
   },
   interfaceName: 'ContactFormBlock',
+  imageURL: '/blocks/contact-form.png',
   fields: [
     {
       name: 'title',

@@ -7,6 +7,7 @@ const costs: Block = {
     plural: 'Eintrittspreise',
   },
   interfaceName: 'CostsBlock',
+  imageURL: '/blocks/costs.png',
   fields: [
     {
       type: 'row',
