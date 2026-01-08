@@ -74,8 +74,9 @@ export default buildConfig({
       collections: ['pages', 'tours'],
       uploadsCollection: 'media',
       tabbedUI: true,
-      generateTitle: ({ doc }) => `${doc.title} - Burgruine Rötteln`,
+      generateTitle: ({ doc }) => doc.title,
       generateDescription: ({ doc }) => doc.description,
+      generateURL: ({ doc }) => `${process.env.NEXT_PUBLIC_SERVER_URL}/${doc.slug}`,
     }),
   ],
 })

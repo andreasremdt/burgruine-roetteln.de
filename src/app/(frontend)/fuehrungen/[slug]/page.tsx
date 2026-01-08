@@ -6,6 +6,7 @@ import Button from '@/components/ui/button'
 import ImageKitImage from '@/components/imagekit-image'
 import Prose from '@/components/blocks/prose'
 import Gallery from '@/components/blocks/gallery'
+import { Metadata } from 'next'
 
 type Props = {
   params: Promise<{
@@ -61,4 +62,22 @@ export default async function Page({ params }: Props) {
       ) : null}
     </>
   )
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params
+  const tour = await getTourBySlug(slug)
+
+  return {
+    title: tour.meta?.title,
+    description: tour.meta?.description,
+    openGraph: {
+      title: tour.meta?.title || '',
+      description: tour.meta?.description || '',
+    },
+    twitter: {
+      title: tour.meta?.title || '',
+      description: tour.meta?.description || '',
+    },
+  }
 }

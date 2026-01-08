@@ -20,8 +20,15 @@ const cormorantGaramond = Cormorant_Garamond({
 })
 
 export const metadata = {
-  description: 'Burgruine Roetteln',
-  title: 'Burgruine Roetteln',
+  description: {
+    default: 'Die Burgruine Rötteln ist eine historische Burg in Lörrach, Deutschland',
+  },
+  title: {
+    default: 'Burgruine Rötteln',
+    template: '%s | Burgruine Rötteln',
+  },
+  authors: [{ name: 'Andreas Remdt', url: 'https://andreasremdt.com' }],
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SERVER_URL),
 }
 
 export default function Layout({ children }: { children: React.ReactNode }) {
