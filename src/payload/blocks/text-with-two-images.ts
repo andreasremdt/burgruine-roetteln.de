@@ -79,14 +79,14 @@ const textWithTwoImages: Block = {
       maxRows: 2,
     },
     {
-      name: 'image',
+      name: 'images',
       type: 'upload',
       label: 'Bild',
       required: true,
       relationTo: 'media',
       hasMany: true,
-      maxRows: 2,
-      minRows: 2,
+      maxRows: 3,
+      minRows: 1,
     },
   ],
 }

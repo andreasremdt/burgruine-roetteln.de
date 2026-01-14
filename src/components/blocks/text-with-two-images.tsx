@@ -9,7 +9,7 @@ export default function TextWithTwoImages({
   title,
   description,
   content,
-  image,
+  images,
   buttons,
 }: TextWithTwoImagesBlock) {
   return (
@@ -36,33 +36,25 @@ export default function TextWithTwoImages({
           ) : null}
         </div>
 
-        <div className="relative z-10 grid max-w-5xl grid-cols-2 gap-8 md:gap-16">
-          <figure>
-            <ImageKitImage
-              image={image[0]}
-              loading="lazy"
-              decoding="async"
-              width={600}
-              height={600}
-              className="mb-1 aspect-square object-cover"
-            />
-            {typeof image[0] === 'object' && image[0].caption ? (
-              <figcaption className="font-sans font-medium">{image[0].caption}</figcaption>
-            ) : null}
-          </figure>
-
-          <figure>
-            <ImageKitImage
-              image={image[1]}
-              loading="lazy"
-              decoding="async"
-              className="mb-1 aspect-square object-cover"
-            />
-            {typeof image[1] === 'object' && image[1].caption ? (
-              <figcaption className="font-sans font-medium">{image[1].caption}</figcaption>
-            ) : null}
-          </figure>
-        </div>
+        {images ? (
+          <div className="relative z-10 grid max-w-7xl grid-cols-3 gap-8 md:gap-16">
+            {images.map((image) => (
+              <figure key={typeof image === 'string' ? image : image.id}>
+                <ImageKitImage
+                  image={image}
+                  loading="lazy"
+                  decoding="async"
+                  width={600}
+                  height={600}
+                  className="mb-1 aspect-square object-cover"
+                />
+                {typeof image === 'object' && image.caption ? (
+                  <figcaption className="font-sans font-medium">{image.caption}</figcaption>
+                ) : null}
+              </figure>
+            ))}
+          </div>
+        ) : null}
       </Container>
     </section>
   )

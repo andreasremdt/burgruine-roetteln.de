@@ -424,7 +424,7 @@ export interface TextWithTwoImagesBlock {
         id?: string | null;
       }[]
     | null;
-  image: (string | Media)[];
+  images: (string | Media)[];
   id?: string | null;
   blockName?: string | null;
   blockType: 'textWithTwoImages';
@@ -1000,7 +1000,7 @@ export interface TextWithTwoImagesBlockSelect<T extends boolean = true> {
         theme?: T;
         id?: T;
       };
-  image?: T;
+  images?: T;
   id?: T;
   blockName?: T;
 }
