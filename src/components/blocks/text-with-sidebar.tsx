@@ -3,15 +3,17 @@ import Container from '../ui/container'
 import Prose from './prose'
 import BlockRenderer from '../block-renderer'
 import Heading from '../ui/heading'
+import { slugify } from '@/lib/utils'
 
 export default function TextWithSidebar({
   title,
   description,
   content,
   sidebar,
+  subMenuTitle,
 }: TextWithSidebarBlock) {
   return (
-    <section className="py-24 lg:py-40">
+    <section className="py-24 lg:py-40" id={subMenuTitle ? slugify(subMenuTitle) : undefined}>
       <Container className="grid grid-cols-5 gap-16">
         <div className="col-span-5 lg:col-span-3">
           <Heading level="h5" tag="h2" dash>

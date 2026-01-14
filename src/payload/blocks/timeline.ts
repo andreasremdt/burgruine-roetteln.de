@@ -1,4 +1,5 @@
 import type { Block } from 'payload'
+import subMenuFields from './shared/sub-menu-fields'
 
 const timeline: Block = {
   slug: 'timeline',
@@ -36,6 +37,7 @@ const timeline: Block = {
         },
       ],
     },
+    subMenuFields,
   ],
 }
 

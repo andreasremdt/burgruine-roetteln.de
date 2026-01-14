@@ -3,6 +3,7 @@ import Container from '../ui/container'
 import Prose from './prose'
 import Button from '../ui/button'
 import Heading from '../ui/heading'
+import { slugify } from '@/lib/utils'
 
 export default function Statistics({
   title,
@@ -10,9 +11,10 @@ export default function Statistics({
   content,
   buttons,
   statistics,
+  subMenuTitle,
 }: StatisticsBlock) {
   return (
-    <section className="py-24 lg:py-40" id="arbeitsgruppe">
+    <section className="py-24 lg:py-40" id={subMenuTitle ? slugify(subMenuTitle) : undefined}>
       <Container>
         <Heading level="h5" tag="h2" dash>
           {title}

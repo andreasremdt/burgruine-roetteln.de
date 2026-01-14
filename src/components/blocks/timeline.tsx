@@ -3,10 +3,16 @@ import { cn } from '@/lib/utils'
 import Container from '../ui/container'
 import Prose from './prose'
 import Heading from '../ui/heading'
+import { slugify } from '@/lib/utils'
 
-export default function Timeline({ description, items }: TimelineBlock) {
+export default function Timeline({ description, items, subMenuTitle }: TimelineBlock) {
   return (
-    <Container tag="section" aria-label="Timeline" className="py-24 lg:py-40">
+    <Container
+      tag="section"
+      aria-label="Timeline"
+      className="py-24 lg:py-40"
+      id={subMenuTitle ? slugify(subMenuTitle) : undefined}
+    >
       <Heading level="h3" tag="p" className="mb-24 text-center lg:mb-40">
         {description}
       </Heading>

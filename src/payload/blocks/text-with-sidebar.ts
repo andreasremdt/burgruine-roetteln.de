@@ -1,5 +1,6 @@
 import type { Block } from 'payload'
 import openingHours from './opening-hours'
+import subMenuFields from './shared/sub-menu-fields'
 
 const textWithSidebar: Block = {
   slug: 'text-with-sidebar',
@@ -39,6 +40,7 @@ const textWithSidebar: Block = {
       required: true,
       blocks: [openingHours],
     },
+    subMenuFields,
   ],
 }
 

@@ -1,4 +1,5 @@
 import type { Block } from 'payload'
+import subMenuFields from './shared/sub-menu-fields'
 
 const gallery: Block = {
   slug: 'gallery',
@@ -33,6 +34,7 @@ const gallery: Block = {
       hasMany: true,
       required: true,
     },
+    subMenuFields,
   ],
 }
 

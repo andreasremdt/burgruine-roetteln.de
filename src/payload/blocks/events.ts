@@ -1,4 +1,5 @@
 import type { Block } from 'payload'
+import subMenuFields from './shared/sub-menu-fields'
 
 const events: Block = {
   slug: 'events',
@@ -25,6 +26,7 @@ const events: Block = {
         },
       ],
     },
+    subMenuFields,
   ],
 }
 

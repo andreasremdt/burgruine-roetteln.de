@@ -1,4 +1,5 @@
 import type { Block } from 'payload'
+import subMenuFields from './shared/sub-menu-fields'
 
 const richText: Block = {
   slug: 'richText',
@@ -15,6 +16,7 @@ const richText: Block = {
       label: 'Inhalt',
       required: true,
     },
+    subMenuFields,
   ],
 }
 

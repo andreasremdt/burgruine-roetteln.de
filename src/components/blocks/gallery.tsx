@@ -1,7 +1,7 @@
 'use client'
 
 import type { GalleryBlock } from '@/payload-types'
-import { cn } from '@/lib/utils'
+import { cn, slugify } from '@/lib/utils'
 import Container from '../ui/container'
 import ImageKitImage from '../imagekit-image'
 import Heading from '../ui/heading'
@@ -12,12 +12,15 @@ type Props = GalleryBlock & {
   className?: string
 }
 
-export default function Gallery({ title, description, images, className }: Props) {
+export default function Gallery({ title, description, images, className, subMenuTitle }: Props) {
   const [isLightboxOpen, setIsLightboxOpen] = useState(false)
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
   return (
-    <section className={cn('bg-gray-50 py-24 lg:py-40', className)}>
+    <section
+      className={cn('bg-gray-50 py-24 lg:py-40', className)}
+      id={subMenuTitle ? slugify(subMenuTitle) : undefined}
+    >
       <Container>
         {description ? (
           <Heading level="h5" tag="h2" dash>

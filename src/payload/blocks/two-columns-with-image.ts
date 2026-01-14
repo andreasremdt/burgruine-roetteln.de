@@ -1,4 +1,5 @@
 import type { Block } from 'payload'
+import subMenuFields from './shared/sub-menu-fields'
 
 const twoColumnsWithImage: Block = {
   slug: 'twoColumnsWithImage',
@@ -39,6 +40,7 @@ const twoColumnsWithImage: Block = {
       required: true,
       relationTo: 'media',
     },
+    subMenuFields,
   ],
 }
 

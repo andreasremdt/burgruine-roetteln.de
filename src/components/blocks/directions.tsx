@@ -5,14 +5,15 @@ import Button from '../ui/button'
 import Prose from './prose'
 import dynamic from 'next/dynamic'
 import Heading from '../ui/heading'
+import { slugify } from '@/lib/utils'
 
 const Map = dynamic(() => import('../ui/map'), { ssr: false })
 
-export default function Directions({ title, description, buttons }: DirectionsBlock) {
+export default function Directions({ title, description, buttons, subMenuTitle }: DirectionsBlock) {
   return (
     <section
       className="grid grid-cols-1 bg-gray-50 lg:grid-cols-[auto_minmax(0%,640px)_minmax(0%,640px)_auto]"
-      id="anfahrt"
+      id={subMenuTitle ? slugify(subMenuTitle) : undefined}
     >
       <Map className="order-1 col-span-2 hidden h-full w-full lg:block" />
 

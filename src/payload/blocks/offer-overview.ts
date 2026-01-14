@@ -1,4 +1,5 @@
 import type { Block } from 'payload'
+import subMenuFields from './shared/sub-menu-fields'
 
 const offerOverview: Block = {
   slug: 'offer-overview',
@@ -69,6 +70,7 @@ const offerOverview: Block = {
         },
       ],
     },
+    subMenuFields,
   ],
 }
 

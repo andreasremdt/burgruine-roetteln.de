@@ -5,28 +5,45 @@ const contact: GlobalConfig = {
   label: 'Kontakt',
   fields: [
     {
-      type: 'textarea',
-      name: 'name',
-      label: 'Name und Anschrift',
-      required: true,
-    },
-    {
-      type: 'textarea',
-      name: 'location',
-      label: 'Lage',
-      required: true,
-    },
-    {
-      type: 'text',
-      name: 'phone',
-      label: 'Telefon',
-      required: true,
-    },
-    {
-      type: 'text',
-      name: 'email',
-      label: 'E-Mail',
-      required: true,
+      type: 'group',
+      label: 'Kontaktinformationen',
+      fields: [
+        {
+          type: 'textarea',
+          name: 'name',
+          label: 'Name und Anschrift',
+          required: true,
+        },
+        {
+          type: 'textarea',
+          name: 'location',
+          label: 'Lage',
+          required: true,
+        },
+        {
+          type: 'row',
+          fields: [
+            {
+              type: 'text',
+              name: 'phone',
+              label: 'Telefon',
+              required: true,
+              admin: {
+                width: '50%',
+              },
+            },
+            {
+              type: 'text',
+              name: 'email',
+              label: 'E-Mail',
+              required: true,
+              admin: {
+                width: '50%',
+              },
+            },
+          ],
+        },
+      ],
     },
     {
       type: 'group',

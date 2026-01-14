@@ -1,4 +1,5 @@
 import type { Block } from 'payload'
+import subMenuFields from './shared/sub-menu-fields'
 
 const costs: Block = {
   slug: 'costs',
@@ -25,6 +26,7 @@ const costs: Block = {
         },
       ],
     },
+    subMenuFields,
   ],
 }
 

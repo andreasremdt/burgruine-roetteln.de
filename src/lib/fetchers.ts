@@ -2,6 +2,7 @@ import { cache } from 'react'
 import { getPayload } from 'payload'
 import config from '@payload-config'
 import { draftMode } from 'next/headers'
+import { slugify } from './utils'
 
 export const getFooterInfo = cache(async function getFooterInfo() {
   const payload = await getPayload({ config })
@@ -72,6 +73,44 @@ export const getHeader = cache(async function getHeader() {
   })
 
   return header
+})
+
+export const getMenuItems = cache(async function getMenuItems() {
+  const payload = await getPayload({ config })
+  const header = await payload.findGlobal({
+    slug: 'header',
+  })
+
+  const menuItems = await Promise.all(
+    header.mainMenu.map(async (menu) => {
+      if (typeof menu === 'string') {
+        return null
+      }
+
+      const page = await getPageBySlug(menu.slug)
+
+      if (!page || !page.content) {
+        return null
+      }
+
+      const subMenuItems = page.content
+        .map((content) => {
+          if (!content.showInSubMenu || !content.subMenuTitle) {
+            return null
+          }
+
+          return {
+            title: content.subMenuTitle,
+            slug: slugify(content.subMenuTitle),
+          }
+        })
+        .filter((subMenu) => subMenu !== null)
+
+      return { title: menu.title, slug: menu.slug, subMenuItems }
+    }),
+  )
+
+  return menuItems.filter((menuItem) => menuItem !== null)
 })
 
 export const getPageBySlug = cache(async function getPageBySlug(slug: string) {

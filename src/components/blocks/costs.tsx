@@ -3,12 +3,13 @@ import type { CostsBlock } from '@/payload-types'
 import { getCosts } from '@/lib/fetchers'
 import Heading from '../ui/heading'
 import Text from '../ui/text'
+import { slugify } from '@/lib/utils'
 
-export default async function Costs({ title, description }: CostsBlock) {
+export default async function Costs({ title, description, subMenuTitle }: CostsBlock) {
   const items = await getCosts()
 
   return (
-    <section className="pb-24 lg:pb-40" id="eintrittspreise">
+    <section className="pb-24 lg:pb-40" id={subMenuTitle ? slugify(subMenuTitle) : undefined}>
       <Container>
         <Heading level="h1" tag="h2" className="md:text-center">
           {title}

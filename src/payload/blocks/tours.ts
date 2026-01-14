@@ -1,4 +1,5 @@
 import type { Block } from 'payload'
+import subMenuFields from './shared/sub-menu-fields'
 
 const tours: Block = {
   slug: 'tours',
@@ -42,6 +43,7 @@ const tours: Block = {
       },
       hasMany: true,
     },
+    subMenuFields,
   ],
 }
 export default tours

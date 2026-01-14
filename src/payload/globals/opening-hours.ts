@@ -5,7 +5,7 @@ const openingHours: GlobalConfig = {
   label: 'Öffnungszeiten',
   fields: [
     {
-      type: 'collapsible',
+      type: 'group',
       label: 'Unterburg',
       fields: [
         {
@@ -22,7 +22,7 @@ const openingHours: GlobalConfig = {
       ],
     },
     {
-      type: 'collapsible',
+      type: 'group',
       label: 'Oberburg',
       fields: [
         {
@@ -39,7 +39,7 @@ const openingHours: GlobalConfig = {
       ],
     },
     {
-      type: 'collapsible',
+      type: 'group',
       label: 'Ausnahmen',
       fields: [
         {

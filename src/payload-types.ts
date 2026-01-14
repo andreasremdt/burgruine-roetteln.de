@@ -320,6 +320,14 @@ export interface ToursBlock {
    * Wählen Sie alle Führungen aus, die in der Liste angezeigt werden sollen.
    */
   tours: (string | Tour)[];
+  /**
+   * Wenn dieser Haken gesetzt ist, wird der Inhalt als Unterpunkt im Menü angezeigt.
+   */
+  showInSubMenu?: boolean | null;
+  /**
+   * Der Titel des Unterpunkts wird im Menü angezeigt.
+   */
+  subMenuTitle?: string | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'tours';
@@ -344,6 +352,14 @@ export interface RichTextBlock {
     };
     [k: string]: unknown;
   };
+  /**
+   * Wenn dieser Haken gesetzt ist, wird der Inhalt als Unterpunkt im Menü angezeigt.
+   */
+  showInSubMenu?: boolean | null;
+  /**
+   * Der Titel des Unterpunkts wird im Menü angezeigt.
+   */
+  subMenuTitle?: string | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'richText';
@@ -357,6 +373,14 @@ export interface TwoColumnsWithImageBlock {
   description: string;
   content: string;
   image: string | Media;
+  /**
+   * Wenn dieser Haken gesetzt ist, wird der Inhalt als Unterpunkt im Menü angezeigt.
+   */
+  showInSubMenu?: boolean | null;
+  /**
+   * Der Titel des Unterpunkts wird im Menü angezeigt.
+   */
+  subMenuTitle?: string | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'twoColumnsWithImage';
@@ -390,6 +414,14 @@ export interface OneColumnWithImageBlock {
         id?: string | null;
       }[]
     | null;
+  /**
+   * Wenn dieser Haken gesetzt ist, wird der Inhalt als Unterpunkt im Menü angezeigt.
+   */
+  showInSubMenu?: boolean | null;
+  /**
+   * Der Titel des Unterpunkts wird im Menü angezeigt.
+   */
+  subMenuTitle?: string | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'oneColumnWithImage';
@@ -425,6 +457,14 @@ export interface TextWithTwoImagesBlock {
       }[]
     | null;
   images: (string | Media)[];
+  /**
+   * Wenn dieser Haken gesetzt ist, wird der Inhalt als Unterpunkt im Menü angezeigt.
+   */
+  showInSubMenu?: boolean | null;
+  /**
+   * Der Titel des Unterpunkts wird im Menü angezeigt.
+   */
+  subMenuTitle?: string | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'textWithTwoImages';
@@ -466,6 +506,14 @@ export interface StatisticsBlock {
         id?: string | null;
       }[]
     | null;
+  /**
+   * Wenn dieser Haken gesetzt ist, wird der Inhalt als Unterpunkt im Menü angezeigt.
+   */
+  showInSubMenu?: boolean | null;
+  /**
+   * Der Titel des Unterpunkts wird im Menü angezeigt.
+   */
+  subMenuTitle?: string | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'statistics';
@@ -478,6 +526,14 @@ export interface GalleryBlock {
   title: string;
   description?: string | null;
   images: (string | Media)[];
+  /**
+   * Wenn dieser Haken gesetzt ist, wird der Inhalt als Unterpunkt im Menü angezeigt.
+   */
+  showInSubMenu?: boolean | null;
+  /**
+   * Der Titel des Unterpunkts wird im Menü angezeigt.
+   */
+  subMenuTitle?: string | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'gallery';
@@ -489,6 +545,14 @@ export interface GalleryBlock {
 export interface CostsBlock {
   title: string;
   description?: string | null;
+  /**
+   * Wenn dieser Haken gesetzt ist, wird der Inhalt als Unterpunkt im Menü angezeigt.
+   */
+  showInSubMenu?: boolean | null;
+  /**
+   * Der Titel des Unterpunkts wird im Menü angezeigt.
+   */
+  subMenuTitle?: string | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'costs';
@@ -521,6 +585,14 @@ export interface DirectionsBlock {
         id?: string | null;
       }[]
     | null;
+  /**
+   * Wenn dieser Haken gesetzt ist, wird der Inhalt als Unterpunkt im Menü angezeigt.
+   */
+  showInSubMenu?: boolean | null;
+  /**
+   * Der Titel des Unterpunkts wird im Menü angezeigt.
+   */
+  subMenuTitle?: string | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'directions';
@@ -532,6 +604,14 @@ export interface DirectionsBlock {
 export interface EventsBlock {
   title: string;
   description?: string | null;
+  /**
+   * Wenn dieser Haken gesetzt ist, wird der Inhalt als Unterpunkt im Menü angezeigt.
+   */
+  showInSubMenu?: boolean | null;
+  /**
+   * Der Titel des Unterpunkts wird im Menü angezeigt.
+   */
+  subMenuTitle?: string | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'events';
@@ -549,6 +629,14 @@ export interface OpeningHoursBlock {
    * Die Öffnungszeiten bekommen einen grauen Hintergrund, wenn diese Option aktiviert ist.
    */
   background?: boolean | null;
+  /**
+   * Wenn dieser Haken gesetzt ist, wird der Inhalt als Unterpunkt im Menü angezeigt.
+   */
+  showInSubMenu?: boolean | null;
+  /**
+   * Der Titel des Unterpunkts wird im Menü angezeigt.
+   */
+  subMenuTitle?: string | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'opening-hours';
@@ -580,6 +668,14 @@ export interface TimelineBlock {
         id?: string | null;
       }[]
     | null;
+  /**
+   * Wenn dieser Haken gesetzt ist, wird der Inhalt als Unterpunkt im Menü angezeigt.
+   */
+  showInSubMenu?: boolean | null;
+  /**
+   * Der Titel des Unterpunkts wird im Menü angezeigt.
+   */
+  subMenuTitle?: string | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'timeline';
@@ -599,6 +695,14 @@ export interface OfferOverviewBlock {
     description: string;
     id?: string | null;
   }[];
+  /**
+   * Wenn dieser Haken gesetzt ist, wird der Inhalt als Unterpunkt im Menü angezeigt.
+   */
+  showInSubMenu?: boolean | null;
+  /**
+   * Der Titel des Unterpunkts wird im Menü angezeigt.
+   */
+  subMenuTitle?: string | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'offer-overview';
@@ -626,6 +730,14 @@ export interface TextWithSidebarBlock {
     [k: string]: unknown;
   };
   sidebar: OpeningHoursBlock[];
+  /**
+   * Wenn dieser Haken gesetzt ist, wird der Inhalt als Unterpunkt im Menü angezeigt.
+   */
+  showInSubMenu?: boolean | null;
+  /**
+   * Der Titel des Unterpunkts wird im Menü angezeigt.
+   */
+  subMenuTitle?: string | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'text-with-sidebar';
@@ -638,6 +750,14 @@ export interface ContactFormBlock {
   title: string;
   description: string;
   sidebar: OpeningHoursBlock[];
+  /**
+   * Wenn dieser Haken gesetzt ist, wird der Inhalt als Unterpunkt im Menü angezeigt.
+   */
+  showInSubMenu?: boolean | null;
+  /**
+   * Der Titel des Unterpunkts wird im Menü angezeigt.
+   */
+  subMenuTitle?: string | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'contact-form';
@@ -649,6 +769,14 @@ export interface ContactFormBlock {
 export interface BookingFormBlock {
   title: string;
   description: string;
+  /**
+   * Wenn dieser Haken gesetzt ist, wird der Inhalt als Unterpunkt im Menü angezeigt.
+   */
+  showInSubMenu?: boolean | null;
+  /**
+   * Der Titel des Unterpunkts wird im Menü angezeigt.
+   */
+  subMenuTitle?: string | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'booking-form';
@@ -942,6 +1070,8 @@ export interface ToursBlockSelect<T extends boolean = true> {
   description?: T;
   dark?: T;
   tours?: T;
+  showInSubMenu?: T;
+  subMenuTitle?: T;
   id?: T;
   blockName?: T;
 }
@@ -951,6 +1081,8 @@ export interface ToursBlockSelect<T extends boolean = true> {
  */
 export interface RichTextBlockSelect<T extends boolean = true> {
   content?: T;
+  showInSubMenu?: T;
+  subMenuTitle?: T;
   id?: T;
   blockName?: T;
 }
@@ -963,6 +1095,8 @@ export interface TwoColumnsWithImageBlockSelect<T extends boolean = true> {
   description?: T;
   content?: T;
   image?: T;
+  showInSubMenu?: T;
+  subMenuTitle?: T;
   id?: T;
   blockName?: T;
 }
@@ -981,6 +1115,8 @@ export interface OneColumnWithImageBlockSelect<T extends boolean = true> {
         theme?: T;
         id?: T;
       };
+  showInSubMenu?: T;
+  subMenuTitle?: T;
   id?: T;
   blockName?: T;
 }
@@ -1001,6 +1137,8 @@ export interface TextWithTwoImagesBlockSelect<T extends boolean = true> {
         id?: T;
       };
   images?: T;
+  showInSubMenu?: T;
+  subMenuTitle?: T;
   id?: T;
   blockName?: T;
 }
@@ -1027,6 +1165,8 @@ export interface StatisticsBlockSelect<T extends boolean = true> {
         theme?: T;
         id?: T;
       };
+  showInSubMenu?: T;
+  subMenuTitle?: T;
   id?: T;
   blockName?: T;
 }
@@ -1038,6 +1178,8 @@ export interface GalleryBlockSelect<T extends boolean = true> {
   title?: T;
   description?: T;
   images?: T;
+  showInSubMenu?: T;
+  subMenuTitle?: T;
   id?: T;
   blockName?: T;
 }
@@ -1048,6 +1190,8 @@ export interface GalleryBlockSelect<T extends boolean = true> {
 export interface CostsBlockSelect<T extends boolean = true> {
   title?: T;
   description?: T;
+  showInSubMenu?: T;
+  subMenuTitle?: T;
   id?: T;
   blockName?: T;
 }
@@ -1065,6 +1209,8 @@ export interface DirectionsBlockSelect<T extends boolean = true> {
         link?: T;
         id?: T;
       };
+  showInSubMenu?: T;
+  subMenuTitle?: T;
   id?: T;
   blockName?: T;
 }
@@ -1075,6 +1221,8 @@ export interface DirectionsBlockSelect<T extends boolean = true> {
 export interface EventsBlockSelect<T extends boolean = true> {
   title?: T;
   description?: T;
+  showInSubMenu?: T;
+  subMenuTitle?: T;
   id?: T;
   blockName?: T;
 }
@@ -1085,6 +1233,8 @@ export interface EventsBlockSelect<T extends boolean = true> {
 export interface OpeningHoursBlockSelect<T extends boolean = true> {
   layout?: T;
   background?: T;
+  showInSubMenu?: T;
+  subMenuTitle?: T;
   id?: T;
   blockName?: T;
 }
@@ -1101,6 +1251,8 @@ export interface TimelineBlockSelect<T extends boolean = true> {
         content?: T;
         id?: T;
       };
+  showInSubMenu?: T;
+  subMenuTitle?: T;
   id?: T;
   blockName?: T;
 }
@@ -1121,6 +1273,8 @@ export interface OfferOverviewBlockSelect<T extends boolean = true> {
         description?: T;
         id?: T;
       };
+  showInSubMenu?: T;
+  subMenuTitle?: T;
   id?: T;
   blockName?: T;
 }
@@ -1137,6 +1291,8 @@ export interface TextWithSidebarBlockSelect<T extends boolean = true> {
     | {
         'opening-hours'?: T | OpeningHoursBlockSelect<T>;
       };
+  showInSubMenu?: T;
+  subMenuTitle?: T;
   id?: T;
   blockName?: T;
 }
@@ -1152,6 +1308,8 @@ export interface ContactFormBlockSelect<T extends boolean = true> {
     | {
         'opening-hours'?: T | OpeningHoursBlockSelect<T>;
       };
+  showInSubMenu?: T;
+  subMenuTitle?: T;
   id?: T;
   blockName?: T;
 }
@@ -1162,6 +1320,8 @@ export interface ContactFormBlockSelect<T extends boolean = true> {
 export interface BookingFormBlockSelect<T extends boolean = true> {
   title?: T;
   description?: T;
+  showInSubMenu?: T;
+  subMenuTitle?: T;
   id?: T;
   blockName?: T;
 }
@@ -1252,6 +1412,11 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
  */
 export interface Footer {
   id: string;
+  footerMenu: (string | Page)[];
+  /**
+   * Die Bilder werden über der Fußzeile angezeigt. Es müssen genau 6 Bilder ausgewählt werden.
+   */
+  image: (string | Media)[];
   /**
    * Dies ist in der Regel der Name der Seite.
    */
@@ -1260,10 +1425,6 @@ export interface Footer {
    * Die Beschreibung sollte nicht mehr als 1 Satz lang sein und gibt einen kurzen Überblick über die Burgruine.
    */
   description: string;
-  /**
-   * Die Bilder werden über der Fußzeile angezeigt. Es müssen genau 6 Bilder ausgewählt werden.
-   */
-  image: (string | Media)[];
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -1343,6 +1504,7 @@ export interface Banner {
  */
 export interface Header {
   id: string;
+  mainMenu: (string | Page)[];
   /**
    * Dieses Bild wird als Hauptbild im Kopfbereich der Seite angezeigt.
    */
@@ -1355,9 +1517,10 @@ export interface Header {
  * via the `definition` "footer_select".
  */
 export interface FooterSelect<T extends boolean = true> {
+  footerMenu?: T;
+  image?: T;
   title?: T;
   description?: T;
-  image?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
@@ -1430,6 +1593,7 @@ export interface BannerSelect<T extends boolean = true> {
  * via the `definition` "header_select".
  */
 export interface HeaderSelect<T extends boolean = true> {
+  mainMenu?: T;
   image?: T;
   updatedAt?: T;
   createdAt?: T;

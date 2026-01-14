@@ -1,10 +1,11 @@
 import Link from 'next/link'
 import Container from '../ui/container'
-import { getTours } from '@/lib/fetchers'
+import { getMenuItems, getTours } from '@/lib/fetchers'
 import HeaderClient from './header.client'
 
 export default async function Header() {
   const tours = await getTours()
+  const menuItems = await getMenuItems()
 
   return (
     <header className="relative z-20 text-white">
@@ -13,7 +14,7 @@ export default async function Header() {
           Burgruine Rötteln
         </Link>
 
-        <HeaderClient tours={tours} />
+        <HeaderClient tours={tours} menuItems={menuItems} />
       </Container>
     </header>
   )

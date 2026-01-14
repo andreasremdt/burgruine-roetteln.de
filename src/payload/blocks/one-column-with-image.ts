@@ -1,4 +1,5 @@
 import type { Block } from 'payload'
+import subMenuFields from './shared/sub-menu-fields'
 
 const oneColumnWithImage: Block = {
   slug: 'oneColumnWithImage',
@@ -68,6 +69,7 @@ const oneColumnWithImage: Block = {
       ],
       maxRows: 2,
     },
+    subMenuFields,
   ],
 }
 

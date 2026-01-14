@@ -1,5 +1,6 @@
 import type { Block } from 'payload'
 import openingHours from './opening-hours'
+import subMenuFields from './shared/sub-menu-fields'
 
 const contactForm: Block = {
   slug: 'contact-form',
@@ -33,6 +34,7 @@ const contactForm: Block = {
       required: true,
       blocks: [openingHours],
     },
+    subMenuFields,
   ],
 }
 

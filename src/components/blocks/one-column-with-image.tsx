@@ -3,10 +3,19 @@ import Container from '../ui/container'
 import ImageKitImage from '../imagekit-image'
 import Button from '../ui/button'
 import Prose from './prose'
+import { slugify } from '@/lib/utils'
 
-export default function OneColumnWithImage({ content, image, buttons }: OneColumnWithImageBlock) {
+export default function OneColumnWithImage({
+  content,
+  image,
+  buttons,
+  subMenuTitle,
+}: OneColumnWithImageBlock) {
   return (
-    <section className="relative bg-gray-50 pb-24 before:absolute before:right-0 before:bottom-0 before:left-0 before:h-1/2 before:bg-gray-50 xl:pb-0 xl:before:bg-white">
+    <section
+      className="relative bg-gray-50 pb-24 before:absolute before:right-0 before:bottom-0 before:left-0 before:h-1/2 before:bg-gray-50 xl:pb-0 xl:before:bg-white"
+      id={subMenuTitle ? slugify(subMenuTitle) : undefined}
+    >
       <Container className="relative grid grid-cols-2 gap-16">
         <figure className="col-span-2 mt-2 md:col-span-1">
           <ImageKitImage

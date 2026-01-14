@@ -1,4 +1,5 @@
 import type { Block } from 'payload'
+import subMenuFields from './shared/sub-menu-fields'
 
 const directions: Block = {
   slug: 'directions',
@@ -49,6 +50,7 @@ const directions: Block = {
         },
       ],
     },
+    subMenuFields,
   ],
 }
 

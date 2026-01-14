@@ -1,4 +1,5 @@
 import type { Block } from 'payload'
+import subMenuFields from './shared/sub-menu-fields'
 
 const statistics: Block = {
   slug: 'statistics',
@@ -112,6 +113,7 @@ const statistics: Block = {
       ],
       maxRows: 2,
     },
+    subMenuFields,
   ],
 }
 

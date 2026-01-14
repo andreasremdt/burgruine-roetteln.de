@@ -1,4 +1,5 @@
 import type { Block } from 'payload'
+import subMenuFields from './shared/sub-menu-fields'
 
 const bookingForm: Block = {
   slug: 'booking-form',
@@ -21,6 +22,7 @@ const bookingForm: Block = {
       label: 'Beschreibung',
       required: true,
     },
+    subMenuFields,
   ],
 }
 

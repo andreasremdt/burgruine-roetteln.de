@@ -1,4 +1,5 @@
 import type { Block } from 'payload'
+import subMenuFields from './shared/sub-menu-fields'
 
 const openingHours: Block = {
   slug: 'opening-hours',
@@ -38,6 +39,7 @@ const openingHours: Block = {
           'Die Öffnungszeiten bekommen einen grauen Hintergrund, wenn diese Option aktiviert ist.',
       },
     },
+    subMenuFields,
   ],
 }
 

@@ -3,15 +3,20 @@ import Container from '../ui/container'
 import ImageKitImage from '../imagekit-image'
 import Text from '../ui/text'
 import Heading from '../ui/heading'
+import { slugify } from '@/lib/utils'
 
 export default function TwoColumnsWithImage({
   title,
   description,
   content,
   image,
+  subMenuTitle,
 }: TwoColumnsWithImageBlock) {
   return (
-    <section className="relative pt-24 after:absolute after:right-0 after:bottom-0 after:left-0 after:-z-10 after:h-32 after:bg-gray-50 lg:pt-40">
+    <section
+      className="relative pt-24 after:absolute after:right-0 after:bottom-0 after:left-0 after:-z-10 after:h-32 after:bg-gray-50 lg:pt-40"
+      id={subMenuTitle ? slugify(subMenuTitle) : undefined}
+    >
       <Container>
         <Heading level="h5" tag="h2" dash>
           {title}

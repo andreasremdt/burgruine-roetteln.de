@@ -1,10 +1,11 @@
 import type { Block } from 'payload'
+import subMenuFields from './shared/sub-menu-fields'
 
 const textWithTwoImages: Block = {
   slug: 'textWithTwoImages',
   labels: {
-    plural: 'Text mit zwei Bildern',
-    singular: 'Text mit zwei Bildern',
+    plural: 'Text mit drei Bildern',
+    singular: 'Text mit drei Bildern',
   },
   interfaceName: 'TextWithTwoImagesBlock',
   imageURL: '/blocks/text-with-two-images.png',
@@ -88,6 +89,7 @@ const textWithTwoImages: Block = {
       maxRows: 3,
       minRows: 1,
     },
+    subMenuFields,
   ],
 }
 

@@ -40,3 +40,14 @@ export function getClientSideURL() {
 
   return process.env.NEXT_PUBLIC_SERVER_URL || ''
 }
+
+export function slugify(text?: string | null) {
+  if (!text) {
+    return ''
+  }
+
+  return text
+    .toLowerCase()
+    .replace(/ /g, '-')
+    .replace(/[^\w-]+/g, '')
+}

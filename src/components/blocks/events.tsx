@@ -1,6 +1,5 @@
-import Link from 'next/link'
 import type { EventsBlock, Event } from '@/payload-types'
-import { cn } from '@/lib/utils'
+import { cn, slugify } from '@/lib/utils'
 import Container from '../ui/container'
 import { getEvents } from '@/lib/fetchers'
 import Prose from './prose'
@@ -11,12 +10,12 @@ function isPreviousEvent(event: Event) {
   return event.date < new Date().toISOString()
 }
 
-export default async function Events({ title, description }: EventsBlock) {
+export default async function Events({ title, description, subMenuTitle }: EventsBlock) {
   const events = await getEvents()
   const nextEvent = events.find((event) => event.date > new Date().toISOString())
 
   return (
-    <section className="py-24 lg:py-40" id="veranstaltungen">
+    <section className="py-24 lg:py-40" id={subMenuTitle ? slugify(subMenuTitle) : undefined}>
       <Container>
         <Heading level="h1" tag="h2" className="mb-20 text-center">
           {title}

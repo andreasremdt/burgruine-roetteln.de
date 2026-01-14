@@ -1,20 +1,24 @@
 import Link from 'next/link'
-import Image from 'next/image'
 import type { OfferOverviewBlock } from '@/payload-types'
 import Container from '../ui/container'
 import Heading from '../ui/heading'
 import Text from '../ui/text'
 import Button from '../ui/button'
 import ImageKitImage from '../imagekit-image'
+import { slugify } from '@/lib/utils'
 
 export default function OfferOverview({
   title,
   description,
   subtitle,
   offers,
+  subMenuTitle,
 }: OfferOverviewBlock) {
   return (
-    <section className="bg-gray-50 py-24 lg:py-40">
+    <section
+      className="bg-gray-50 py-24 lg:py-40"
+      id={subMenuTitle ? slugify(subMenuTitle) : undefined}
+    >
       <Container>
         <Heading level="h5" tag="h2" dash>
           {title}

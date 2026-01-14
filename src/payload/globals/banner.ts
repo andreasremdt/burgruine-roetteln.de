@@ -5,7 +5,7 @@ const banner: GlobalConfig = {
   label: 'Banner',
   fields: [
     {
-      type: 'collapsible',
+      type: 'group',
       label: 'Linke Seite',
       fields: [
         {
@@ -26,7 +26,7 @@ const banner: GlobalConfig = {
       ],
     },
     {
-      type: 'collapsible',
+      type: 'group',
       label: 'Rechte Seite',
       fields: [
         {

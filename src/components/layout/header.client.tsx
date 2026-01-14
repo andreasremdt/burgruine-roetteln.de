@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import type { Tour } from '@/payload-types'
+import type { Tour, Header } from '@/payload-types'
 import useMobileMenu from '@/hooks/use-mobile-menu'
 import useFocusTrap from '@/hooks/use-focus-trap'
 import Icon from '../ui/icon'
@@ -10,9 +10,14 @@ import Heading from '../ui/heading'
 
 type Props = {
   tours: Tour[]
+  menuItems: {
+    title: string
+    slug: string
+    subMenuItems: { title: string; slug: string }[]
+  }[]
 }
 
-export default function HeaderClient({ tours }: Props) {
+export default function HeaderClient({ tours, menuItems }: Props) {
   const {
     isMenuVisible,
     isHiddenFromScreenReaders,
@@ -59,7 +64,41 @@ export default function HeaderClient({ tours }: Props) {
           Menü
         </Heading>
         <ul className="flex flex-col gap-4 font-medium uppercase lg:flex-row lg:gap-10 lg:text-sm">
-          <li>
+          {menuItems
+            .filter((menuItem) => menuItem !== null)
+            .map((menu) => (
+              <li key={menu.slug} className="group relative">
+                <Link
+                  prefetch
+                  href={menu.slug}
+                  className="flex items-center gap-2 text-gray-900 transition-colors lg:text-white lg:hover:text-gray-200 lg:focus-visible:text-gray-200"
+                  tabIndex={tabIndex}
+                >
+                  {menu.title}
+                  {menu.subMenuItems.length > 0 ? (
+                    <Icon name="chevron-down" className="hidden lg:block" />
+                  ) : null}
+                </Link>
+
+                {menu.subMenuItems.length > 0 ? (
+                  <ul className="top-full left-0 min-w-56 bg-white py-2 group-focus-within:block group-hover:block before:absolute before:-top-2 before:h-2 before:w-full lg:absolute lg:mt-2 lg:hidden lg:shadow-sm">
+                    {menu.subMenuItems.map((subMenu) => (
+                      <li key={subMenu.slug}>
+                        <Link
+                          prefetch
+                          className="block px-4 py-2 text-gray-700 transition-colors lg:hover:bg-gray-100 lg:focus-visible:bg-gray-100"
+                          href={`/${menu.slug}#${subMenu.slug}`}
+                          tabIndex={tabIndex}
+                        >
+                          {subMenu.title}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                ) : null}
+              </li>
+            ))}
+          {/* <li>
             <Link
               prefetch
               href="/burg"
@@ -167,7 +206,7 @@ export default function HeaderClient({ tours }: Props) {
             >
               Kontakt
             </Link>
-          </li>
+          </li> */}
         </ul>
       </nav>
     </div>

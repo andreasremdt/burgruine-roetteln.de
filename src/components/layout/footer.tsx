@@ -37,60 +37,19 @@ export default async function Footer() {
           </Heading>
 
           <ul>
-            <li>
-              <Link
-                prefetch
-                className="transition-colors hover:text-white focus-visible:text-white"
-                href="/burg"
-              >
-                Die Burg
-              </Link>
-            </li>
-            <li>
-              <Link
-                prefetch
-                className="transition-colors hover:text-white focus-visible:text-white"
-                href="/besuchen"
-              >
-                Ihr Besuch
-              </Link>
-            </li>
-            <li>
-              <Link
-                prefetch
-                className="transition-colors hover:text-white focus-visible:text-white"
-                href="/verein"
-              >
-                Der Verein
-              </Link>
-            </li>
-            <li>
-              <Link
-                prefetch
-                className="transition-colors hover:text-white focus-visible:text-white"
-                href="/kontakt"
-              >
-                Kontakt
-              </Link>
-            </li>
-            <li>
-              <Link
-                prefetch
-                className="transition-colors hover:text-white focus-visible:text-white"
-                href="/impressum"
-              >
-                Impressum
-              </Link>
-            </li>
-            <li>
-              <Link
-                prefetch
-                className="transition-colors hover:text-white focus-visible:text-white"
-                href="/datenschutz"
-              >
-                Datenschutz
-              </Link>
-            </li>
+            {footer.footerMenu
+              .filter((menu) => typeof menu !== 'string')
+              .map((menu) => (
+                <li key={menu.id}>
+                  <Link
+                    prefetch
+                    className="transition-colors hover:text-white focus-visible:text-white"
+                    href={menu.slug}
+                  >
+                    {menu.title}
+                  </Link>
+                </li>
+              ))}
           </ul>
         </nav>
 

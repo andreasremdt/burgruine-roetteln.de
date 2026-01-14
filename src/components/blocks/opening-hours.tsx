@@ -3,8 +3,13 @@ import type { OpeningHoursBlock } from '@/payload-types'
 import { cn } from '@/lib/utils'
 import Icon from '../ui/icon'
 import Button from '../ui/button'
+import { slugify } from '@/lib/utils'
 
-export default async function OpeningHours({ layout, background }: OpeningHoursBlock) {
+export default async function OpeningHours({
+  layout,
+  background,
+  subMenuTitle,
+}: OpeningHoursBlock) {
   const openingHours = await getOpeningHours()
   const contactInfo = await getContactInfo()
 
@@ -14,6 +19,7 @@ export default async function OpeningHours({ layout, background }: OpeningHoursB
         'bg-gray-50 p-6 md:p-12': background,
         'px-4 py-20 md:py-40': layout === 'horizontal',
       })}
+      id={subMenuTitle ? slugify(subMenuTitle) : undefined}
     >
       <dl
         className={cn('grid grid-cols-1', {

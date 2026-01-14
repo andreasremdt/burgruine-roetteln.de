@@ -4,16 +4,21 @@ import Button from '../ui/button'
 import ImageKitImage from '../imagekit-image'
 import Prose from './prose'
 import Heading from '../ui/heading'
+import { slugify } from '@/lib/utils'
 
 export default function TextWithTwoImages({
   title,
   description,
+  subMenuTitle,
   content,
   images,
   buttons,
 }: TextWithTwoImagesBlock) {
   return (
-    <section className="relative border-b border-gray-300 bg-gray-100 pt-24 pb-24 after:absolute after:right-0 after:bottom-0 after:left-0 after:h-56 after:bg-white lg:pt-40">
+    <section
+      id={subMenuTitle ? slugify(subMenuTitle) : undefined}
+      className="relative border-b border-gray-300 bg-gray-100 pt-24 pb-24 after:absolute after:right-0 after:bottom-0 after:left-0 after:h-56 after:bg-white lg:pt-40"
+    >
       <Container>
         <Heading level="h5" tag="h2" dash>
           {title}

@@ -4,14 +4,15 @@ import { cn } from '@/lib/utils'
 import Container from '../ui/container'
 import ImageKitImage from '../imagekit-image'
 import Heading from '../ui/heading'
-
-export default function ToursBlock({ title, description, tours, dark }: ToursBlock) {
+import { slugify } from '@/lib/utils'
+export default function ToursBlock({ title, description, tours, dark, subMenuTitle }: ToursBlock) {
   return (
     <section
       className={cn('py-24 lg:py-40', {
         'bg-gray-100': !dark,
         'bg-gray-900 text-white': dark,
       })}
+      id={subMenuTitle ? slugify(subMenuTitle) : undefined}
     >
       <Container className="mx-auto max-w-7xl px-4">
         <Heading
