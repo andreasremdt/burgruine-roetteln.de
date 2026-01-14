@@ -29,33 +29,35 @@ export default function Gallery({ title, description, images, className }: Props
         </Heading>
 
         <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
-          {images.map((image, index) => (
-            <figure key={typeof image === 'string' ? image : image.id}>
-              <a
-                href={typeof image === 'string' ? image : image.imagekit?.url || ''}
-                onClick={(event) => {
-                  event.preventDefault()
-                  setCurrentImageIndex(index)
-                  setIsLightboxOpen(true)
-                }}
-                aria-label={`Bild ${index + 1} von ${images.length} öffnen`}
-              >
-                <ImageKitImage
-                  image={image}
-                  width={300}
-                  height={300}
-                  loading="lazy"
-                  decoding="async"
-                  className="mb-1 aspect-square w-full object-cover"
-                />
-              </a>
-              {typeof image === 'object' && image.caption ? (
-                <figcaption className="font-sans text-sm font-medium md:text-base">
-                  {image.caption}
-                </figcaption>
-              ) : null}
-            </figure>
-          ))}
+          {images
+            .filter((image) => typeof image !== 'string')
+            .map((image, index) => (
+              <figure key={typeof image === 'string' ? image : image.id}>
+                <a
+                  href={typeof image === 'string' ? image : image.imagekit?.url || ''}
+                  onClick={(event) => {
+                    event.preventDefault()
+                    setCurrentImageIndex(index)
+                    setIsLightboxOpen(true)
+                  }}
+                  aria-label={`Bild ${index + 1} von ${images.length} öffnen`}
+                >
+                  <ImageKitImage
+                    image={image}
+                    width={300}
+                    height={300}
+                    loading="lazy"
+                    decoding="async"
+                    className="mb-1 aspect-square w-full object-cover"
+                  />
+                </a>
+                {typeof image === 'object' && image.caption ? (
+                  <figcaption className="font-sans text-sm font-medium md:text-base">
+                    {image.caption}
+                  </figcaption>
+                ) : null}
+              </figure>
+            ))}
         </div>
       </Container>
 
