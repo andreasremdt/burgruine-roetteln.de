@@ -1,5 +1,10 @@
 import type { Media, RichTextBlock } from '@/payload-types'
-import { defaultJSXConverters, RichText } from '@payloadcms/richtext-lexical/react'
+import type { SerializedLinkNode } from '@payloadcms/richtext-lexical'
+import {
+  defaultJSXConverters,
+  RichText,
+  LinkJSXConverter,
+} from '@payloadcms/richtext-lexical/react'
 import { cn } from '@/lib/utils'
 import ImageKitImage from '../imagekit-image'
 
@@ -12,6 +17,21 @@ type Props = Pick<RichTextBlock, 'content'> & {
   }
 }
 
+function internalDocToHref({ linkNode }: { linkNode: SerializedLinkNode }) {
+  const { relationTo, value } = linkNode.fields.doc!
+
+  if (typeof value !== 'object') {
+    throw new Error('Expected value to be an object')
+  }
+
+  switch (relationTo) {
+    case 'pages':
+      return `/${value.slug}`
+    default:
+      return `/${relationTo}/${value.slug}`
+  }
+}
+
 export default function Prose({ content, className, imageOverride }: Props) {
   if (!content) return null
 
@@ -19,6 +39,7 @@ export default function Prose({ content, className, imageOverride }: Props) {
     <RichText
       converters={{
         ...defaultJSXConverters,
+        ...LinkJSXConverter({ internalDocToHref }),
         upload: ({ node }) => {
           if (node.value) {
             return (
