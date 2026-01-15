@@ -44,7 +44,7 @@ export default async function Footer() {
                   <Link
                     prefetch
                     className="transition-colors hover:text-white focus-visible:text-white"
-                    href={menu.slug}
+                    href={`/${menu.slug}`}
                   >
                     {menu.title}
                   </Link>

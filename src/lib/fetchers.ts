@@ -76,38 +76,62 @@ export const getHeader = cache(async function getHeader() {
 })
 
 export const getMenuItems = cache(async function getMenuItems() {
-  const payload = await getPayload({ config })
-  const header = await payload.findGlobal({
-    slug: 'header',
-  })
+  const tours = await getTours()
+  const header = await getHeader()
 
   const menuItems = await Promise.all(
-    header.mainMenu.map(async (menu) => {
-      if (typeof menu === 'string') {
-        return null
-      }
+    [...header.mainMenu, ...tours.map((tour) => ({ title: tour.title, slug: tour.slug }))].map(
+      async (menu) => {
+        if (typeof menu === 'string') {
+          return null
+        }
 
-      const page = await getPageBySlug(menu.slug)
+        const page = await getPageBySlug(menu.slug)
 
-      if (!page || !page.content) {
-        return null
-      }
+        if (!page || !page.content) {
+          return null
+        }
 
-      const subMenuItems = page.content
-        .map((content) => {
-          if (!content.showInSubMenu || !content.subMenuTitle) {
-            return null
-          }
+        const tourMenuItems: { title: string; url: string }[] = []
 
-          return {
-            title: content.subMenuTitle,
-            slug: slugify(content.subMenuTitle),
-          }
-        })
-        .filter((subMenu) => subMenu !== null)
+        if (page.slug === 'fuehrungen') {
+          page.content.forEach((content) => {
+            if (content.blockType === 'tours') {
+              tourMenuItems.push(
+                ...content.tours
+                  .map((tour) => {
+                    if (typeof tour === 'string') {
+                      return null
+                    }
 
-      return { title: menu.title, slug: menu.slug, subMenuItems }
-    }),
+                    return { title: tour.title, url: `/fuehrungen/${tour.slug}` }
+                  })
+                  .filter((tour) => tour !== null),
+              )
+            }
+          })
+        }
+
+        const subMenuItems = page.content
+          .map((content) => {
+            if (!content.showInSubMenu || !content.subMenuTitle) {
+              return null
+            }
+
+            return {
+              title: content.subMenuTitle,
+              url: `/${page.slug}#${slugify(content.subMenuTitle)}`,
+            }
+          })
+          .filter((subMenu) => subMenu !== null)
+
+        return {
+          title: menu.title,
+          url: `/${menu.slug}`,
+          subMenuItems: [...tourMenuItems, ...subMenuItems],
+        }
+      },
+    ),
   )
 
   return menuItems.filter((menuItem) => menuItem !== null)
