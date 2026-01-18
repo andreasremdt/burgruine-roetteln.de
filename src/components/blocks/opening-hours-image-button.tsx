@@ -18,7 +18,7 @@ export default function OpeningHoursImageButton({ image }: Props) {
 
   return (
     <>
-      <div className="mt-8 flex md:justify-center">
+      <div className="mt-8 flex justify-center">
         <Button onClick={() => setIsLightboxOpen(true)}>Burgplan öffnen</Button>
       </div>
 

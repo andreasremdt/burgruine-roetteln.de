@@ -31,6 +31,7 @@ export default function Lightbox({
   const imageUrl =
     typeof currentImage === 'string' ? currentImage : currentImage.imagekit?.url || ''
   const imageAlt = typeof currentImage === 'string' ? '' : currentImage.alt || ''
+  const imageCaption = typeof currentImage === 'string' ? null : currentImage.caption || null
 
   // Determine if navigation should be shown
   const showNavigation = onNext && onPrevious && images.length > 1
@@ -174,13 +175,29 @@ export default function Lightbox({
       </div>
 
       {/* Image counter */}
-      <div
-        className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-gray-900/80 px-4 py-2 font-sans text-sm text-white"
-        aria-live="polite"
-        aria-atomic="true"
-      >
-        {currentIndex + 1} / {images.length}
-      </div>
+      {showNavigation ? (
+        <div
+          className={cn(
+            'absolute left-1/2 -translate-x-1/2 bg-gray-900/80 px-4 py-2 font-sans text-sm text-white',
+            imageCaption ? 'bottom-16' : 'bottom-4',
+          )}
+          aria-live="polite"
+          aria-atomic="true"
+        >
+          {currentIndex + 1} / {images.length}
+        </div>
+      ) : null}
+
+      {/* Caption */}
+      {imageCaption ? (
+        <div
+          className="absolute bottom-4 left-1/2 max-w-4xl -translate-x-1/2 bg-gray-900/80 px-4 py-2 font-sans text-sm text-white"
+          aria-live="polite"
+          aria-atomic="true"
+        >
+          {imageCaption}
+        </div>
+      ) : null}
     </div>
   )
 }

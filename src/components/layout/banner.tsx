@@ -12,11 +12,11 @@ export default async function Banner() {
 
   return (
     <div className="bg-kornblau-400 relative z-10 font-medium text-white">
-      <Container className="flex flex-wrap items-center justify-between gap-4 py-4 text-sm">
-        <p className="hidden items-center gap-2 md:flex">
+      <Container className="flex flex-wrap items-center justify-between gap-4 py-2 text-sm sm:py-4">
+        <p className="hidden gap-2 md:flex">
           {banner.showOpeningHours ? (
             <>
-              <Icon name="clock" />
+              <Icon name="clock" className="mt-[3px] shrink-0" />
               {openingHours.titleOuterWard}
             </>
           ) : (
@@ -28,9 +28,9 @@ export default async function Banner() {
           <Link
             prefetch
             href="/besuchen#veranstaltungen"
-            className="flex items-center gap-2 transition-colors hover:text-white focus-visible:text-white"
+            className="flex gap-2 transition-colors hover:text-white focus-visible:text-white"
           >
-            <Icon name="bell" />
+            <Icon name="bell" className="mt-[3px] shrink-0" />
             Nächste Veranstaltung: {nextEvent.title}
           </Link>
         ) : null}

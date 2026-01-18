@@ -25,7 +25,7 @@ export default async function OpeningHours({
     >
       <dl
         className={cn('grid grid-cols-1', {
-          'mx-auto max-w-5xl gap-16 px-4 md:grid-cols-2': layout === 'horizontal',
+          'mx-auto max-w-5xl gap-8 px-4 md:grid-cols-2 md:gap-16': layout === 'horizontal',
         })}
       >
         <div>

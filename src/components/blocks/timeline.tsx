@@ -13,7 +13,7 @@ export default function Timeline({ description, items, subMenuTitle }: TimelineB
       className="py-24 lg:py-40"
       id={subMenuTitle ? slugify(subMenuTitle) : undefined}
     >
-      <Heading level="h3" tag="p" className="mb-24 text-center lg:mb-40">
+      <Heading level="h3" tag="p" className="mb-24 md:text-center lg:mb-40">
         {description}
       </Heading>
 

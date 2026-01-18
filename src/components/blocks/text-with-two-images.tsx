@@ -1,3 +1,6 @@
+'use client'
+
+import { useState } from 'react'
 import type { TextWithTwoImagesBlock } from '@/payload-types'
 import Container from '../ui/container'
 import Button from '../ui/button'
@@ -5,6 +8,7 @@ import ImageKitImage from '../imagekit-image'
 import Prose from './prose'
 import Heading from '../ui/heading'
 import { slugify } from '@/lib/utils'
+import Lightbox from '../lightbox'
 
 export default function TextWithTwoImages({
   title,
@@ -14,6 +18,11 @@ export default function TextWithTwoImages({
   images,
   buttons,
 }: TextWithTwoImagesBlock) {
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false)
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+
+  const validImages = images?.filter((image) => typeof image !== 'string') || []
+
   return (
     <section
       id={subMenuTitle ? slugify(subMenuTitle) : undefined}
@@ -41,22 +50,45 @@ export default function TextWithTwoImages({
           ) : null}
         </div>
 
-        {images ? (
-          <div className="relative z-10 grid max-w-7xl grid-cols-3 gap-8 md:gap-16">
-            {images.map((image) => (
-              <figure key={typeof image === 'string' ? image : image.id}>
-                <ImageKitImage
-                  image={image}
-                  loading="lazy"
-                  decoding="async"
-                  className="mb-1 aspect-square object-cover"
-                />
-                {typeof image === 'object' && image.caption ? (
-                  <figcaption className="font-sans font-medium">{image.caption}</figcaption>
-                ) : null}
-              </figure>
-            ))}
-          </div>
+        {validImages.length > 0 ? (
+          <>
+            <div className="relative z-10 grid max-w-7xl grid-cols-3 gap-8 md:gap-16">
+              {validImages.map((image, index) => (
+                <figure key={image.id}>
+                  <a
+                    href={image.imagekit?.url || ''}
+                    onClick={(event) => {
+                      event.preventDefault()
+                      setCurrentImageIndex(index)
+                      setIsLightboxOpen(true)
+                    }}
+                    aria-label={`Bild ${index + 1} von ${validImages.length} öffnen`}
+                  >
+                    <ImageKitImage
+                      image={image}
+                      loading="lazy"
+                      decoding="async"
+                      className="mb-1 aspect-square object-cover"
+                    />
+                  </a>
+                  {typeof image === 'object' && image.caption ? (
+                    <figcaption className="font-sans font-medium">{image.caption}</figcaption>
+                  ) : null}
+                </figure>
+              ))}
+            </div>
+
+            <Lightbox
+              images={validImages}
+              currentIndex={currentImageIndex}
+              isOpen={isLightboxOpen}
+              onClose={() => setIsLightboxOpen(false)}
+              onNext={() => setCurrentImageIndex((prev) => (prev + 1) % validImages.length)}
+              onPrevious={() =>
+                setCurrentImageIndex((prev) => (prev - 1 + validImages.length) % validImages.length)
+              }
+            />
+          </>
         ) : null}
       </Container>
     </section>

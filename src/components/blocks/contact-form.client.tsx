@@ -156,7 +156,7 @@ export default function ContactFormClient({ title, description }: Props) {
 
         <form.Field name="phone">
           {(field) => (
-            <div className="mb-4 w-1/2 pr-2">
+            <div className="mb-4 pr-2 sm:w-1/2">
               <Label htmlFor="phone">Telefonnummer</Label>
               <Input
                 id="phone"

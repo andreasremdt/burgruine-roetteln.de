@@ -81,7 +81,7 @@ export default function HeaderClient({ tours, menuItems }: Props) {
                 </Link>
 
                 {menu.subMenuItems.length > 0 ? (
-                  <ul className="top-full left-0 min-w-56 bg-white py-2 group-focus-within:block group-hover:block before:absolute before:-top-2 before:h-2 before:w-full lg:absolute lg:mt-2 lg:hidden lg:shadow-sm">
+                  <ul className="top-full left-0 min-w-56 bg-white pt-2 group-focus-within:block group-hover:block before:absolute before:-top-2 before:h-2 before:w-full lg:absolute lg:mt-2 lg:hidden lg:py-2 lg:shadow-sm">
                     {menu.subMenuItems.map((subMenu) => (
                       <li key={subMenu.url}>
                         <Link

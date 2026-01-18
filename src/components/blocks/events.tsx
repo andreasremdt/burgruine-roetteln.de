@@ -36,7 +36,7 @@ export default async function Events({ title, description, subMenuTitle }: Event
           >
             <time
               dateTime={event.date}
-              className="col-span-2 mt-1 font-sans font-medium whitespace-nowrap uppercase lg:col-span-1"
+              className="col-span-2 mt-1 mb-2 block font-sans font-medium whitespace-nowrap uppercase lg:col-span-1"
             >
               {event.displayedDate}
               {event.time ? (

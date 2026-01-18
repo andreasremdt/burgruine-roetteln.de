@@ -17,6 +17,7 @@ export default function Map({ className }: Props) {
       zoom={ZOOM}
       className={className}
       scrollWheelZoom={false}
+      dragging={false}
     >
       <TileLayer url="https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png" />
       <Marker position={[LATITUDE, LONGITUDE]} />

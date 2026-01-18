@@ -21,7 +21,7 @@ export default function ToursBlock({ title, description, tours, dark, subMenuTit
           dash
           className={cn({
             'before:bg-gray-600': !dark,
-            'before:bg-white': dark,
+            'text-gray-300 before:bg-white': dark,
           })}
         >
           {title}
