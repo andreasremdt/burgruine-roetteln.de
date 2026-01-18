@@ -43,6 +43,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         itemScope
         itemType="https://schema.org/WebPage"
       >
+        <a
+          href="#content"
+          className="text-kornblau-400 absolute top-0 right-0 left-0 z-20 -translate-y-full bg-white py-2 text-center font-medium transition-transform focus-visible:translate-y-0 sm:py-4"
+        >
+          Zum Inhalt springen
+        </a>
+
         <Banner />
 
         <Header />
