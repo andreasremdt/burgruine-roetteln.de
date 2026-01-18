@@ -49,8 +49,6 @@ export default function TextWithTwoImages({
                   image={image}
                   loading="lazy"
                   decoding="async"
-                  width={600}
-                  height={600}
                   className="mb-1 aspect-square object-cover"
                 />
                 {typeof image === 'object' && image.caption ? (

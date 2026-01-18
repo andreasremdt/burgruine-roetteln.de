@@ -29,8 +29,8 @@ export default function FooterGallery({ images }: Props) {
           <ImageKitImage
             key={typeof image === 'string' ? image : image.id}
             image={image}
-            width={400}
-            height={400}
+            width={200}
+            height={200}
             className="aspect-square w-full object-cover grayscale transition-all duration-300 hover:grayscale-0"
           />
         </a>

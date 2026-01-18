@@ -20,8 +20,6 @@ export default function OneColumnWithImage({
         <figure className="col-span-2 mt-2 md:col-span-1">
           <ImageKitImage
             image={image}
-            width={600}
-            height={600}
             loading="eager"
             className="mb-1 aspect-square w-full object-cover"
           />

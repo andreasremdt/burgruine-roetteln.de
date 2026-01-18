@@ -24,9 +24,10 @@ export default async function HomeHero({ title, description, className, ...props
     >
       <ImageKitImage
         image={header.image}
-        width={1920}
-        height={800}
+        width={960}
+        height={400}
         priority
+        fetchPriority="high"
         loading="eager"
         role="presentation"
         className="absolute inset-0 z-0 h-full w-full object-cover"

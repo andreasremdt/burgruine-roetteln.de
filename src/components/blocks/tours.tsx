@@ -45,8 +45,8 @@ export default function ToursBlock({ title, description, tours, dark, subMenuTit
               <article key={tour.id} className="relative">
                 <ImageKitImage
                   image={tour.image}
-                  width="400"
-                  height="400"
+                  width={200}
+                  height={200}
                   loading="lazy"
                   decoding="async"
                   className="mb-4 aspect-video w-full object-cover sm:aspect-square"

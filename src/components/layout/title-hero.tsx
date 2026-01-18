@@ -22,9 +22,10 @@ export default async function ImageHero({ title, className, ...props }: Props) {
     >
       <ImageKitImage
         image={header.image}
-        width={1920}
-        height={400}
+        width={960}
+        height={200}
         loading="eager"
+        fetchPriority="high"
         priority
         role="presentation"
         className="absolute inset-0 h-full w-full object-cover"

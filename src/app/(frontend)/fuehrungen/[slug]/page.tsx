@@ -32,8 +32,6 @@ export default async function Page({ params }: Props) {
           <figure className="col-span-2 md:col-span-1">
             <ImageKitImage
               image={tour.image}
-              width={600}
-              height={600}
               loading="eager"
               className="mb-1 aspect-square object-cover"
             />

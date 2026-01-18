@@ -45,8 +45,8 @@ export default function Prose({ content, className, imageOverride }: Props) {
             return (
               <ImageKitImage
                 image={node.value as Media}
-                width={imageOverride?.width || 900}
-                height={imageOverride?.height || 500}
+                width={imageOverride?.width || 450}
+                height={imageOverride?.height || 250}
                 className={imageOverride?.className}
               />
             )

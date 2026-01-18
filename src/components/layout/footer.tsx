@@ -36,7 +36,7 @@ export default async function Footer() {
             Seitenmenü
           </Heading>
 
-          <ul>
+          <ul className="space-y-1">
             {footer.footerMenu
               .filter((menu) => typeof menu !== 'string')
               .map((menu) => (
@@ -77,36 +77,47 @@ export default async function Footer() {
             dangerouslySetInnerHTML={{ __html: contactInfo.name.replaceAll('\n', '<br />') }}
           />
 
-          <p>
-            <a
-              className="transition-colors hover:text-white focus-visible:text-white"
-              href={`tel:${contactInfo.phone}`}
-            >
-              {contactInfo.phone}
-            </a>
-          </p>
-
-          <p>
-            <a
-              className="transition-colors hover:text-white focus-visible:text-white"
-              href={`mailto:${contactInfo.email}`}
-            >
-              {contactInfo.email}
-            </a>
-          </p>
+          <ul className="space-y-1">
+            <li>
+              <a
+                className="transition-colors hover:text-white focus-visible:text-white"
+                href={`tel:${contactInfo.phone}`}
+              >
+                {contactInfo.phone}
+              </a>
+            </li>
+            <li>
+              <a
+                className="transition-colors hover:text-white focus-visible:text-white"
+                href={`mailto:${contactInfo.email}`}
+              >
+                {contactInfo.email}
+              </a>
+            </li>
+          </ul>
 
           {contactInfo.social?.instagram || contactInfo.social?.facebook ? (
             <div className="mt-4 flex items-center gap-2">
-              {contactInfo.social?.instagram && (
-                <a href={contactInfo.social.instagram} target="_blank" rel="noopener noreferrer">
+              {contactInfo.social.instagram ? (
+                <a
+                  href={contactInfo.social.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Folgen Sie uns auf Instagram"
+                >
                   <Icon name="instagram" className="size-6" />
                 </a>
-              )}
-              {contactInfo.social?.facebook && (
-                <a href={contactInfo.social.facebook} target="_blank" rel="noopener noreferrer">
+              ) : null}
+              {contactInfo.social.facebook ? (
+                <a
+                  href={contactInfo.social.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Folgen Sie uns auf Facebook"
+                >
                   <Icon name="facebook" className="size-6" />
                 </a>
-              )}
+              ) : null}
             </div>
           ) : null}
         </div>

@@ -30,8 +30,8 @@ export default function TwoColumnsWithImage({
         <figure>
           <ImageKitImage
             image={image}
-            width={1368}
-            height={700}
+            width={684}
+            height={350}
             loading="eager"
             decoding="async"
             className="aspect-video w-full object-cover"

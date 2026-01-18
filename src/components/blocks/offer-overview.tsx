@@ -33,8 +33,8 @@ export default function OfferOverview({
             <article key={offer.id} className="flex flex-col">
               <ImageKitImage
                 image={offer.image}
-                width="300"
-                height="300"
+                width={320}
+                height={240}
                 className="mb-4 aspect-video w-full object-cover"
               />
               <Heading level="h3" tag="h3">

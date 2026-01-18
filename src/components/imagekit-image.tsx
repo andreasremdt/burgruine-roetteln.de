@@ -8,13 +8,13 @@ type Props = Omit<ImageProps, 'src' | 'alt'> & {
 
 export default function ImageKitImage({
   image,
-  quality = 75,
+  quality = 65,
   loading = 'lazy',
   decoding = 'async',
   className,
   ...props
 }: Props) {
-  if (typeof image === 'string' || !image?.imagekit) {
+  if (typeof image === 'string' || !image.imagekit) {
     return null
   }
 
