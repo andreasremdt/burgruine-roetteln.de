@@ -104,6 +104,23 @@ export default function ContactFormClient({ title, description }: Props) {
           </div>
         ) : null}
 
+        {submitStatus === 'error' ? (
+          <div
+            className="absolute inset-0 flex flex-col items-center justify-center bg-white/90"
+            role="alert"
+          >
+            <Icon name="error-circle" className="text-kornblau-400 mb-4 size-8" />
+            <p className="text-center text-xl">
+              <strong className="block">Das hat leider nicht geklappt...</strong>
+              Bitte versuchen Sie es später erneut oder senden Sie uns eine E-Mail an{' '}
+              <a href="mailto:info@burgruine-roetteln.de" className="text-kornblau-400 underline">
+                info@burgruine-roetteln.de
+              </a>
+              .
+            </p>
+          </div>
+        ) : null}
+
         <div className="grid grid-cols-1 sm:grid-cols-2 sm:gap-4">
           <form.Field
             name="name"
@@ -113,7 +130,7 @@ export default function ContactFormClient({ title, description }: Props) {
           >
             {(field) => (
               <div className="mb-4">
-                <Label htmlFor="name">Vor- und Nachname</Label>
+                <Label htmlFor="name">Vor- und Nachname *</Label>
                 <Input
                   id="name"
                   name={field.name}
@@ -136,7 +153,7 @@ export default function ContactFormClient({ title, description }: Props) {
           >
             {(field) => (
               <div className="mb-4">
-                <Label htmlFor="email">E-Mail-Adresse</Label>
+                <Label htmlFor="email">E-Mail-Adresse *</Label>
                 <Input
                   type="email"
                   name={field.name}
@@ -180,7 +197,7 @@ export default function ContactFormClient({ title, description }: Props) {
         >
           {(field) => (
             <div className="mb-4">
-              <Label htmlFor="subject">Betreff</Label>
+              <Label htmlFor="subject">Betreff *</Label>
               <Input
                 name={field.name}
                 id="subject"
@@ -203,7 +220,7 @@ export default function ContactFormClient({ title, description }: Props) {
         >
           {(field) => (
             <div className="mb-4">
-              <Label htmlFor="message">Ihre Nachricht</Label>
+              <Label htmlFor="message">Ihre Nachricht *</Label>
               <Textarea
                 name={field.name}
                 id="message"

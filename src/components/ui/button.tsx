@@ -30,11 +30,12 @@ export default function Button({
   ...props
 }: Props) {
   const baseClasses = cn(
-    'inline-flex items-center px-4 h-10 md:h-12 uppercase font-sans text-xs tracking-wider font-medium transition-colors cursor-pointer',
+    'inline-flex items-center px-4 h-10 md:h-12 uppercase font-sans text-xs tracking-wider font-medium transition-colors cursor-pointer disabled:cursor-not-allowed disabled:opacity-50',
     {
-      'bg-kornblau-400 text-white hover:bg-gray-900 focus-visible:bg-gray-900':
+      'bg-kornblau-400 text-white enabled:hover:bg-gray-900 enabled:focus-visible:bg-gray-900':
         variant === 'primary',
-      'bg-white text-gray-900 hover:bg-gray-100 focus-visible:bg-gray-100': variant === 'secondary',
+      'bg-white text-gray-900 enabled:hover:bg-gray-100 enabled:focus-visible:bg-gray-100':
+        variant === 'secondary',
     },
     className,
   )

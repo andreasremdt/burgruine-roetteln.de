@@ -102,6 +102,23 @@ export default function BookingFormClient({ tours }: Props) {
         </div>
       ) : null}
 
+      {submitStatus === 'error' ? (
+        <div
+          className="absolute inset-0 flex flex-col items-center justify-center bg-white/90"
+          role="alert"
+        >
+          <Icon name="error-circle" className="text-kornblau-400 mb-4 size-8" />
+          <p className="text-center text-xl">
+            <strong className="block">Das hat leider nicht geklappt...</strong>
+            Bitte versuchen Sie es später erneut oder senden Sie uns eine E-Mail an{' '}
+            <a href="mailto:info@burgruine-roetteln.de" className="text-kornblau-400 underline">
+              info@burgruine-roetteln.de
+            </a>
+            .
+          </p>
+        </div>
+      ) : null}
+
       <div className="grid grid-cols-1 sm:grid-cols-2 sm:gap-4">
         <form.Field
           name="name"
