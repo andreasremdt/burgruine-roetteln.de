@@ -622,6 +622,11 @@ export interface EventsBlock {
  */
 export interface OpeningHoursBlock {
   /**
+   * Wenn diese Option aktiviert ist, wird eine Schaltfläche zum Burgplan angezeigt. Der Benutzer kann diesen Plan dann öffnen.
+   */
+  showImage?: boolean | null;
+  image?: (string | null) | Media;
+  /**
    * Das Layout bestimmt die Anordnung der Öffnungszeiten.
    */
   layout?: ('horizontal' | 'vertical') | null;
@@ -1231,6 +1236,8 @@ export interface EventsBlockSelect<T extends boolean = true> {
  * via the `definition` "OpeningHoursBlock_select".
  */
 export interface OpeningHoursBlockSelect<T extends boolean = true> {
+  showImage?: T;
+  image?: T;
   layout?: T;
   background?: T;
   showInSubMenu?: T;

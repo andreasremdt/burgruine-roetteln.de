@@ -9,7 +9,7 @@ export default async function BookingForm({ title, description }: BookingFormBlo
   const tours = await getTours()
 
   return (
-    <section className="pb-24 lg:pb-40">
+    <section className="py-24 lg:py-40">
       <Container className="grid grid-cols-1 gap-16 lg:grid-cols-3">
         <div>
           <Heading level="h2" tag="h2" className="mb-4">

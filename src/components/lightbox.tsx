@@ -12,8 +12,8 @@ type LightboxProps = {
   currentIndex: number
   isOpen: boolean
   onClose: () => void
-  onNext: () => void
-  onPrevious: () => void
+  onNext?: () => void
+  onPrevious?: () => void
 }
 
 export default function Lightbox({
@@ -32,6 +32,9 @@ export default function Lightbox({
     typeof currentImage === 'string' ? currentImage : currentImage.imagekit?.url || ''
   const imageAlt = typeof currentImage === 'string' ? '' : currentImage.alt || ''
 
+  // Determine if navigation should be shown
+  const showNavigation = onNext && onPrevious && images.length > 1
+
   // Handle keyboard events
   useEffect(() => {
     if (!isOpen) return
@@ -40,10 +43,12 @@ export default function Lightbox({
       if (event.key === 'Escape') {
         onClose()
         setIsLoading(true)
-      } else if (event.key === 'ArrowLeft') {
-        onPrevious()
-      } else if (event.key === 'ArrowRight') {
-        onNext()
+      } else if (onPrevious && onNext && images.length > 1) {
+        if (event.key === 'ArrowLeft') {
+          onPrevious()
+        } else if (event.key === 'ArrowRight') {
+          onNext()
+        }
       }
     }
 
@@ -55,7 +60,7 @@ export default function Lightbox({
       document.removeEventListener('keydown', handleKeyDown)
       document.body.classList.remove('overflow-hidden')
     }
-  }, [isOpen, onClose, onNext, onPrevious])
+  }, [isOpen, onClose, onNext, onPrevious, images.length])
 
   // Focus management
   useEffect(() => {
@@ -104,28 +109,32 @@ export default function Lightbox({
       </button>
 
       {/* Previous button */}
-      <button
-        onClick={(e) => {
-          e.stopPropagation()
-          onPrevious()
-        }}
-        className="absolute left-4 z-10 flex size-12 cursor-pointer items-center justify-center bg-gray-900/80 text-white hover:bg-gray-600/80 focus-visible:ring-4 focus-visible:ring-gray-500/80 focus-visible:outline-hidden"
-        aria-label="Vorheriges Bild"
-      >
-        <Icon name="chevron-left" className="size-6" />
-      </button>
+      {showNavigation ? (
+        <button
+          onClick={(e) => {
+            e.stopPropagation()
+            onPrevious()
+          }}
+          className="absolute left-4 z-10 flex size-12 cursor-pointer items-center justify-center bg-gray-900/80 text-white hover:bg-gray-600/80 focus-visible:ring-4 focus-visible:ring-gray-500/80 focus-visible:outline-hidden"
+          aria-label="Vorheriges Bild"
+        >
+          <Icon name="chevron-left" className="size-6" />
+        </button>
+      ) : null}
 
       {/* Next button */}
-      <button
-        onClick={(e) => {
-          e.stopPropagation()
-          onNext()
-        }}
-        className="absolute right-4 z-10 flex size-12 cursor-pointer items-center justify-center bg-gray-900/80 text-white hover:bg-gray-600/80 focus-visible:ring-4 focus-visible:ring-gray-500/80 focus-visible:outline-hidden"
-        aria-label="Nächstes Bild"
-      >
-        <Icon name="chevron-right" className="size-6" />
-      </button>
+      {showNavigation ? (
+        <button
+          onClick={(e) => {
+            e.stopPropagation()
+            onNext()
+          }}
+          className="absolute right-4 z-10 flex size-12 cursor-pointer items-center justify-center bg-gray-900/80 text-white hover:bg-gray-600/80 focus-visible:ring-4 focus-visible:ring-gray-500/80 focus-visible:outline-hidden"
+          aria-label="Nächstes Bild"
+        >
+          <Icon name="chevron-right" className="size-6" />
+        </button>
+      ) : null}
 
       {/* Image container */}
       <div

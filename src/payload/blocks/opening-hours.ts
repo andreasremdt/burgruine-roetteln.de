@@ -11,6 +11,26 @@ const openingHours: Block = {
   imageURL: '/blocks/opening-hours.png',
   fields: [
     {
+      type: 'checkbox',
+      name: 'showImage',
+      label: 'Schaltfläche zum Burgplan anzeigen',
+      defaultValue: true,
+      admin: {
+        description:
+          'Wenn diese Option aktiviert ist, wird eine Schaltfläche zum Burgplan angezeigt. Der Benutzer kann diesen Plan dann öffnen.',
+      },
+    },
+    {
+      type: 'upload',
+      name: 'image',
+      label: 'Bild vom Burgplan',
+      relationTo: 'media',
+      required: true,
+      admin: {
+        condition: (_, siblingData) => siblingData.showImage,
+      },
+    },
+    {
       type: 'select',
       name: 'layout',
       label: 'Layout',

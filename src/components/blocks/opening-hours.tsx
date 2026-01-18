@@ -2,13 +2,15 @@ import { getContactInfo, getOpeningHours } from '@/lib/fetchers'
 import type { OpeningHoursBlock } from '@/payload-types'
 import { cn } from '@/lib/utils'
 import Icon from '../ui/icon'
-import Button from '../ui/button'
 import { slugify } from '@/lib/utils'
+import OpeningHoursImageButton from './opening-hours-image-button'
 
 export default async function OpeningHours({
   layout,
   background,
   subMenuTitle,
+  showImage,
+  image,
 }: OpeningHoursBlock) {
   const openingHours = await getOpeningHours()
   const contactInfo = await getContactInfo()
@@ -76,9 +78,7 @@ export default async function OpeningHours({
         </div>
       </dl>
 
-      <div className="mt-8 flex md:justify-center">
-        <Button>Burgplan öffnen</Button>
-      </div>
+      {showImage ? <OpeningHoursImageButton image={image} /> : null}
     </section>
   )
 }
