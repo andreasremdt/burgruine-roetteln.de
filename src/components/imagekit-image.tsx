@@ -14,7 +14,7 @@ export default function ImageKitImage({
   className,
   ...props
 }: Props) {
-  if (typeof image === 'string' || !image.imagekit) {
+  if (typeof image === 'string' || !image?.imagekit) {
     return null
   }
 
