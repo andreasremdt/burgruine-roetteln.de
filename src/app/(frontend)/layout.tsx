@@ -3,6 +3,7 @@ import { cn } from '@/lib/utils'
 import Banner from '@/components/layout/banner'
 import Header from '@/components/layout/header'
 import Footer from '@/components/layout/footer'
+import ScrollToTop from '@/components/scroll-to-top'
 import '@/styles/globals.css'
 
 const openSans = Open_Sans({
@@ -59,6 +60,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </main>
 
         <Footer />
+
+        <ScrollToTop />
       </body>
     </html>
   )
