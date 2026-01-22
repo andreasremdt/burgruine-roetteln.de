@@ -29,9 +29,9 @@ export default function Lightbox({
 
   const currentImage = images[currentIndex]
   const imageUrl =
-    typeof currentImage === 'string' ? currentImage : currentImage.imagekit?.url || ''
-  const imageAlt = typeof currentImage === 'string' ? '' : currentImage.alt || ''
-  const imageCaption = typeof currentImage === 'string' ? null : currentImage.caption || null
+    typeof currentImage === 'string' ? currentImage : currentImage?.imagekit?.url || ''
+  const imageAlt = typeof currentImage === 'string' ? '' : currentImage?.alt || ''
+  const imageCaption = typeof currentImage === 'string' ? null : currentImage?.caption || null
 
   // Determine if navigation should be shown
   const showNavigation = onNext && onPrevious && images.length > 1

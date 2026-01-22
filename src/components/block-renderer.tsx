@@ -14,7 +14,9 @@ import OfferOverview from './blocks/offer-overview'
 import TextWithSidebar from './blocks/text-with-sidebar'
 import ContactForm from './blocks/contact-form'
 import RichText from './blocks/rich-text'
+import RichTextWithTwoColumns from './blocks/rich-text-with-two-columns'
 import BookingForm from './blocks/booking-form'
+import RichTextWithGallery from './blocks/rich-text-with-gallery'
 
 type Props = {
   blocks: Page['content']
@@ -55,8 +57,12 @@ export default function BlockRenderer({ blocks }: Props) {
         return <ContactForm {...block} key={block.id} />
       case 'richText':
         return <RichText {...block} key={block.id} />
+      case 'richTextWithTwoColumns':
+        return <RichTextWithTwoColumns {...block} key={block.id} />
       case 'booking-form':
         return <BookingForm {...block} key={block.id} />
+      case 'richTextWithGallery':
+        return <RichTextWithGallery {...block} key={block.id} />
       default:
         return null
     }

@@ -280,6 +280,8 @@ export interface Page {
     | (
         | ToursBlock
         | RichTextBlock
+        | RichTextWithTwoColumnsBlock
+        | RichTextWithGalleryBlock
         | TwoColumnsWithImageBlock
         | OneColumnWithImageBlock
         | TextWithTwoImagesBlock
@@ -363,6 +365,88 @@ export interface RichTextBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'richText';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "RichTextWithTwoColumnsBlock".
+ */
+export interface RichTextWithTwoColumnsBlock {
+  left: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  right: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  /**
+   * Wenn dieser Haken gesetzt ist, wird der Inhalt als Unterpunkt im Menü angezeigt.
+   */
+  showInSubMenu?: boolean | null;
+  /**
+   * Der Titel des Unterpunkts wird im Menü angezeigt.
+   */
+  subMenuTitle?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'richTextWithTwoColumns';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "RichTextWithGalleryBlock".
+ */
+export interface RichTextWithGalleryBlock {
+  title: string;
+  description?: string | null;
+  content: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  images: (string | Media)[];
+  /**
+   * Wenn dieser Haken gesetzt ist, wird der Inhalt als Unterpunkt im Menü angezeigt.
+   */
+  showInSubMenu?: boolean | null;
+  /**
+   * Der Titel des Unterpunkts wird im Menü angezeigt.
+   */
+  subMenuTitle?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'richTextWithGallery';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1040,6 +1124,8 @@ export interface PagesSelect<T extends boolean = true> {
     | {
         tours?: T | ToursBlockSelect<T>;
         richText?: T | RichTextBlockSelect<T>;
+        richTextWithTwoColumns?: T | RichTextWithTwoColumnsBlockSelect<T>;
+        richTextWithGallery?: T | RichTextWithGalleryBlockSelect<T>;
         twoColumnsWithImage?: T | TwoColumnsWithImageBlockSelect<T>;
         oneColumnWithImage?: T | OneColumnWithImageBlockSelect<T>;
         textWithTwoImages?: T | TextWithTwoImagesBlockSelect<T>;
@@ -1086,6 +1172,32 @@ export interface ToursBlockSelect<T extends boolean = true> {
  */
 export interface RichTextBlockSelect<T extends boolean = true> {
   content?: T;
+  showInSubMenu?: T;
+  subMenuTitle?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "RichTextWithTwoColumnsBlock_select".
+ */
+export interface RichTextWithTwoColumnsBlockSelect<T extends boolean = true> {
+  left?: T;
+  right?: T;
+  showInSubMenu?: T;
+  subMenuTitle?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "RichTextWithGalleryBlock_select".
+ */
+export interface RichTextWithGalleryBlockSelect<T extends boolean = true> {
+  title?: T;
+  description?: T;
+  content?: T;
+  images?: T;
   showInSubMenu?: T;
   subMenuTitle?: T;
   id?: T;

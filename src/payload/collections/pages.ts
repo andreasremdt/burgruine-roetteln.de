@@ -3,6 +3,8 @@ import { generatePreviewPath, revalidateDelete, revalidatePage } from '@/lib/liv
 import directions from '../blocks/directions'
 import tours from '../blocks/tours'
 import richText from '../blocks/rich-text'
+import richTextWithTwoColumns from '../blocks/rich-text-with-two-columns'
+import richTextWithGallery from '../blocks/rich-text-with-gallery'
 import twoColumnsWithImage from '../blocks/two-columns-with-image'
 import textWithTwoImages from '../blocks/text-with-two-images'
 import statistics from '../blocks/statistics'
@@ -135,6 +137,8 @@ const pages: CollectionConfig = {
               blocks: [
                 tours,
                 richText,
+                richTextWithTwoColumns,
+                richTextWithGallery,
                 twoColumnsWithImage,
                 oneColumnWithImage,
                 textWithTwoImages,
