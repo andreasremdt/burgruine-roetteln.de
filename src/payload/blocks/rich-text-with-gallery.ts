@@ -1,5 +1,6 @@
 import type { Block } from 'payload'
 import subMenuFields from './shared/sub-menu-fields'
+import galleryFields from './shared/gallery'
 
 const richTextWithGallery: Block = {
   slug: 'richTextWithGallery',
@@ -32,14 +33,7 @@ const richTextWithGallery: Block = {
       label: 'Inhalt',
       required: true,
     },
-    {
-      name: 'images',
-      type: 'upload',
-      label: 'Bilder',
-      required: true,
-      relationTo: 'media',
-      hasMany: true,
-    },
+    galleryFields,
     subMenuFields,
   ],
 }

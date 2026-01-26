@@ -13,9 +13,11 @@ type Props = RichTextWithGalleryBlock & {
     className?: string
 }
 
-export default function RichTextWithGallery({ content, images = [], title, description, className, subMenuTitle }: Props) {
+export default function RichTextWithGallery({ content, title, description, className, groups, subMenuTitle }: Props) {
     const [isLightboxOpen, setIsLightboxOpen] = useState(false)
     const [currentImageIndex, setCurrentImageIndex] = useState(0)
+
+    const allImages = groups?.flatMap((group) => group.images.filter((image) => typeof image !== 'string')) || []
 
     return (
         <section
@@ -32,47 +34,61 @@ export default function RichTextWithGallery({ content, images = [], title, descr
                     {description || title}
                 </Heading>
 
-                <Prose content={content} />
+                <Prose content={content} className={cn({
+                    'mb-16': groups && groups.length > 0,
+                })} />
 
-                <div className="grid grid-cols-2 gap-8 md:grid-cols-4 mt-16">
-                    {images
-                        .filter((image) => typeof image !== 'string')
-                        .map((image, index) => (
-                            <figure key={typeof image === 'string' ? image : image.id}>
-                                <a
-                                    href={typeof image === 'string' ? image : image.imagekit?.url || ''}
-                                    onClick={(event) => {
-                                        event.preventDefault()
-                                        setCurrentImageIndex(index)
-                                        setIsLightboxOpen(true)
-                                    }}
-                                    aria-label={`Bild ${index + 1} von ${images.length} öffnen`}
-                                >
-                                    <ImageKitImage
-                                        image={image}
-                                        loading="lazy"
-                                        decoding="async"
-                                        className="mb-1 aspect-square w-full object-cover"
-                                    />
-                                </a>
-                                {typeof image === 'object' && image.caption ? (
-                                    <figcaption className="font-sans text-sm font-medium md:text-base">
-                                        {image.caption}
-                                    </figcaption>
-                                ) : null}
-                            </figure>
-                        ))}
-                </div>
+                {groups?.map((group) => (
+                    <div key={group.id} className="mb-8 last:mb-0">
+                        {group.title ? (
+                            <Heading level="h2" tag="h3" className="mb-4 mt-8">
+                                {group.title}
+                            </Heading>
+                        ) : null}
+
+
+                        <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
+                            {group.images
+                                .filter((image) => typeof image !== 'string')
+                                .map((image, index) => (
+                                    <figure key={typeof image === 'string' ? image : image.id}>
+                                        <a
+                                            href={typeof image === 'string' ? image : image.imagekit?.url || ''}
+                                            onClick={(event) => {
+                                                event.preventDefault()
+                                                setCurrentImageIndex(allImages.indexOf(image))
+                                                setIsLightboxOpen(true)
+                                            }}
+                                            aria-label={`Bild ${index + 1} von ${group.images.filter((image) => typeof image !== 'string').length} öffnen`}
+                                        >
+                                            <ImageKitImage
+                                                image={image}
+                                                loading="lazy"
+                                                decoding="async"
+                                                className="mb-1 aspect-square w-full object-cover"
+                                            />
+                                        </a>
+                                        {typeof image === 'object' && image.caption ? (
+                                            <figcaption className="font-sans text-sm font-medium md:text-base">
+                                                {image.caption}
+                                            </figcaption>
+                                        ) : null}
+                                    </figure>
+                                ))}
+                        </div>
+                    </div>
+                ))}
+
             </Container>
 
             <Lightbox
-                images={images}
+                images={allImages}
                 currentIndex={currentImageIndex}
                 isOpen={isLightboxOpen}
                 onClose={() => setIsLightboxOpen(false)}
-                onNext={() => setCurrentImageIndex((prev) => (prev + 1) % images.length)}
+                onNext={() => setCurrentImageIndex((prev) => (prev + 1) % allImages.length)}
                 onPrevious={() =>
-                    setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length)
+                    setCurrentImageIndex((prev) => (prev - 1 + allImages.length) % allImages.length)
                 }
             />
         </section>

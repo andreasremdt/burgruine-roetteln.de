@@ -435,7 +435,13 @@ export interface RichTextWithGalleryBlock {
     };
     [k: string]: unknown;
   };
-  images: (string | Media)[];
+  groups?:
+    | {
+        title?: string | null;
+        images: (string | Media)[];
+        id?: string | null;
+      }[]
+    | null;
   /**
    * Wenn dieser Haken gesetzt ist, wird der Inhalt als Unterpunkt im Menü angezeigt.
    */
@@ -1197,7 +1203,13 @@ export interface RichTextWithGalleryBlockSelect<T extends boolean = true> {
   title?: T;
   description?: T;
   content?: T;
-  images?: T;
+  groups?:
+    | T
+    | {
+        title?: T;
+        images?: T;
+        id?: T;
+      };
   showInSubMenu?: T;
   subMenuTitle?: T;
   id?: T;
