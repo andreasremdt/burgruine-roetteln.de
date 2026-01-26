@@ -13,7 +13,7 @@ export default function OneColumnWithImage({
 }: OneColumnWithImageBlock) {
   return (
     <section
-      className="relative bg-gray-50 pb-24 before:absolute before:right-0 before:bottom-0 before:left-0 before:h-1/2 before:bg-gray-50 xl:pb-0 xl:before:bg-white"
+      className="bg-gray-50 pb-24"
       id={subMenuTitle ? slugify(subMenuTitle) : undefined}
     >
       <Container className="relative grid grid-cols-2 gap-16">
