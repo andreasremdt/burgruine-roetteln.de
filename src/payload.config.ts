@@ -21,6 +21,7 @@ import banner from './payload/globals/banner'
 import header from './payload/globals/header'
 import messages from './payload/collections/messages'
 import requests from './payload/collections/requests'
+import memberships from './payload/collections/memberships'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -32,7 +33,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [users, media, tours, pages, events, messages, requests],
+  collections: [users, media, tours, pages, events, messages, requests, memberships],
   globals: [footer, contact, costs, openingHours, banner, header],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET,

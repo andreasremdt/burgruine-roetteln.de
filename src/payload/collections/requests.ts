@@ -4,6 +4,7 @@ const requests: CollectionConfig = {
   slug: 'requests',
   admin: {
     useAsTitle: 'name',
+    group: 'Formulare',
   },
   labels: {
     singular: 'Führungsanfrage',

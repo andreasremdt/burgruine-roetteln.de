@@ -18,6 +18,7 @@ import offerOverview from '../blocks/offer-overview'
 import textWithSidebar from '../blocks/text-with-sidebar'
 import contactForm from '../blocks/contact-form'
 import bookingForm from '../blocks/booking-form'
+import membershipForm from '../blocks/membership-form'
 
 const pages: CollectionConfig = {
   slug: 'pages',
@@ -153,6 +154,7 @@ const pages: CollectionConfig = {
                 textWithSidebar,
                 contactForm,
                 bookingForm,
+                membershipForm,
               ],
             },
           ],

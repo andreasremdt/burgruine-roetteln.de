@@ -4,6 +4,7 @@ const messages: CollectionConfig = {
   slug: 'messages',
   admin: {
     useAsTitle: 'subject',
+    group: 'Formulare',
   },
   labels: {
     singular: 'Nachricht',

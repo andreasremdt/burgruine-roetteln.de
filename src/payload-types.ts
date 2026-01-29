@@ -74,6 +74,7 @@ export interface Config {
     events: Event;
     messages: Message;
     requests: Request;
+    memberships: Membership;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -88,6 +89,7 @@ export interface Config {
     events: EventsSelect<false> | EventsSelect<true>;
     messages: MessagesSelect<false> | MessagesSelect<true>;
     requests: RequestsSelect<false> | RequestsSelect<true>;
+    memberships: MembershipsSelect<false> | MembershipsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -296,6 +298,7 @@ export interface Page {
         | TextWithSidebarBlock
         | ContactFormBlock
         | BookingFormBlock
+        | MembershipFormBlock
       )[]
     | null;
   meta?: {
@@ -878,6 +881,24 @@ export interface BookingFormBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MembershipFormBlock".
+ */
+export interface MembershipFormBlock {
+  description: string;
+  /**
+   * Wenn dieser Haken gesetzt ist, wird der Inhalt als Unterpunkt im Menü angezeigt.
+   */
+  showInSubMenu?: boolean | null;
+  /**
+   * Der Titel des Unterpunkts wird im Menü angezeigt.
+   */
+  subMenuTitle?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'membership-form';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "events".
  */
 export interface Event {
@@ -951,6 +972,29 @@ export interface Request {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "memberships".
+ */
+export interface Membership {
+  id: string;
+  name: string;
+  email: string;
+  street: string;
+  postalCode: string;
+  city: string;
+  birthDate: string;
+  phone?: string | null;
+  annualFee: number;
+  accountHolder: string;
+  sepaStreet: string;
+  sepaPostalCode: string;
+  sepaCity: string;
+  iban: string;
+  bic: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -1000,6 +1044,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'requests';
         value: string | Request;
+      } | null)
+    | ({
+        relationTo: 'memberships';
+        value: string | Membership;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -1146,6 +1194,7 @@ export interface PagesSelect<T extends boolean = true> {
         'text-with-sidebar'?: T | TextWithSidebarBlockSelect<T>;
         'contact-form'?: T | ContactFormBlockSelect<T>;
         'booking-form'?: T | BookingFormBlockSelect<T>;
+        'membership-form'?: T | MembershipFormBlockSelect<T>;
       };
   meta?:
     | T
@@ -1458,6 +1507,17 @@ export interface BookingFormBlockSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MembershipFormBlock_select".
+ */
+export interface MembershipFormBlockSelect<T extends boolean = true> {
+  description?: T;
+  showInSubMenu?: T;
+  subMenuTitle?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "events_select".
  */
 export interface EventsSelect<T extends boolean = true> {
@@ -1494,6 +1554,28 @@ export interface RequestsSelect<T extends boolean = true> {
   type?: T;
   participants?: T;
   message?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "memberships_select".
+ */
+export interface MembershipsSelect<T extends boolean = true> {
+  name?: T;
+  email?: T;
+  street?: T;
+  postalCode?: T;
+  city?: T;
+  birthDate?: T;
+  phone?: T;
+  annualFee?: T;
+  accountHolder?: T;
+  sepaStreet?: T;
+  sepaPostalCode?: T;
+  sepaCity?: T;
+  iban?: T;
+  bic?: T;
   updatedAt?: T;
   createdAt?: T;
 }
