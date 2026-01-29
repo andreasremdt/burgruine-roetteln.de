@@ -33,10 +33,11 @@ export default function useMobileMenu() {
     } else {
       document.body.classList.remove('overflow-y-hidden')
     }
-  }, [isMenuVisible])
+  }, [isMenuVisible, handleKeyDown])
 
   useEffect(() => {
     if (isMenuVisible) {
+      // @eslint-disable-next-line react-hooks/exhaustive-deps
       setIsMenuVisible(false)
     }
   }, [pathname])

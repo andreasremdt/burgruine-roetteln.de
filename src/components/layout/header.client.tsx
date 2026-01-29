@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import type { Tour, Header } from '@/payload-types'
+import type { Tour } from '@/payload-types'
 import useMobileMenu from '@/hooks/use-mobile-menu'
 import useFocusTrap from '@/hooks/use-focus-trap'
 import Icon from '../ui/icon'
@@ -17,7 +17,7 @@ type Props = {
   }[]
 }
 
-export default function HeaderClient({ tours, menuItems }: Props) {
+export default function HeaderClient({ menuItems }: Props) {
   const {
     isMenuVisible,
     isHiddenFromScreenReaders,

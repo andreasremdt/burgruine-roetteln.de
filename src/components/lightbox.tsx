@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState, type MouseEvent } from 'react'
+import Image from 'next/image'
 import type { Media } from '@/payload-types'
 import ImageKitImage from './imagekit-image'
 import useFocusTrap from '@/hooks/use-focus-trap'
@@ -71,10 +72,11 @@ export default function Lightbox({
         focusTrapRef.current.querySelector<HTMLButtonElement>('[data-lightbox-close]')
       closeButton?.focus()
     }
-  }, [isOpen])
+  }, [isOpen, focusTrapRef])
 
   // Reset loading state when image changes
   useEffect(() => {
+    // @eslint-disable-next-line react-hooks/exhaustive-deps
     setIsLoading(true)
   }, [currentIndex])
 
@@ -156,7 +158,7 @@ export default function Lightbox({
         >
           {typeof currentImage === 'string' ? (
             // Fallback for string URLs (shouldn't happen based on ImageKitImage logic)
-            <img
+            <Image
               src={imageUrl}
               alt={imageAlt}
               className="mx-auto h-full w-full object-contain"

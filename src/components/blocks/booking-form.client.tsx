@@ -76,7 +76,7 @@ export default function BookingFormClient({ tours }: Props) {
 
   useLayoutEffect(() => {
     form.setFieldValue('type', getSearchParam('type'))
-  }, [])
+  }, [form])
 
   return (
     <form
