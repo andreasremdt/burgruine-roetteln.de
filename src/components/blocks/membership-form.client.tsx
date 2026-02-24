@@ -322,10 +322,10 @@ export default function MembershipFormClient({ description }: Props) {
                   onChange={(e) => field.handleChange(e.target.value)}
                   onBlur={field.handleBlur}
                   required
-                  min={1}
+                  min={10}
                   error={field.state.meta.errors[0]}
                 />
-                <FieldError id={field.name} error={field.state.meta.errors[0]} />
+                {field.state.meta.errors[0] ? <FieldError id={field.name} error={field.state.meta.errors[0]} /> : <p className="text-sm text-gray-500 font-sans mt-1">Mindestbeitrag: 10 €</p>}
               </div>
             )}
           </form.Field>

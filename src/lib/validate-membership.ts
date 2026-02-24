@@ -97,8 +97,8 @@ export function validateAnnualFee(value: string): string | undefined {
     return 'Jahresbeitrag muss eine Zahl sein'
   }
 
-  if (Number(value) <= 0) {
-    return 'Jahresbeitrag muss größer als 0 sein'
+  if (Number(value) < 10) {
+    return 'Der Jahresbeitrag muss mindestens 10 € betragen'
   }
 
   return undefined
