@@ -73,6 +73,7 @@ export default function HeaderClient({ menuItems }: Props) {
                   href={menu.url}
                   className="flex items-center gap-2 text-gray-900 transition-colors lg:text-white lg:hover:text-gray-200 lg:focus-visible:text-gray-200"
                   tabIndex={tabIndex}
+                  onClick={() => setIsMenuVisible(false)}
                 >
                   {menu.title}
                   {menu.subMenuItems.length > 0 ? (
@@ -88,6 +89,7 @@ export default function HeaderClient({ menuItems }: Props) {
                           prefetch
                           className="block px-4 py-2 text-gray-700 transition-colors lg:hover:bg-gray-100 lg:focus-visible:bg-gray-100"
                           href={subMenu.url}
+                          onClick={() => setIsMenuVisible(false)}
                           tabIndex={tabIndex}
                         >
                           {subMenu.title}
@@ -98,115 +100,6 @@ export default function HeaderClient({ menuItems }: Props) {
                 ) : null}
               </li>
             ))}
-          {/* <li>
-            <Link
-              prefetch
-              href="/burg"
-              className="text-gray-900 transition-colors lg:text-white lg:hover:text-gray-200 lg:focus-visible:text-gray-200"
-              tabIndex={tabIndex}
-            >
-              Die Burg
-            </Link>
-          </li>
-          <li className="group relative">
-            <Link
-              prefetch
-              className="flex items-center gap-2 text-gray-900 transition-colors lg:text-white lg:hover:text-gray-200 lg:focus-visible:text-gray-200"
-              href="/besuchen"
-              tabIndex={tabIndex}
-            >
-              Ihr Besuch
-              <Icon name="chevron-down" className="hidden lg:block" />
-            </Link>
-            <ul className="top-full left-0 min-w-56 bg-white py-2 group-focus-within:block group-hover:block before:absolute before:-top-2 before:h-2 before:w-full lg:absolute lg:mt-2 lg:hidden lg:shadow-sm">
-              <li>
-                <Link
-                  prefetch
-                  className="block px-4 py-2 text-gray-700 transition-colors lg:hover:bg-gray-100 lg:focus-visible:bg-gray-100"
-                  href="/besuchen#anfahrt"
-                  tabIndex={tabIndex}
-                >
-                  Anfahrt
-                </Link>
-              </li>
-              <li>
-                <Link
-                  prefetch
-                  className="block px-4 py-2 text-gray-700 transition-colors lg:hover:bg-gray-100 lg:focus-visible:bg-gray-100"
-                  href="/besuchen#eintrittspreise"
-                  tabIndex={tabIndex}
-                >
-                  Eintrittspreise
-                </Link>
-              </li>
-              <li>
-                <Link
-                  prefetch
-                  className="block px-4 py-2 text-gray-700 transition-colors lg:hover:bg-gray-100 lg:focus-visible:bg-gray-100"
-                  href="/besuchen#veranstaltungen"
-                  tabIndex={tabIndex}
-                >
-                  Veranstaltungen
-                </Link>
-              </li>
-            </ul>
-          </li>
-          <li className="group relative">
-            <Link
-              prefetch
-              className="flex items-center gap-2 text-gray-900 transition-colors lg:text-white lg:hover:text-gray-200 lg:focus-visible:text-gray-200"
-              href="/fuehrungen"
-              tabIndex={tabIndex}
-            >
-              Führungen <Icon name="chevron-down" className="hidden lg:block" />
-            </Link>
-            <ul className="top-full left-0 min-w-56 bg-white py-2 group-focus-within:block group-hover:block before:absolute before:-top-2 before:h-2 before:w-full lg:absolute lg:mt-2 lg:hidden lg:shadow-sm">
-              {tours.map((tour) => (
-                <li key={tour.id}>
-                  <Link
-                    prefetch
-                    className="block px-4 py-2 text-gray-700 transition-colors lg:hover:bg-gray-100 lg:focus-visible:bg-gray-100"
-                    href={`/fuehrungen/${tour.slug}`}
-                    tabIndex={tabIndex}
-                  >
-                    {tour.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </li>
-          <li className="group relative">
-            <Link
-              prefetch
-              className="flex items-center gap-2 text-gray-900 transition-colors lg:text-white lg:hover:text-gray-200 lg:focus-visible:text-gray-200"
-              href="/verein"
-              tabIndex={tabIndex}
-            >
-              Der Verein <Icon name="chevron-down" className="hidden lg:block" />
-            </Link>
-            <ul className="top-full left-0 min-w-56 bg-white py-2 group-focus-within:block group-hover:block before:absolute before:-top-2 before:h-2 before:w-full lg:absolute lg:mt-2 lg:hidden lg:shadow-sm">
-              <li>
-                <Link
-                  prefetch
-                  className="block px-4 py-2 text-gray-700 transition-colors lg:hover:bg-gray-100 lg:focus-visible:bg-gray-100"
-                  href="/verein#arbeitsgruppe"
-                  tabIndex={tabIndex}
-                >
-                  Arbeitsgruppe
-                </Link>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <Link
-              prefetch
-              className="text-gray-900 transition-colors lg:text-white lg:hover:text-gray-200 lg:focus-visible:text-gray-200"
-              href="/kontakt"
-              tabIndex={tabIndex}
-            >
-              Kontakt
-            </Link>
-          </li> */}
         </ul>
       </nav>
     </div>

@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { usePathname } from 'next/navigation'
 import useMediaQuery from './use-media-query'
 
 export default function useMobileMenu() {
@@ -7,7 +6,6 @@ export default function useMobileMenu() {
   const [isMenuVisible, setIsMenuVisible] = useState(false)
   const menuRef = useRef<HTMLDivElement>(null)
   const toggleRef = useRef<HTMLButtonElement>(null)
-  const pathname = usePathname()
 
   const tabIndex = isMobile ? (isMenuVisible ? 0 : -1) : 0
   const isHiddenFromScreenReaders = isMobile && !isMenuVisible
@@ -34,13 +32,6 @@ export default function useMobileMenu() {
       document.body.classList.remove('overflow-y-hidden')
     }
   }, [isMenuVisible, handleKeyDown])
-
-  useEffect(() => {
-    if (isMenuVisible) {
-      // @eslint-disable-next-line react-hooks/exhaustive-deps
-      setIsMenuVisible(false)
-    }
-  }, [pathname])
 
   return {
     isMenuVisible,
