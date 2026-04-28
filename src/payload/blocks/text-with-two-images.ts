@@ -4,8 +4,8 @@ import subMenuFields from './shared/sub-menu-fields'
 const textWithTwoImages: Block = {
   slug: 'textWithTwoImages',
   labels: {
-    plural: 'Text mit drei Bildern',
-    singular: 'Text mit drei Bildern',
+    plural: 'Text mit Bildern',
+    singular: 'Text mit Bildern',
   },
   interfaceName: 'TextWithTwoImagesBlock',
   imageURL: '/blocks/text-with-two-images.png',
@@ -86,7 +86,7 @@ const textWithTwoImages: Block = {
       required: true,
       relationTo: 'media',
       hasMany: true,
-      maxRows: 3,
+      maxRows: 6,
       minRows: 1,
     },
     subMenuFields,
