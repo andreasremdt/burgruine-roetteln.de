@@ -18,6 +18,7 @@ import RichTextWithTwoColumns from './blocks/rich-text-with-two-columns'
 import BookingForm from './blocks/booking-form'
 import RichTextWithGallery from './blocks/rich-text-with-gallery'
 import MembershipForm from './blocks/membership-form'
+import NewsOverview from './blocks/news-overview'
 
 type Props = {
   blocks: Page['content']
@@ -66,6 +67,8 @@ export default function BlockRenderer({ blocks }: Props) {
         return <RichTextWithGallery {...block} key={block.id} />
       case 'membership-form':
         return <MembershipForm {...block} key={block.id} />
+      case 'newsOverview':
+        return <NewsOverview {...block} key={block.id} />
       default:
         return null
     }

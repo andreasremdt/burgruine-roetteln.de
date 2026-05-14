@@ -48,6 +48,24 @@ export const getEvents = cache(async function getEvents() {
   return events.docs
 })
 
+export const getPublishedNews = cache(async function getPublishedNews() {
+  const payload = await getPayload({ config })
+  const result = await payload.find({
+    collection: 'news',
+    pagination: false,
+    limit: 500,
+    depth: 2,
+    sort: '-date',
+    where: {
+      published: {
+        equals: true,
+      },
+    },
+  })
+
+  return result.docs
+})
+
 export const getOpeningHours = cache(async function getOpeningHours() {
   const payload = await getPayload({ config })
   const openingHours = await payload.findGlobal({

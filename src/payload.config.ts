@@ -22,6 +22,7 @@ import header from './payload/globals/header'
 import messages from './payload/collections/messages'
 import requests from './payload/collections/requests'
 import memberships from './payload/collections/memberships'
+import news from './payload/collections/news'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -33,7 +34,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [users, media, tours, pages, events, messages, requests, memberships],
+  collections: [users, media, tours, pages, events, messages, requests, memberships, news],
   globals: [footer, contact, costs, openingHours, banner, header],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET,

@@ -75,6 +75,7 @@ export interface Config {
     messages: Message;
     requests: Request;
     memberships: Membership;
+    news: News;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -90,6 +91,7 @@ export interface Config {
     messages: MessagesSelect<false> | MessagesSelect<true>;
     requests: RequestsSelect<false> | RequestsSelect<true>;
     memberships: MembershipsSelect<false> | MembershipsSelect<true>;
+    news: NewsSelect<false> | NewsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -301,6 +303,7 @@ export interface Page {
         | ContactFormBlock
         | BookingFormBlock
         | MembershipFormBlock
+        | NewsOverviewBlock
       )[]
     | null;
   meta?: {
@@ -901,6 +904,29 @@ export interface MembershipFormBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "NewsOverviewBlock".
+ */
+export interface NewsOverviewBlock {
+  title: string;
+  description: string;
+  /**
+   * So viele Neuigkeiten werden gleichzeitig angezeigt. Gibt es mehr Einträge, erscheint eine Seitennavigation.
+   */
+  entriesPerPage: number;
+  /**
+   * Wenn dieser Haken gesetzt ist, wird der Inhalt als Unterpunkt im Menü angezeigt.
+   */
+  showInSubMenu?: boolean | null;
+  /**
+   * Der Titel des Unterpunkts wird im Menü angezeigt.
+   */
+  subMenuTitle?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'newsOverview';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "events".
  */
 export interface Event {
@@ -997,6 +1023,20 @@ export interface Membership {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "news".
+ */
+export interface News {
+  id: string;
+  title: string;
+  date: string;
+  image?: (string | null) | Media;
+  published?: boolean | null;
+  text: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -1050,6 +1090,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'memberships';
         value: string | Membership;
+      } | null)
+    | ({
+        relationTo: 'news';
+        value: string | News;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -1197,6 +1241,7 @@ export interface PagesSelect<T extends boolean = true> {
         'contact-form'?: T | ContactFormBlockSelect<T>;
         'booking-form'?: T | BookingFormBlockSelect<T>;
         'membership-form'?: T | MembershipFormBlockSelect<T>;
+        newsOverview?: T | NewsOverviewBlockSelect<T>;
       };
   meta?:
     | T
@@ -1520,6 +1565,19 @@ export interface MembershipFormBlockSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "NewsOverviewBlock_select".
+ */
+export interface NewsOverviewBlockSelect<T extends boolean = true> {
+  title?: T;
+  description?: T;
+  entriesPerPage?: T;
+  showInSubMenu?: T;
+  subMenuTitle?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "events_select".
  */
 export interface EventsSelect<T extends boolean = true> {
@@ -1578,6 +1636,19 @@ export interface MembershipsSelect<T extends boolean = true> {
   sepaCity?: T;
   iban?: T;
   bic?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "news_select".
+ */
+export interface NewsSelect<T extends boolean = true> {
+  title?: T;
+  date?: T;
+  image?: T;
+  published?: T;
+  text?: T;
   updatedAt?: T;
   createdAt?: T;
 }
