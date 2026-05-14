@@ -17,5 +17,6 @@ declare namespace NodeJS {
     EMAIL_SMTP_PASSWORD: string
     EMAIL_RECIPIENT_BOOKING_FORM: string
     EMAIL_RECIPIENT_CONTACT_FORM: string
+    GOOGLE_ANALYTICS_ID: string
   }
 }

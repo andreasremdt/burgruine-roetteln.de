@@ -1,4 +1,5 @@
 import { Open_Sans, Cormorant_Garamond } from 'next/font/google'
+import { GoogleAnalytics } from '@next/third-parties/google'
 import { cn } from '@/lib/utils'
 import Banner from '@/components/layout/banner'
 import Header from '@/components/layout/header'
@@ -37,6 +38,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <html lang="de" className="scroll-smooth" data-scroll-behavior="smooth">
       <head>
         <link rel="preconnect" href="https://ik.imagekit.io" />
+        <GoogleAnalytics gaId={process.env.GOOGLE_ANALYTICS_ID} />
       </head>
 
       <body
