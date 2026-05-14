@@ -22,6 +22,11 @@ const eslintConfig = [
         },
       ],
     },
+    settings: {
+      react: {
+        version: '19',
+      },
+    },
   },
   {
     ignores: ['.next/'],

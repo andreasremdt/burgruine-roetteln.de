@@ -74,12 +74,6 @@ export default function Lightbox({
     }
   }, [isOpen, focusTrapRef])
 
-  // Reset loading state when image changes
-  useEffect(() => {
-    // @eslint-disable-next-line react-hooks/exhaustive-deps
-    setIsLoading(true)
-  }, [currentIndex])
-
   if (!isOpen) return null
 
   const handleBackdropClick = (event: MouseEvent<HTMLDivElement>) => {

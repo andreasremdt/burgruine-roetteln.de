@@ -27,7 +27,7 @@ export default async function Footer() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Image src={logo} alt="SSG Logo" width={250} height={100} />
+            <Image src={logo} alt="SSG Logo" width={250} height={43} />
           </a>
         </div>
 
