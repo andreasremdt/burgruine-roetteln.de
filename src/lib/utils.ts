@@ -46,8 +46,5 @@ export function slugify(text?: string | null) {
     return ''
   }
 
-  return text
-    .toLowerCase()
-    .replace(/ /g, '-')
-    .replace(/[^\w-]+/g, '')
+  return text.toLowerCase().replace(/ /g, '-')
 }
