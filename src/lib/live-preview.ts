@@ -28,6 +28,12 @@ export function generatePreviewPath({ collection, slug, req }: Props) {
   return `${protocol}//${req.host}/next/preview?${encodedParams.toString()}`
 }
 
+function revalidatePageAndNavigation(pagePath: string) {
+  revalidatePath(pagePath)
+  // Header lives in the root layout and is shared across all routes.
+  revalidatePath('/', 'layout')
+}
+
 export const revalidatePage: CollectionAfterChangeHook<Page> = ({
   doc,
   previousDoc,
@@ -35,12 +41,13 @@ export const revalidatePage: CollectionAfterChangeHook<Page> = ({
 }) => {
   if (!context.disableRevalidate) {
     if (doc._status === 'published') {
-      revalidatePath(doc.slug === 'home' ? '/' : `/${doc.slug}`)
+      const pagePath = doc.slug === 'home' ? '/' : `/${doc.slug}`
+      revalidatePageAndNavigation(pagePath)
     }
 
     // If the page was previously published, we need to revalidate the old path
     if (previousDoc?._status === 'published' && doc._status !== 'published') {
-      revalidatePath(previousDoc.slug === 'home' ? '/' : `/${previousDoc.slug}`)
+      revalidatePageAndNavigation(previousDoc.slug === 'home' ? '/' : `/${previousDoc.slug}`)
     }
   }
 
@@ -49,7 +56,7 @@ export const revalidatePage: CollectionAfterChangeHook<Page> = ({
 
 export const revalidateDelete: CollectionAfterDeleteHook<Page> = ({ doc, req: { context } }) => {
   if (!context.disableRevalidate) {
-    revalidatePath(doc?.slug === 'home' ? '/' : `/${doc?.slug}`)
+    revalidatePageAndNavigation(doc?.slug === 'home' ? '/' : `/${doc?.slug}`)
   }
 
   return doc
